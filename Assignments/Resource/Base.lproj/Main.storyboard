@@ -22,16 +22,25 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pmq-0D-fMI" customClass="PieChartView" customModule="Charts">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="79" width="375" height="539"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tasks at university" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GjO-OS-WS3">
+                                <rect key="frame" x="0.0" y="40" width="375" height="29"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <color key="textColor" red="0.28234999999999999" green="0.27843000000000001" blue="0.29411999999999999" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Pmq-0D-fMI" firstAttribute="top" secondItem="xdW-kf-wfd" secondAttribute="bottom" constant="44" id="1ba-lM-yK9"/>
                             <constraint firstAttribute="trailing" secondItem="Pmq-0D-fMI" secondAttribute="trailing" id="Ci5-p5-aJ6"/>
+                            <constraint firstItem="GjO-OS-WS3" firstAttribute="top" secondItem="xdW-kf-wfd" secondAttribute="bottom" constant="20" id="coN-S6-Jno"/>
                             <constraint firstItem="qVd-E4-l73" firstAttribute="top" secondItem="Pmq-0D-fMI" secondAttribute="bottom" id="oM8-4b-Tdq"/>
+                            <constraint firstItem="GjO-OS-WS3" firstAttribute="leading" secondItem="chg-A0-7bN" secondAttribute="leading" id="osv-IJ-hgP"/>
                             <constraint firstItem="Pmq-0D-fMI" firstAttribute="leading" secondItem="chg-A0-7bN" secondAttribute="leading" id="she-S7-SJK"/>
+                            <constraint firstItem="Pmq-0D-fMI" firstAttribute="top" secondItem="GjO-OS-WS3" secondAttribute="bottom" constant="10" id="w12-OG-mnX"/>
+                            <constraint firstAttribute="trailing" secondItem="GjO-OS-WS3" secondAttribute="trailing" id="yKm-4I-fq5"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Statistic" image="bars-chart" selectedImage="bars-chart" id="e2K-2t-e33"/>
