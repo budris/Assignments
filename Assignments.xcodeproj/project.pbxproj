@@ -16,6 +16,20 @@
 		DB0462CB1E7D87170083F577 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB0462C01E7D87170083F577 /* Main.storyboard */; };
 		DB0462CC1E7D87170083F577 /* DataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0462C41E7D87170083F577 /* DataViewController.swift */; };
 		DB0462CD1E7D87170083F577 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0462C51E7D87170083F577 /* RootViewController.swift */; };
+		DBDF58D81EA214700043C1B4 /* DataBase.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DBDF58D61EA214700043C1B4 /* DataBase.xcdatamodeld */; };
+		DBDF59171EA236D90043C1B4 /* Priority.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDF590B1EA236D90043C1B4 /* Priority.swift */; };
+		DBDF59181EA236D90043C1B4 /* Priority+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDF590C1EA236D90043C1B4 /* Priority+CoreDataProperties.swift */; };
+		DBDF59191EA236D90043C1B4 /* AttachmentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDF590D1EA236D90043C1B4 /* AttachmentType.swift */; };
+		DBDF591A1EA236D90043C1B4 /* AttachmentType+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDF590E1EA236D90043C1B4 /* AttachmentType+CoreDataProperties.swift */; };
+		DBDF591B1EA236D90043C1B4 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDF590F1EA236D90043C1B4 /* Task.swift */; };
+		DBDF591C1EA236D90043C1B4 /* Task+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDF59101EA236D90043C1B4 /* Task+CoreDataProperties.swift */; };
+		DBDF591D1EA236D90043C1B4 /* Subject.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDF59111EA236D90043C1B4 /* Subject.swift */; };
+		DBDF591E1EA236D90043C1B4 /* Subject+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDF59121EA236D90043C1B4 /* Subject+CoreDataProperties.swift */; };
+		DBDF591F1EA236D90043C1B4 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDF59131EA236D90043C1B4 /* Status.swift */; };
+		DBDF59201EA236D90043C1B4 /* Status+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDF59141EA236D90043C1B4 /* Status+CoreDataProperties.swift */; };
+		DBDF59211EA236D90043C1B4 /* Attachment.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDF59151EA236D90043C1B4 /* Attachment.swift */; };
+		DBDF59221EA236D90043C1B4 /* Attachment+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDF59161EA236D90043C1B4 /* Attachment+CoreDataProperties.swift */; };
+		DBDF59281EA237D40043C1B4 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDF59271EA237D40043C1B4 /* CoreDataManager.swift */; };
 		E2F4DF681E812727002ED6F2 /* ChartsRealm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2F4DF631E812727002ED6F2 /* ChartsRealm.framework */; };
 		E2F4DF6A1E812727002ED6F2 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2F4DF651E812727002ED6F2 /* Realm.framework */; };
 		E2F4DF6B1E812727002ED6F2 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2F4DF661E812727002ED6F2 /* RealmSwift.framework */; };
@@ -65,6 +79,20 @@
 		DB0462C11E7D87170083F577 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DB0462C41E7D87170083F577 /* DataViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataViewController.swift; sourceTree = "<group>"; };
 		DB0462C51E7D87170083F577 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		DBDF58D71EA214700043C1B4 /* DataBase.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataBase.xcdatamodel; sourceTree = "<group>"; };
+		DBDF590B1EA236D90043C1B4 /* Priority.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Priority.swift; sourceTree = "<group>"; };
+		DBDF590C1EA236D90043C1B4 /* Priority+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Priority+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		DBDF590D1EA236D90043C1B4 /* AttachmentType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttachmentType.swift; sourceTree = "<group>"; };
+		DBDF590E1EA236D90043C1B4 /* AttachmentType+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AttachmentType+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		DBDF590F1EA236D90043C1B4 /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		DBDF59101EA236D90043C1B4 /* Task+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Task+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		DBDF59111EA236D90043C1B4 /* Subject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Subject.swift; sourceTree = "<group>"; };
+		DBDF59121EA236D90043C1B4 /* Subject+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Subject+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		DBDF59131EA236D90043C1B4 /* Status.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
+		DBDF59141EA236D90043C1B4 /* Status+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Status+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		DBDF59151EA236D90043C1B4 /* Attachment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Attachment.swift; sourceTree = "<group>"; };
+		DBDF59161EA236D90043C1B4 /* Attachment+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Attachment+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		DBDF59271EA237D40043C1B4 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		E2F4DF611E812717002ED6F2 /* Charts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Charts.framework; path = Carthage/Build/iOS/Charts.framework; sourceTree = "<group>"; };
 		E2F4DF631E812727002ED6F2 /* ChartsRealm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ChartsRealm.framework; path = Carthage/Build/iOS/ChartsRealm.framework; sourceTree = "<group>"; };
 		E2F4DF651E812727002ED6F2 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
@@ -122,6 +150,8 @@
 		DB0462921E7D86210083F577 /* Assignments */ = {
 			isa = PBXGroup;
 			children = (
+				DBDF59231EA2372A0043C1B4 /* Manager */,
+				DBDF58D51EA214570043C1B4 /* DataBase */,
 				DB0462B71E7D87170083F577 /* General */,
 				DB0462BA1E7D87170083F577 /* Model */,
 				DB0462BC1E7D87170083F577 /* Resource */,
@@ -152,6 +182,18 @@
 		DB0462BA1E7D87170083F577 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				DBDF590B1EA236D90043C1B4 /* Priority.swift */,
+				DBDF590C1EA236D90043C1B4 /* Priority+CoreDataProperties.swift */,
+				DBDF590D1EA236D90043C1B4 /* AttachmentType.swift */,
+				DBDF590E1EA236D90043C1B4 /* AttachmentType+CoreDataProperties.swift */,
+				DBDF590F1EA236D90043C1B4 /* Task.swift */,
+				DBDF59101EA236D90043C1B4 /* Task+CoreDataProperties.swift */,
+				DBDF59111EA236D90043C1B4 /* Subject.swift */,
+				DBDF59121EA236D90043C1B4 /* Subject+CoreDataProperties.swift */,
+				DBDF59131EA236D90043C1B4 /* Status.swift */,
+				DBDF59141EA236D90043C1B4 /* Status+CoreDataProperties.swift */,
+				DBDF59151EA236D90043C1B4 /* Attachment.swift */,
+				DBDF59161EA236D90043C1B4 /* Attachment+CoreDataProperties.swift */,
 				DB0462BB1E7D87170083F577 /* ModelController.swift */,
 			);
 			path = Model;
@@ -185,6 +227,22 @@
 				DB0462C51E7D87170083F577 /* RootViewController.swift */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		DBDF58D51EA214570043C1B4 /* DataBase */ = {
+			isa = PBXGroup;
+			children = (
+				DBDF58D61EA214700043C1B4 /* DataBase.xcdatamodeld */,
+			);
+			path = DataBase;
+			sourceTree = "<group>";
+		};
+		DBDF59231EA2372A0043C1B4 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				DBDF59271EA237D40043C1B4 /* CoreDataManager.swift */,
+			);
+			path = Manager;
 			sourceTree = "<group>";
 		};
 		E2F4DF601E812717002ED6F2 /* Frameworks */ = {
@@ -330,11 +388,25 @@
 			files = (
 				E2F4DF711E8131E5002ED6F2 /* EventTableViewCell.swift in Sources */,
 				E2F4DF6F1E81311B002ED6F2 /* CalendarViewController.swift in Sources */,
+				DBDF591B1EA236D90043C1B4 /* Task.swift in Sources */,
+				DBDF59201EA236D90043C1B4 /* Status+CoreDataProperties.swift in Sources */,
+				DBDF591F1EA236D90043C1B4 /* Status.swift in Sources */,
+				DBDF58D81EA214700043C1B4 /* DataBase.xcdatamodeld in Sources */,
+				DBDF591C1EA236D90043C1B4 /* Task+CoreDataProperties.swift in Sources */,
 				DB0462C61E7D87170083F577 /* AppDelegate.swift in Sources */,
 				DB0462CC1E7D87170083F577 /* DataViewController.swift in Sources */,
+				DBDF59181EA236D90043C1B4 /* Priority+CoreDataProperties.swift in Sources */,
+				DBDF59221EA236D90043C1B4 /* Attachment+CoreDataProperties.swift in Sources */,
+				DBDF59171EA236D90043C1B4 /* Priority.swift in Sources */,
+				DBDF59281EA237D40043C1B4 /* CoreDataManager.swift in Sources */,
 				DB0462CD1E7D87170083F577 /* RootViewController.swift in Sources */,
+				DBDF591A1EA236D90043C1B4 /* AttachmentType+CoreDataProperties.swift in Sources */,
 				DB0462C81E7D87170083F577 /* ModelController.swift in Sources */,
+				DBDF591E1EA236D90043C1B4 /* Subject+CoreDataProperties.swift in Sources */,
+				DBDF591D1EA236D90043C1B4 /* Subject.swift in Sources */,
+				DBDF59191EA236D90043C1B4 /* AttachmentType.swift in Sources */,
 				E2F4DF741E813B8E002ED6F2 /* StatisticsViewController.swift in Sources */,
+				DBDF59211EA236D90043C1B4 /* Attachment.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -566,6 +638,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		DBDF58D61EA214700043C1B4 /* DataBase.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				DBDF58D71EA214700043C1B4 /* DataBase.xcdatamodel */,
+			);
+			currentVersion = DBDF58D71EA214700043C1B4 /* DataBase.xcdatamodel */;
+			path = DataBase.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = DB0462881E7D86210083F577 /* Project object */;
 }

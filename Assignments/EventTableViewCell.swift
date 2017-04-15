@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EventTableViewCell: UITableViewCell {
+class TaskTableViewCell: UITableViewCell {
 
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var subjectLabel: UILabel!

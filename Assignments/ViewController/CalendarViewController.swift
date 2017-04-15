@@ -11,7 +11,7 @@ import FSCalendar
 
 class CalendarViewController: UIViewController {
     @IBOutlet weak var calendarView: FSCalendar!
-    @IBOutlet weak var eventsTableView: UITableView!
+    @IBOutlet weak var tasksTableView: UITableView!
 
     fileprivate typealias Event = (time: String, subject: String)
 
@@ -21,7 +21,7 @@ class CalendarViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        eventsTableView.dataSource = self
+        tasksTableView.dataSource = self
         calendarView.dataSource = self
     }
 
@@ -33,7 +33,7 @@ extension CalendarViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "EventTableViewCell") as? EventTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "TaskTableViewCell") as? TaskTableViewCell else {
             return UITableViewCell()
         }
 

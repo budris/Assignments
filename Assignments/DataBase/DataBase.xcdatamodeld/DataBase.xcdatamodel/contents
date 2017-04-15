@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11759" systemVersion="16D32" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Attachment" representedClassName=".Attachment" syncable="YES">
+        <attribute name="data" attributeType="Binary" syncable="YES"/>
+        <attribute name="name" attributeType="String" syncable="YES"/>
+        <relationship name="task" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Task" inverseName="attachments" inverseEntity="Task" syncable="YES"/>
+        <relationship name="type" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AttachmentType" inverseName="type" inverseEntity="AttachmentType" syncable="YES"/>
+    </entity>
+    <entity name="AttachmentType" representedClassName=".AttachmentType" syncable="YES">
+        <attribute name="attachmentType" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="type" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Attachment" inverseName="type" inverseEntity="Attachment" syncable="YES"/>
+    </entity>
+    <entity name="Priority" representedClassName=".Priority" syncable="YES">
+        <attribute name="priority" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="task" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Task" inverseName="priority" inverseEntity="Task" syncable="YES"/>
+    </entity>
+    <entity name="Status" representedClassName=".Status" syncable="YES">
+        <attribute name="status" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="task" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Task" inverseName="status" inverseEntity="Task" syncable="YES"/>
+    </entity>
+    <entity name="Subject" representedClassName=".Subject" syncable="YES">
+        <attribute name="color" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="id" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" indexed="YES" syncable="YES"/>
+        <attribute name="name" attributeType="String" syncable="YES"/>
+        <relationship name="task" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Task" inverseName="subject" inverseEntity="Task" syncable="YES"/>
+    </entity>
+    <entity name="Task" representedClassName=".Task" syncable="YES">
+        <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="dateCreation" attributeType="Date" usesScalarValueType="NO" indexed="YES" syncable="YES"/>
+        <attribute name="endDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="id" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" indexed="YES" syncable="YES"/>
+        <attribute name="startDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="title" attributeType="String" syncable="YES"/>
+        <relationship name="attachments" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Attachment" inverseName="task" inverseEntity="Attachment" syncable="YES"/>
+        <relationship name="priority" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Priority" inverseName="task" inverseEntity="Priority" syncable="YES"/>
+        <relationship name="status" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Status" inverseName="task" inverseEntity="Status" syncable="YES"/>
+        <relationship name="subject" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Subject" inverseName="task" inverseEntity="Subject" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Task" positionX="-261" positionY="-54" width="128" height="193"/>
+        <element name="Priority" positionX="16" positionY="36" width="128" height="73"/>
+        <element name="Subject" positionX="-452" positionY="36" width="128" height="103"/>
+        <element name="Status" positionX="18" positionY="126" width="128" height="73"/>
+        <element name="AttachmentType" positionX="214" positionY="-64" width="128" height="73"/>
+        <element name="Attachment" positionX="16" positionY="-94" width="128" height="103"/>
+    </elements>
+</model>

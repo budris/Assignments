@@ -12,7 +12,7 @@
         <!--Statistic-->
         <scene sceneID="g0D-Vl-agQ">
             <objects>
-                <viewController id="kgv-N9-WVg" customClass="StatisticsViewController" customModule="Assignments" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="kgv-N9-WVg" customClass="StatisticViewController" customModule="Assignments" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xdW-kf-wfd"/>
                         <viewControllerLayoutGuide type="bottom" id="qVd-E4-l73"/>
@@ -120,11 +120,11 @@
                                     <constraint firstAttribute="height" constant="150" id="gyh-fO-Uuh"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EventTableViewCell" id="i0l-Hi-tTa" customClass="EventTableViewCell" customModule="Assignments" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TaskTableViewCell" id="i0l-Hi-tTa" customClass="TaskTableViewCell" customModule="Assignments" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="i0l-Hi-tTa" id="F66-Bo-WCG">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="11:30" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gag-8R-ubX">
@@ -162,15 +162,15 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="subjectLabel" destination="LeC-u9-Ki3" id="ldn-Nj-Ncm"/>
-                                            <outlet property="timeLabel" destination="Gag-8R-ubX" id="Gzw-Ja-SMu"/>
+                                            <outlet property="subjectLabel" destination="LeC-u9-Ki3" id="mdT-Iw-kGl"/>
+                                            <outlet property="timeLabel" destination="Gag-8R-ubX" id="EEC-qd-Bir"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="i0i-Oq-zjb">
                                         <rect key="frame" x="0.0" y="72" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="i0i-Oq-zjb" id="uh1-1s-I70">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15:30" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3pB-A7-qxw">
@@ -212,7 +212,7 @@
                                         <rect key="frame" x="0.0" y="116" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sgk-fr-BND" id="fxE-8j-vdo">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20:30" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kJ3-Mh-Xkp">
@@ -268,7 +268,7 @@
                     <tabBarItem key="tabBarItem" title="Calendar" image="calendar" selectedImage="calendar" id="5z6-Dp-2nm"/>
                     <connections>
                         <outlet property="calendarView" destination="B5J-gk-XDJ" id="kHE-z5-F0P"/>
-                        <outlet property="eventsTableView" destination="7ut-hG-UYR" id="nqJ-7x-SeI"/>
+                        <outlet property="tasksTableView" destination="7ut-hG-UYR" id="1NA-Ki-5H0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IMS-F6-1Ff" userLabel="First Responder" sceneMemberID="firstResponder"/>

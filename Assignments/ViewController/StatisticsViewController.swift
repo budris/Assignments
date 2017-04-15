@@ -9,7 +9,7 @@
 import UIKit
 import Charts
 
-class StatisticsViewController: UIViewController {
+class StatisticViewController: UIViewController {
     
     @IBOutlet weak var pieChartView: PieChartView!
     typealias StudyData = (value: Double, label: String)
@@ -57,6 +57,6 @@ class StatisticsViewController: UIViewController {
     }
 }
 
-extension StatisticsViewController: ChartViewDelegate {
+extension StatisticViewController: ChartViewDelegate {
     
 }
