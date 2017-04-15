@@ -31,6 +31,9 @@
 		DBDF59221EA236D90043C1B4 /* Attachment+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDF59161EA236D90043C1B4 /* Attachment+CoreDataProperties.swift */; };
 		DBDF59281EA237D40043C1B4 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDF59271EA237D40043C1B4 /* CoreDataManager.swift */; };
 		DBF5B54B1EA25D9A00430DE0 /* TasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF5B54A1EA25D9A00430DE0 /* TasksViewController.swift */; };
+		DBF5B54D1EA263C500430DE0 /* FullTaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF5B54C1EA263C500430DE0 /* FullTaskTableViewCell.swift */; };
+		DBF5B5501EA2644100430DE0 /* Tasks.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBF5B54E1EA2644100430DE0 /* Tasks.storyboard */; };
+		DBF5B5521EA26E1F00430DE0 /* CreateTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF5B5511EA26E1F00430DE0 /* CreateTaskViewController.swift */; };
 		E2F4DF681E812727002ED6F2 /* ChartsRealm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2F4DF631E812727002ED6F2 /* ChartsRealm.framework */; };
 		E2F4DF6A1E812727002ED6F2 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2F4DF651E812727002ED6F2 /* Realm.framework */; };
 		E2F4DF6B1E812727002ED6F2 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2F4DF661E812727002ED6F2 /* RealmSwift.framework */; };
@@ -95,6 +98,9 @@
 		DBDF59161EA236D90043C1B4 /* Attachment+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Attachment+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		DBDF59271EA237D40043C1B4 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		DBF5B54A1EA25D9A00430DE0 /* TasksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TasksViewController.swift; sourceTree = "<group>"; };
+		DBF5B54C1EA263C500430DE0 /* FullTaskTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullTaskTableViewCell.swift; sourceTree = "<group>"; };
+		DBF5B54F1EA2644100430DE0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Tasks.storyboard; sourceTree = "<group>"; };
+		DBF5B5511EA26E1F00430DE0 /* CreateTaskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateTaskViewController.swift; sourceTree = "<group>"; };
 		E2F4DF611E812717002ED6F2 /* Charts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Charts.framework; path = Carthage/Build/iOS/Charts.framework; sourceTree = "<group>"; };
 		E2F4DF631E812727002ED6F2 /* ChartsRealm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ChartsRealm.framework; path = Carthage/Build/iOS/ChartsRealm.framework; sourceTree = "<group>"; };
 		E2F4DF651E812727002ED6F2 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
@@ -208,6 +214,7 @@
 				DB0462BD1E7D87170083F577 /* Assets.xcassets */,
 				DB0462BE1E7D87170083F577 /* LaunchScreen.storyboard */,
 				DB0462C01E7D87170083F577 /* Main.storyboard */,
+				DBF5B54E1EA2644100430DE0 /* Tasks.storyboard */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -216,6 +223,7 @@
 			isa = PBXGroup;
 			children = (
 				E2F4DF701E8131E5002ED6F2 /* TaskTableViewCell.swift */,
+				DBF5B54C1EA263C500430DE0 /* FullTaskTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -225,6 +233,7 @@
 			children = (
 				DB0462C41E7D87170083F577 /* DataViewController.swift */,
 				DBF5B54A1EA25D9A00430DE0 /* TasksViewController.swift */,
+				DBF5B5511EA26E1F00430DE0 /* CreateTaskViewController.swift */,
 				E2F4DF6E1E81311B002ED6F2 /* CalendarViewController.swift */,
 				E2F4DF731E813B8E002ED6F2 /* StatisticsViewController.swift */,
 				DB0462C51E7D87170083F577 /* RootViewController.swift */,
@@ -351,6 +360,7 @@
 				DB0462C91E7D87170083F577 /* Assets.xcassets in Resources */,
 				DB0462C71E7D87170083F577 /* Info.plist in Resources */,
 				DB0462CB1E7D87170083F577 /* Main.storyboard in Resources */,
+				DBF5B5501EA2644100430DE0 /* Tasks.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -398,6 +408,7 @@
 				DBDF591C1EA236D90043C1B4 /* Task+CoreDataProperties.swift in Sources */,
 				DB0462C61E7D87170083F577 /* AppDelegate.swift in Sources */,
 				DB0462CC1E7D87170083F577 /* DataViewController.swift in Sources */,
+				DBF5B54D1EA263C500430DE0 /* FullTaskTableViewCell.swift in Sources */,
 				DBDF59181EA236D90043C1B4 /* Priority+CoreDataProperties.swift in Sources */,
 				DBDF59221EA236D90043C1B4 /* Attachment+CoreDataProperties.swift in Sources */,
 				DBDF59171EA236D90043C1B4 /* Priority.swift in Sources */,
@@ -411,6 +422,7 @@
 				DBDF59191EA236D90043C1B4 /* AttachmentType.swift in Sources */,
 				E2F4DF741E813B8E002ED6F2 /* StatisticsViewController.swift in Sources */,
 				DBDF59211EA236D90043C1B4 /* Attachment.swift in Sources */,
+				DBF5B5521EA26E1F00430DE0 /* CreateTaskViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -447,6 +459,14 @@
 				DB0462C11E7D87170083F577 /* Base */,
 			);
 			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		DBF5B54E1EA2644100430DE0 /* Tasks.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DBF5B54F1EA2644100430DE0 /* Base */,
+			);
+			name = Tasks.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
