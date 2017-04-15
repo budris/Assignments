@@ -11,5 +11,8 @@ import CoreData
 
 
 public class Status: NSManagedObject {
-
+    convenience init() {
+        self.init(entity: CoreDataManager.instance.entityFor(name: "\(Status.self)"),
+                  insertInto: CoreDataManager.instance.managedObjectContext)
+    }
 }

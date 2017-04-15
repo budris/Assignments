@@ -10,6 +10,9 @@ import Foundation
 import CoreData
 
 
-public class Subject: NSManagedObject {
-
+public class Subject: NSManagedObject {    
+    convenience init() {
+        self.init(entity: CoreDataManager.instance.entityFor(name: "\(Subject.self)"),
+                  insertInto: CoreDataManager.instance.managedObjectContext)
+    }
 }

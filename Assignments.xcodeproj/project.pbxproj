@@ -30,6 +30,7 @@
 		DBDF59211EA236D90043C1B4 /* Attachment.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDF59151EA236D90043C1B4 /* Attachment.swift */; };
 		DBDF59221EA236D90043C1B4 /* Attachment+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDF59161EA236D90043C1B4 /* Attachment+CoreDataProperties.swift */; };
 		DBDF59281EA237D40043C1B4 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDF59271EA237D40043C1B4 /* CoreDataManager.swift */; };
+		DBF5B54B1EA25D9A00430DE0 /* TasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF5B54A1EA25D9A00430DE0 /* TasksViewController.swift */; };
 		E2F4DF681E812727002ED6F2 /* ChartsRealm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2F4DF631E812727002ED6F2 /* ChartsRealm.framework */; };
 		E2F4DF6A1E812727002ED6F2 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2F4DF651E812727002ED6F2 /* Realm.framework */; };
 		E2F4DF6B1E812727002ED6F2 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2F4DF661E812727002ED6F2 /* RealmSwift.framework */; };
@@ -93,6 +94,7 @@
 		DBDF59151EA236D90043C1B4 /* Attachment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Attachment.swift; sourceTree = "<group>"; };
 		DBDF59161EA236D90043C1B4 /* Attachment+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Attachment+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		DBDF59271EA237D40043C1B4 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		DBF5B54A1EA25D9A00430DE0 /* TasksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TasksViewController.swift; sourceTree = "<group>"; };
 		E2F4DF611E812717002ED6F2 /* Charts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Charts.framework; path = Carthage/Build/iOS/Charts.framework; sourceTree = "<group>"; };
 		E2F4DF631E812727002ED6F2 /* ChartsRealm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ChartsRealm.framework; path = Carthage/Build/iOS/ChartsRealm.framework; sourceTree = "<group>"; };
 		E2F4DF651E812727002ED6F2 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
@@ -222,6 +224,7 @@
 			isa = PBXGroup;
 			children = (
 				DB0462C41E7D87170083F577 /* DataViewController.swift */,
+				DBF5B54A1EA25D9A00430DE0 /* TasksViewController.swift */,
 				E2F4DF6E1E81311B002ED6F2 /* CalendarViewController.swift */,
 				E2F4DF731E813B8E002ED6F2 /* StatisticsViewController.swift */,
 				DB0462C51E7D87170083F577 /* RootViewController.swift */,
@@ -399,6 +402,7 @@
 				DBDF59221EA236D90043C1B4 /* Attachment+CoreDataProperties.swift in Sources */,
 				DBDF59171EA236D90043C1B4 /* Priority.swift in Sources */,
 				DBDF59281EA237D40043C1B4 /* CoreDataManager.swift in Sources */,
+				DBF5B54B1EA25D9A00430DE0 /* TasksViewController.swift in Sources */,
 				DB0462CD1E7D87170083F577 /* RootViewController.swift in Sources */,
 				DBDF591A1EA236D90043C1B4 /* AttachmentType+CoreDataProperties.swift in Sources */,
 				DB0462C81E7D87170083F577 /* ModelController.swift in Sources */,

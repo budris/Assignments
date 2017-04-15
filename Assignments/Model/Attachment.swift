@@ -10,6 +10,9 @@ import Foundation
 import CoreData
 
 
-public class Attachment: NSManagedObject {
-
+public class Attachment: NSManagedObject {    
+    convenience init() {
+        self.init(entity: CoreDataManager.instance.entityFor(name: "\(Attachment.self)"),
+                  insertInto: CoreDataManager.instance.managedObjectContext)
+    }
 }
