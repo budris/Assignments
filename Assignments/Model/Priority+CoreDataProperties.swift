@@ -16,3 +16,9 @@ extension Priority {
     @NSManaged public var task: Task?
 
 }
+
+extension Priority: Desrciable {
+    public var descriptionField: String {
+        return "\(priority)"
+    }
+}

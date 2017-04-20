@@ -9,6 +9,8 @@
 import UIKit
 
 class FullTaskTableViewCell: UITableViewCell {
+    
+    static let reuseIdentifier: String = "\(FullTaskTableViewCell.self)"
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var statusLabel: UILabel!

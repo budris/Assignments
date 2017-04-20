@@ -9,6 +9,8 @@
 import UIKit
 
 class TaskTableViewCell: UITableViewCell {
+    
+    static let reuseIdentifier: String = "\(TaskTableViewCell.self)"
 
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var subjectLabel: UILabel!

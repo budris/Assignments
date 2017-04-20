@@ -16,6 +16,14 @@
 		DB0462CB1E7D87170083F577 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB0462C01E7D87170083F577 /* Main.storyboard */; };
 		DB0462CC1E7D87170083F577 /* DataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0462C41E7D87170083F577 /* DataViewController.swift */; };
 		DB0462CD1E7D87170083F577 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0462C51E7D87170083F577 /* RootViewController.swift */; };
+		DB8399AF1EA3E66F00C1262D /* TitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8399AE1EA3E66F00C1262D /* TitleTableViewCell.swift */; };
+		DB8399B11EA3E6B200C1262D /* SelectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8399B01EA3E6B200C1262D /* SelectionTableViewCell.swift */; };
+		DB8399B31EA3E6E800C1262D /* SelectDateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8399B21EA3E6E800C1262D /* SelectDateTableViewCell.swift */; };
+		DB8399B51EA3E93100C1262D /* DateTimeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8399B41EA3E93100C1262D /* DateTimeTableViewCell.swift */; };
+		DB8399B71EA6969600C1262D /* SelectFieldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8399B61EA6969600C1262D /* SelectFieldViewController.swift */; };
+		DB8399B91EA69A4E00C1262D /* SelectFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8399B81EA69A4E00C1262D /* SelectFieldTableViewCell.swift */; };
+		DBB174BE1EA3CBAF0039DCE3 /* PTaskService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB174BD1EA3CBAF0039DCE3 /* PTaskService.swift */; };
+		DBB174C01EA3CBCA0039DCE3 /* CoreDataTasksManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB174BF1EA3CBCA0039DCE3 /* CoreDataTasksManager.swift */; };
 		DBDF58D81EA214700043C1B4 /* DataBase.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DBDF58D61EA214700043C1B4 /* DataBase.xcdatamodeld */; };
 		DBDF59171EA236D90043C1B4 /* Priority.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDF590B1EA236D90043C1B4 /* Priority.swift */; };
 		DBDF59181EA236D90043C1B4 /* Priority+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDF590C1EA236D90043C1B4 /* Priority+CoreDataProperties.swift */; };
@@ -83,6 +91,14 @@
 		DB0462C11E7D87170083F577 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DB0462C41E7D87170083F577 /* DataViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataViewController.swift; sourceTree = "<group>"; };
 		DB0462C51E7D87170083F577 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		DB8399AE1EA3E66F00C1262D /* TitleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleTableViewCell.swift; sourceTree = "<group>"; };
+		DB8399B01EA3E6B200C1262D /* SelectionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectionTableViewCell.swift; sourceTree = "<group>"; };
+		DB8399B21EA3E6E800C1262D /* SelectDateTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectDateTableViewCell.swift; sourceTree = "<group>"; };
+		DB8399B41EA3E93100C1262D /* DateTimeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateTimeTableViewCell.swift; sourceTree = "<group>"; };
+		DB8399B61EA6969600C1262D /* SelectFieldViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectFieldViewController.swift; sourceTree = "<group>"; };
+		DB8399B81EA69A4E00C1262D /* SelectFieldTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectFieldTableViewCell.swift; sourceTree = "<group>"; };
+		DBB174BD1EA3CBAF0039DCE3 /* PTaskService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PTaskService.swift; sourceTree = "<group>"; };
+		DBB174BF1EA3CBCA0039DCE3 /* CoreDataTasksManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataTasksManager.swift; sourceTree = "<group>"; };
 		DBDF58D71EA214700043C1B4 /* DataBase.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataBase.xcdatamodel; sourceTree = "<group>"; };
 		DBDF590B1EA236D90043C1B4 /* Priority.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Priority.swift; sourceTree = "<group>"; };
 		DBDF590C1EA236D90043C1B4 /* Priority+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Priority+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -158,6 +174,7 @@
 		DB0462921E7D86210083F577 /* Assignments */ = {
 			isa = PBXGroup;
 			children = (
+				DBB174BC1EA3CB8C0039DCE3 /* Service */,
 				DBDF59231EA2372A0043C1B4 /* Manager */,
 				DBDF58D51EA214570043C1B4 /* DataBase */,
 				DB0462B71E7D87170083F577 /* General */,
@@ -224,6 +241,11 @@
 			children = (
 				E2F4DF701E8131E5002ED6F2 /* TaskTableViewCell.swift */,
 				DBF5B54C1EA263C500430DE0 /* FullTaskTableViewCell.swift */,
+				DB8399B21EA3E6E800C1262D /* SelectDateTableViewCell.swift */,
+				DB8399B01EA3E6B200C1262D /* SelectionTableViewCell.swift */,
+				DB8399B81EA69A4E00C1262D /* SelectFieldTableViewCell.swift */,
+				DB8399B41EA3E93100C1262D /* DateTimeTableViewCell.swift */,
+				DB8399AE1EA3E66F00C1262D /* TitleTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -232,6 +254,7 @@
 			isa = PBXGroup;
 			children = (
 				DB0462C41E7D87170083F577 /* DataViewController.swift */,
+				DB8399B61EA6969600C1262D /* SelectFieldViewController.swift */,
 				DBF5B54A1EA25D9A00430DE0 /* TasksViewController.swift */,
 				DBF5B5511EA26E1F00430DE0 /* CreateTaskViewController.swift */,
 				E2F4DF6E1E81311B002ED6F2 /* CalendarViewController.swift */,
@@ -239,6 +262,15 @@
 				DB0462C51E7D87170083F577 /* RootViewController.swift */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		DBB174BC1EA3CB8C0039DCE3 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				DBB174BD1EA3CBAF0039DCE3 /* PTaskService.swift */,
+				DBB174BF1EA3CBCA0039DCE3 /* CoreDataTasksManager.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 		DBDF58D51EA214570043C1B4 /* DataBase */ = {
@@ -399,15 +431,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB8399B91EA69A4E00C1262D /* SelectFieldTableViewCell.swift in Sources */,
 				E2F4DF711E8131E5002ED6F2 /* TaskTableViewCell.swift in Sources */,
 				E2F4DF6F1E81311B002ED6F2 /* CalendarViewController.swift in Sources */,
 				DBDF591B1EA236D90043C1B4 /* Task.swift in Sources */,
 				DBDF59201EA236D90043C1B4 /* Status+CoreDataProperties.swift in Sources */,
+				DB8399B51EA3E93100C1262D /* DateTimeTableViewCell.swift in Sources */,
 				DBDF591F1EA236D90043C1B4 /* Status.swift in Sources */,
+				DBB174BE1EA3CBAF0039DCE3 /* PTaskService.swift in Sources */,
+				DBB174C01EA3CBCA0039DCE3 /* CoreDataTasksManager.swift in Sources */,
+				DB8399AF1EA3E66F00C1262D /* TitleTableViewCell.swift in Sources */,
 				DBDF58D81EA214700043C1B4 /* DataBase.xcdatamodeld in Sources */,
 				DBDF591C1EA236D90043C1B4 /* Task+CoreDataProperties.swift in Sources */,
 				DB0462C61E7D87170083F577 /* AppDelegate.swift in Sources */,
 				DB0462CC1E7D87170083F577 /* DataViewController.swift in Sources */,
+				DB8399B71EA6969600C1262D /* SelectFieldViewController.swift in Sources */,
 				DBF5B54D1EA263C500430DE0 /* FullTaskTableViewCell.swift in Sources */,
 				DBDF59181EA236D90043C1B4 /* Priority+CoreDataProperties.swift in Sources */,
 				DBDF59221EA236D90043C1B4 /* Attachment+CoreDataProperties.swift in Sources */,
@@ -418,8 +456,10 @@
 				DBDF591A1EA236D90043C1B4 /* AttachmentType+CoreDataProperties.swift in Sources */,
 				DB0462C81E7D87170083F577 /* ModelController.swift in Sources */,
 				DBDF591E1EA236D90043C1B4 /* Subject+CoreDataProperties.swift in Sources */,
+				DB8399B31EA3E6E800C1262D /* SelectDateTableViewCell.swift in Sources */,
 				DBDF591D1EA236D90043C1B4 /* Subject.swift in Sources */,
 				DBDF59191EA236D90043C1B4 /* AttachmentType.swift in Sources */,
+				DB8399B11EA3E6B200C1262D /* SelectionTableViewCell.swift in Sources */,
 				E2F4DF741E813B8E002ED6F2 /* StatisticsViewController.swift in Sources */,
 				DBDF59211EA236D90043C1B4 /* Attachment.swift in Sources */,
 				DBF5B5521EA26E1F00430DE0 /* CreateTaskViewController.swift in Sources */,
