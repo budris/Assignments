@@ -63,13 +63,8 @@ class CreateTaskViewController: UIViewController {
             return
         }
         
-        destinationVC.selectionFields = [W(), W(), W()]
-    }
-    
-    class W: Desrciable {
-        var descriptionField: String {
-            return "222222"
-        }
+        destinationVC.selectionFields = PriorityEnum.allValues
+        destinationVC.selectedFields = [PriorityEnum.medium]
     }
     
 }
