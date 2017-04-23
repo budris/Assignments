@@ -45,13 +45,16 @@ final class CoreDataTasksManager: NSObject, TaskService {
         }
     }
     
-    func createTask(title: String) {
+    func createTask(title: String) -> Task {
         let task = Task()
         task.title = title
         task.dateCreation = Date() as NSDate?
         coreDataTasks.append(task)
+        task.priority?.prioprityEnum = PriorityEnum.medium
         
         CoreDataManager.instance.saveContext()
+        
+        return task
     }
     
     func updateTask(task: Task) {

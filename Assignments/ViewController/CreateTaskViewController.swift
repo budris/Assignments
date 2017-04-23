@@ -8,24 +8,61 @@
 
 import UIKit
 
-class CreateTaskViewController: UIViewController {
+enum TaskField {
+    case title
+    case subject
+    case status
+    case content
+    case priority
+    case startDate
+    case endDate
+    case attachments
     
-    fileprivate enum CreateTaskField {
-        case title
-        case subject
-        case status
-        case content
-        case priority
-        case startDate
-        case endData
-        case attachments
+    var description: String {
+        switch self {
+        case .title:
+            return "Title"
+        case .subject:
+            return "Subject"
+        case .status:
+            return "Status"
+        case .content:
+            return "Content"
+        case .priority:
+            return "Priority"
+        case .startDate:
+            return "Start Date"
+        case .endDate:
+            return "Title"
+        case .attachments:
+            return "Attachments"
+        }
     }
+}
+
+struct TaskPrototype {
+    public var title: String?
+    public var content: String?
+    public var dateCreation: NSDate?
+    public var startDate: NSDate?
+    public var endDate: NSDate?
+    public var status: Status?
+    public var priority: PriorityEnum
+    public var attachments: NSSet?
+    public var subject: Subject?
     
+    init() {
+        priority = .medium
+    }
+}
+
+class CreateTaskViewController: UIViewController {
     @IBOutlet weak var taskFieldsTableView: UITableView!
     
     fileprivate let taskService: TaskService = CoreDataTasksManager.instance
     
-    fileprivate var taskFieldsDataSource: [CreateTaskField] = []
+    fileprivate var taskFieldsDataSource: [TaskField] = []
+    fileprivate var taskPrototype = TaskPrototype()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,12 +81,12 @@ class CreateTaskViewController: UIViewController {
             .content,
             .priority,
             .startDate,
-            .endData
+            .endDate
         ]
     }
     
     @IBAction func createAction(_ sender: Any) {
-        taskService.createTask(title: "title")
+        CoreDataManager.instance.saveContext()
         
         dismiss(animated: true)
     }
@@ -59,12 +96,42 @@ class CreateTaskViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let destinationVC = segue.destination as? SelectFieldViewController else {
-            return
+        if let type = sender as? TaskField {
+            guard let destinationVC = segue.destination as? SelectFieldViewController else {
+                return
+            }
+            
+            prepareSelectFieldViewController(destinationVC, for: type)
+            
+            
+            
+            
+        } else {
+            super.prepare(for: segue, sender: sender)
         }
-        
-        destinationVC.selectionFields = PriorityEnum.allValues
-        destinationVC.selectedFields = [PriorityEnum.medium]
+    }
+    
+    private func prepareSelectFieldViewController(_ viewController: SelectFieldViewController, for type: TaskField) {
+        weak var weakSelf = self
+        switch type {
+        case .priority:
+            viewController.selectionFields = PriorityEnum.allValues
+            viewController.selectedFields = [taskPrototype.priority]
+            viewController.onDismissCallback = { selectedFields -> () in
+                guard let selectedPriority = selectedFields.first as? PriorityEnum,
+                    let priorityIndex = weakSelf?.taskFieldsDataSource.index(of: TaskField.priority) else {
+                    return
+                }
+                
+                weakSelf?.taskPrototype.priority = selectedPriority
+                weakSelf?.taskFieldsTableView.reloadRows(at: [IndexPath(row: priorityIndex, section: 0)],
+                                                         with: .automatic)
+            }
+        default:
+            return
+//            destinationVC.selectionFields = []
+//            destinationVC.selectedFields = [PriorityEnum.medium]
+        }
     }
     
 }
@@ -85,9 +152,8 @@ extension CreateTaskViewController: UITableViewDataSource {
             cell = titleTableViewCell(tableView, for: indexPath)
         case .subject, .status, .priority:
             cell = selectionTableViewCell(tableView, for: indexPath, for: type)
-        case .startDate, .endData:
+        case .startDate, .endDate:
             cell = selectDateTableViewCell(tableView, for: indexPath, for: type)
-            
         default:
             cell = UITableViewCell()
         }
@@ -103,26 +169,13 @@ extension CreateTaskViewController: UITableViewDataSource {
         return cell
     }
     
-    fileprivate func selectionTableViewCell(_ tableView: UITableView, for indexPath: IndexPath, for type: CreateTaskField) -> UITableViewCell {
+    fileprivate func selectionTableViewCell(_ tableView: UITableView, for indexPath: IndexPath, for type: TaskField) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: SelectionTableViewCell.reuseIdentifier,
                                                        for: indexPath) as? SelectionTableViewCell else {
                                                         return UITableViewCell()
         }
         
-        var title = ""
-        
-        switch type {
-        case .subject:
-            title = "Subject"
-        case .priority:
-            title = "Priority"
-        case .status:
-            title = "Status"
-        default:
-            title = "Undefined"
-        }
-        
-        cell.titleLabel.text = title
+        cell.setup(with: type, taskPrototype: taskPrototype)
         
         return cell
     }
@@ -136,7 +189,7 @@ extension CreateTaskViewController: UITableViewDataSource {
         return cell
     }
     
-    fileprivate func selectDateTableViewCell(_ tableView: UITableView, for indexPath: IndexPath, for type: CreateTaskField) -> UITableViewCell {
+    fileprivate func selectDateTableViewCell(_ tableView: UITableView, for indexPath: IndexPath, for type: TaskField) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: SelectDateTableViewCell.reuseIdentifier,
                                                        for: indexPath) as? SelectDateTableViewCell else {
                                                         return UITableViewCell()
@@ -147,7 +200,7 @@ extension CreateTaskViewController: UITableViewDataSource {
         switch type {
         case .startDate:
             title = "Start Date"
-        case .endData:
+        case .endDate:
             title = "End Date"
         default:
             title = "Undefuned"
@@ -163,7 +216,13 @@ extension CreateTaskViewController: UITableViewDataSource {
 extension CreateTaskViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "selectField", sender: self)
+        let cellType = taskFieldsDataSource[indexPath.row]
+        switch cellType {
+        case .priority, .status, .subject:
+            performSegue(withIdentifier: "selectField", sender: cellType)
+        default:
+            return
+        }
     }
     
 }
