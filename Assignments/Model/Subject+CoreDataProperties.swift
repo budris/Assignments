@@ -20,5 +20,33 @@ extension Subject {
     @NSManaged public var name: String?
     @NSManaged public var color: NSData?
     @NSManaged public var task: Task?
+    
+    var subjectColor: UIColor? {
+        get {
+            guard let color = color as Data? else {
+                return nil
+            }
+            
+            return UIColor.color(withData: color)
+        }
+        set {
+            guard let newColor = newValue else {
+                return
+            }
+            
+            color = newColor.encode() as NSData
+        }
+    }
 
+}
+
+extension Subject: Selectable {
+    
+    public var idField: Int {
+        return Int(id)
+    }
+    
+    public var descriptionField: String {
+        return name ?? ""
+    }
 }

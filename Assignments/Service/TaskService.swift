@@ -12,7 +12,7 @@ protocol TaskService {
     
     var tasks: [Task] { get }
     
-    func createTask(title: String) -> Task
+    func createTask(taskPrototype: TaskPrototype) -> Task
     func updateTask(task: Task)
     func deleteTask(task: Task)
     

@@ -9,7 +9,7 @@
 import UIKit
 
 protocol Selectable {
-    var id: Int { get }
+    var idField: Int { get }
     var descriptionField: String { get }
 }
 
@@ -36,7 +36,7 @@ class SelectFieldViewController: UIViewController {
     }
     
     fileprivate func isFieldSelected(_ field: Selectable) -> Bool {
-        return selectedFields.contains(where: { $0.id == field.id })
+        return selectedFields.contains(where: { $0.idField == field.idField })
     }
     
     fileprivate func deselectCells(for tableView: UITableView) {
@@ -86,7 +86,7 @@ extension SelectFieldViewController: UITableViewDelegate {
         cell.accessoryType = isSelected ? .none : .checkmark
         
         if isSelected,
-            let selectedFieldIndex = selectedFields.index(where: { $0.id == selectionField.id }) {
+            let selectedFieldIndex = selectedFields.index(where: { $0.idField == selectionField.idField }) {
             selectedFields.remove(at: selectedFieldIndex)
         } else {
             selectedFields.append(selectionField)

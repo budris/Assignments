@@ -26,7 +26,7 @@ public enum PriorityEnum: Int {
     case medium
     case low
     
-    var descrition: String {
+    var description: String {
         switch self {
         case .high:
             return "high"
@@ -40,14 +40,13 @@ public enum PriorityEnum: Int {
     static let allValues: [PriorityEnum] = [.high, .medium, .low]
 }
 
-
 extension PriorityEnum: Selectable {
     
-    public var id: Int {
+    public var idField: Int {
         return rawValue
     }
     
     public var descriptionField: String {
-        return descrition
+        return description
     }
 }

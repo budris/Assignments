@@ -17,6 +17,7 @@ enum TaskField {
     case startDate
     case endDate
     case attachments
+    case dateTimePicker
     
     var description: String {
         switch self {
@@ -36,6 +37,8 @@ enum TaskField {
             return "Title"
         case .attachments:
             return "Attachments"
+        case .dateTimePicker:
+            return "DateTimePicker"
         }
     }
 }
@@ -46,13 +49,14 @@ struct TaskPrototype {
     public var dateCreation: NSDate?
     public var startDate: NSDate?
     public var endDate: NSDate?
-    public var status: Status?
+    public var status: StatusEnum
     public var priority: PriorityEnum
     public var attachments: NSSet?
     public var subject: Subject?
     
     init() {
         priority = .medium
+        status = .toDo
     }
 }
 
@@ -60,6 +64,7 @@ class CreateTaskViewController: UIViewController {
     @IBOutlet weak var taskFieldsTableView: UITableView!
     
     fileprivate let taskService: TaskService = CoreDataTasksManager.instance
+    fileprivate let subjectService: SubjectService = CoreDataSubjectManager.sharedInstance
     
     fileprivate var taskFieldsDataSource: [TaskField] = []
     fileprivate var taskPrototype = TaskPrototype()
@@ -102,10 +107,6 @@ class CreateTaskViewController: UIViewController {
             }
             
             prepareSelectFieldViewController(destinationVC, for: type)
-            
-            
-            
-            
         } else {
             super.prepare(for: segue, sender: sender)
         }
@@ -115,6 +116,7 @@ class CreateTaskViewController: UIViewController {
         weak var weakSelf = self
         switch type {
         case .priority:
+            viewController.title = type.description
             viewController.selectionFields = PriorityEnum.allValues
             viewController.selectedFields = [taskPrototype.priority]
             viewController.onDismissCallback = { selectedFields -> () in
@@ -127,11 +129,57 @@ class CreateTaskViewController: UIViewController {
                 weakSelf?.taskFieldsTableView.reloadRows(at: [IndexPath(row: priorityIndex, section: 0)],
                                                          with: .automatic)
             }
+        case .status:
+            viewController.title = type.description
+            viewController.selectionFields = StatusEnum.allValues
+            viewController.selectedFields = [taskPrototype.status]
+            viewController.onDismissCallback = { selectedFields -> () in
+                guard let selectedStatus = selectedFields.first as? StatusEnum,
+                    let statusIndex = weakSelf?.taskFieldsDataSource.index(of: TaskField.status) else {
+                        return
+                }
+                
+                weakSelf?.taskPrototype.status = selectedStatus
+                weakSelf?.taskFieldsTableView.reloadRows(at: [IndexPath(row: statusIndex, section: 0)],
+                                                         with: .automatic)
+            }
+        case .subject:
+            viewController.title = type.description
+            viewController.selectionFields = subjectService.subjects
+            if let selectedSubject = taskPrototype.subject {
+                viewController.selectedFields = [selectedSubject]
+            }
+            viewController.onDismissCallback = { selectedFields -> () in
+                guard let selectedSubject = selectedFields.first as? Subject,
+                    let subjectIndex = weakSelf?.taskFieldsDataSource.index(of: TaskField.subject) else {
+                        return
+                }
+                
+                weakSelf?.taskPrototype.subject = selectedSubject
+                weakSelf?.taskFieldsTableView.reloadRows(at: [IndexPath(row: subjectIndex, section: 0)],
+                                                         with: .automatic)
+            }
         default:
             return
 //            destinationVC.selectionFields = []
 //            destinationVC.selectedFields = [PriorityEnum.medium]
         }
+    }
+    
+    fileprivate func showCreateSubjectAlert() {
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let createSubjectAction = UIAlertAction(title: "Create", style: .default) { [weak self] _ in
+            self?.performSegue(withIdentifier: "createSubject", sender: self)
+        }
+        
+        let createSubjectAlert = UIAlertController(title: nil,
+                                                   message: "You don`t have any subjects.",
+                                                   preferredStyle: .alert)
+        
+        createSubjectAlert.addAction(cancelAction)
+        createSubjectAlert.addAction(createSubjectAction)
+        
+        present(createSubjectAlert, animated: true)
     }
     
 }
@@ -154,6 +202,8 @@ extension CreateTaskViewController: UITableViewDataSource {
             cell = selectionTableViewCell(tableView, for: indexPath, for: type)
         case .startDate, .endDate:
             cell = selectDateTableViewCell(tableView, for: indexPath, for: type)
+        case .dateTimePicker:
+            cell = dateTimeTableViewCell(tableView, for: indexPath)
         default:
             cell = UITableViewCell()
         }
@@ -165,6 +215,9 @@ extension CreateTaskViewController: UITableViewDataSource {
                                                        for: indexPath) as? TitleTableViewCell else {
                                                         return UITableViewCell()
         }
+        
+        cell.placeholder = "Task Title"
+        cell.value = taskPrototype.title
         
         return cell
     }
@@ -218,11 +271,62 @@ extension CreateTaskViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cellType = taskFieldsDataSource[indexPath.row]
         switch cellType {
-        case .priority, .status, .subject:
+        case .priority, .status:
             performSegue(withIdentifier: "selectField", sender: cellType)
+        case .subject:
+            if subjectService.subjects.isEmpty {
+                showCreateSubjectAlert()
+            } else {
+                performSegue(withIdentifier: "selectField", sender: cellType)
+            }
+        case .startDate:
+            didSelectDateCell(at: tableView, with: .startDate)
+        case .endDate:
+            didSelectDateCell(at: tableView, with: .endDate)
         default:
             return
         }
+    }
+    
+    private func didSelectDateCell(at tableView: UITableView, with type: TaskField) {
+        tableView.beginUpdates()
+        
+        defer {
+            tableView.endUpdates()
+        }
+        
+        if let datePickerIndex = taskFieldsDataSource.index(of: .dateTimePicker) {
+            let datePickerIndexPath = IndexPath(row: datePickerIndex, section: 0)
+            guard let cell = tableView.cellForRow(at: datePickerIndexPath) as? DateTimeTableViewCell else {
+                return
+            }
+            
+            var dateTimeIndexPath: IndexPath?
+            switch type {
+            case .startDate:
+                taskPrototype.startDate = cell.dateTimePicker.date as NSDate
+                dateTimeIndexPath = IndexPath(row: taskFieldsDataSource.index(of: type)!, section: 0)
+            case .endDate:
+                taskPrototype.endDate = cell.dateTimePicker.date as NSDate
+                dateTimeIndexPath = IndexPath(row: taskFieldsDataSource.index(of: type)!, section: 0)
+            default:
+                break
+            }
+            
+            if let indexPathForReload = dateTimeIndexPath {
+                tableView.reloadRows(at: [indexPathForReload], with: .automatic)
+            }
+            taskFieldsDataSource.remove(at: datePickerIndex)
+            tableView.deleteRows(at: [datePickerIndexPath], with: .automatic)
+        } else {
+            guard let indexDateTimeCell = taskFieldsDataSource.index(of: type) else {
+                return
+            }
+            
+            taskFieldsDataSource.insert(.dateTimePicker, at: indexDateTimeCell + 1)
+            tableView.insertRows(at: [IndexPath(row: indexDateTimeCell + 1, section: 0)], with: .automatic)
+        }
+        
     }
     
 }

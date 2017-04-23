@@ -9,13 +9,11 @@
 import Foundation
 import CoreData
 
-final class CoreDataTasksManager: NSObject, TaskService {
+final class CoreDataTasksManager: NSObject {
     
     static let instance = CoreDataTasksManager()
     
-    var tasks: [Task] {
-        return coreDataTasks
-    }
+
     
     private var fetchRequest: NSFetchRequest<NSFetchRequestResult> = {
         var fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Task")
@@ -44,14 +42,29 @@ final class CoreDataTasksManager: NSObject, TaskService {
             print(error)
         }
     }
+  
+}
+
+extension CoreDataTasksManager: TaskService {
     
-    func createTask(title: String) -> Task {
+    var tasks: [Task] {
+        return coreDataTasks
+    }
+    
+    func createTask(taskPrototype: TaskPrototype) -> Task {
         let task = Task()
-        task.title = title
+        task.title = taskPrototype.title
         task.dateCreation = Date() as NSDate?
-        coreDataTasks.append(task)
+        task.content = taskPrototype.content
+        task.endDate = taskPrototype.endDate
+        task.startDate = taskPrototype.startDate
+        task.priority?.prioprityEnum = taskPrototype.priority
+        task.subject = taskPrototype.subject
+        task.status?.statusEnum = taskPrototype.status
+        
         task.priority?.prioprityEnum = PriorityEnum.medium
         
+        coreDataTasks.append(task)
         CoreDataManager.instance.saveContext()
         
         return task
@@ -63,7 +76,7 @@ final class CoreDataTasksManager: NSObject, TaskService {
         }
         coreDataTasks[index] = task
         
-//        CoreDataManager.instance.managedObjectContext.update(task)
+        //        CoreDataManager.instance.managedObjectContext.update(task)
         
         CoreDataManager.instance.saveContext()
     }
@@ -77,7 +90,7 @@ final class CoreDataTasksManager: NSObject, TaskService {
         CoreDataManager.instance.managedObjectContext.delete(task)
         CoreDataManager.instance.saveContext()
     }
-  
+    
 }
 
 //extension CoreDataTasksManager: NSFetchedResultsControllerDelegate {

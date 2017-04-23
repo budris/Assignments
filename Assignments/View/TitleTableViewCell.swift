@@ -12,17 +12,16 @@ class TitleTableViewCell: UITableViewCell {
     
     static let reuseIdentifier: String = "\(TitleTableViewCell.self)"
 
-    @IBOutlet weak var titleTextField: UITextField!
+    @IBOutlet private weak var titleTextField: UITextField!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    public var value: String? {
+        get { return titleTextField.text }
+        set { titleTextField.text = newValue }
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    public var placeholder: String? {
+        get { return titleTextField.placeholder }
+        set { titleTextField.placeholder = newValue }
     }
 
 }

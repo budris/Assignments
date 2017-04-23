@@ -31,8 +31,7 @@ extension SelectionTableViewCell {
         case .priority:
             valueText = taskPrototype.priority.descriptionField
         case .status:
-//            valueText = task.status?.status ?? ""
-            valueText = "status"
+            valueText = taskPrototype.status.descriptionField
         default:
             valueText = nil
         }
