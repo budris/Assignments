@@ -225,6 +225,9 @@
                                             <subviews>
                                                 <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="ba2-Lw-Cia">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="128"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="128" id="L4E-vj-0VN"/>
+                                                    </constraints>
                                                     <date key="date" timeIntervalSinceReferenceDate="514059207.91597801">
                                                         <!--2017-04-16 18:13:27 +0000-->
                                                     </date>
@@ -239,6 +242,34 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="dateTimePicker" destination="ba2-Lw-Cia" id="iKg-c7-HHt"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ContentTableViewCell" rowHeight="60" id="86c-M9-IuE" customClass="ContentTableViewCell" customModule="Assignments" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="262" width="375" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="86c-M9-IuE" id="feW-Qk-9gG">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="text" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="nV1-88-7EM">
+                                                    <rect key="frame" x="10" y="5" width="350" height="50"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="50" id="1Bl-ua-zCU"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="nV1-88-7EM" firstAttribute="top" secondItem="feW-Qk-9gG" secondAttribute="top" constant="5" id="0ir-u5-tOl"/>
+                                                <constraint firstAttribute="trailing" secondItem="nV1-88-7EM" secondAttribute="trailing" constant="15" id="G5u-GF-Dzj"/>
+                                                <constraint firstAttribute="bottom" secondItem="nV1-88-7EM" secondAttribute="bottom" constant="5" id="MS5-ZP-C8e"/>
+                                                <constraint firstItem="nV1-88-7EM" firstAttribute="leading" secondItem="feW-Qk-9gG" secondAttribute="leading" constant="10" id="tnH-Wu-HhP"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="contentTextView" destination="nV1-88-7EM" id="TVF-L6-YDK"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

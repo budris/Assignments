@@ -9,21 +9,39 @@
 import UIKit
 
 class SelectDateTableViewCell: UITableViewCell {
+    private static let dateFormat: String = "h ma dd/mm/yy"
     
     static let reuseIdentifier: String = "\(SelectDateTableViewCell.self)"
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     
+    public var title: String? {
+        get {
+            return titleLabel.text
+        }
+        set {
+            titleLabel.text = newValue
+        }
+    }
+    
+    public var value: Date? {
+        didSet {
+            if let value = value {
+                dateLabel.text = dateFormatter.string(from: value)
+            } else {
+                dateLabel.text = "None"
+            }
+            
+        }
+    }
+    
+    private let dateFormatter = DateFormatter()
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+        
+        dateFormatter.dateFormat = SelectDateTableViewCell.dateFormat
     }
 
 }

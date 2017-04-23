@@ -14,6 +14,8 @@ class TitleTableViewCell: UITableViewCell {
 
     @IBOutlet private weak var titleTextField: UITextField!
     
+    public var didChangeTitle: ((_ title: String?) -> ())?
+    
     public var value: String? {
         get { return titleTextField.text }
         set { titleTextField.text = newValue }
@@ -23,5 +25,19 @@ class TitleTableViewCell: UITableViewCell {
         get { return titleTextField.placeholder }
         set { titleTextField.placeholder = newValue }
     }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        titleTextField.delegate = self
+    }
 
+}
+
+extension TitleTableViewCell: UITextFieldDelegate {
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        didChangeTitle?(textField.text)
+    }
+    
 }

@@ -75,6 +75,9 @@ class CreateTaskViewController: UIViewController {
         taskFieldsTableView.dataSource = self
         taskFieldsTableView.delegate = self
         
+        taskFieldsTableView.estimatedRowHeight = 44.0
+        taskFieldsTableView.rowHeight = UITableViewAutomaticDimension
+        
         generateDataSource()
     }
     
@@ -91,7 +94,13 @@ class CreateTaskViewController: UIViewController {
     }
     
     @IBAction func createAction(_ sender: Any) {
-        CoreDataManager.instance.saveContext()
+        view.endEditing(true)
+        guard !(taskPrototype.title?.isEmpty ?? true) else {
+            showError(with: "Task must have title")
+            return
+        }
+        
+        let _  = taskService.createTask(taskPrototype: taskPrototype)
         
         dismiss(animated: true)
     }
@@ -127,7 +136,7 @@ class CreateTaskViewController: UIViewController {
                 
                 weakSelf?.taskPrototype.priority = selectedPriority
                 weakSelf?.taskFieldsTableView.reloadRows(at: [IndexPath(row: priorityIndex, section: 0)],
-                                                         with: .automatic)
+                                                         with: .fade)
             }
         case .status:
             viewController.title = type.description
@@ -141,7 +150,7 @@ class CreateTaskViewController: UIViewController {
                 
                 weakSelf?.taskPrototype.status = selectedStatus
                 weakSelf?.taskFieldsTableView.reloadRows(at: [IndexPath(row: statusIndex, section: 0)],
-                                                         with: .automatic)
+                                                         with: .fade)
             }
         case .subject:
             viewController.title = type.description
@@ -157,7 +166,7 @@ class CreateTaskViewController: UIViewController {
                 
                 weakSelf?.taskPrototype.subject = selectedSubject
                 weakSelf?.taskFieldsTableView.reloadRows(at: [IndexPath(row: subjectIndex, section: 0)],
-                                                         with: .automatic)
+                                                         with: .fade)
             }
         default:
             return
@@ -204,6 +213,8 @@ extension CreateTaskViewController: UITableViewDataSource {
             cell = selectDateTableViewCell(tableView, for: indexPath, for: type)
         case .dateTimePicker:
             cell = dateTimeTableViewCell(tableView, for: indexPath)
+        case .content:
+            cell = contentTableViewCell(tableView, for: indexPath)
         default:
             cell = UITableViewCell()
         }
@@ -218,6 +229,9 @@ extension CreateTaskViewController: UITableViewDataSource {
         
         cell.placeholder = "Task Title"
         cell.value = taskPrototype.title
+        cell.didChangeTitle = { [weak self] title in
+            self?.taskPrototype.title = title
+        }
         
         return cell
     }
@@ -249,17 +263,34 @@ extension CreateTaskViewController: UITableViewDataSource {
         }
         
         var title = ""
+        var value: Date?
         
         switch type {
         case .startDate:
             title = "Start Date"
+            value = taskPrototype.startDate as Date?
         case .endDate:
             title = "End Date"
+            value = taskPrototype.endDate as Date?
         default:
             title = "Undefuned"
         }
         
         cell.titleLabel.text = title
+        cell.value = value
+        
+        return cell
+    }
+    
+    private func contentTableViewCell(_ tableView: UITableView, for indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: ContentTableViewCell.reuseIdentifier, for: indexPath) as? ContentTableViewCell else {
+            return UITableViewCell()
+        }
+        
+        cell.content = taskPrototype.content
+        cell.didContentChanged = { [weak self] content in
+            self?.taskPrototype.content = content
+        }
         
         return cell
     }
@@ -269,6 +300,7 @@ extension CreateTaskViewController: UITableViewDataSource {
 extension CreateTaskViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         let cellType = taskFieldsDataSource[indexPath.row]
         switch cellType {
         case .priority, .status:
@@ -314,19 +346,18 @@ extension CreateTaskViewController: UITableViewDelegate {
             }
             
             if let indexPathForReload = dateTimeIndexPath {
-                tableView.reloadRows(at: [indexPathForReload], with: .automatic)
+                tableView.reloadRows(at: [indexPathForReload], with: .fade)
             }
             taskFieldsDataSource.remove(at: datePickerIndex)
-            tableView.deleteRows(at: [datePickerIndexPath], with: .automatic)
+            tableView.deleteRows(at: [datePickerIndexPath], with: .fade)
         } else {
             guard let indexDateTimeCell = taskFieldsDataSource.index(of: type) else {
                 return
             }
             
             taskFieldsDataSource.insert(.dateTimePicker, at: indexDateTimeCell + 1)
-            tableView.insertRows(at: [IndexPath(row: indexDateTimeCell + 1, section: 0)], with: .automatic)
+            tableView.insertRows(at: [IndexPath(row: indexDateTimeCell + 1, section: 0)], with: .fade)
         }
-        
     }
     
 }
