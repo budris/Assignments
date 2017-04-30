@@ -12,10 +12,26 @@ class FullTaskTableViewCell: UITableViewCell {
     
     static let reuseIdentifier: String = "\(FullTaskTableViewCell.self)"
 
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var statusLabel: UILabel!
-    @IBOutlet weak var priorityLabel: UILabel!
-    @IBOutlet weak var additionalInfoStackView: UIStackView!
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var statusLabel: UILabel!
+    @IBOutlet private weak var priorityLabel: UILabel!
+    @IBOutlet private weak var additionalInfoStackView: UIStackView!
     
+    public var title: String? {
+        get { return titleLabel.text }
+        set { titleLabel.text = newValue }
+    }
+    
+    public var status: StatusEnum? {
+        didSet {
+            statusLabel.text = status?.description
+        }
+    }
+    
+    public var priority: PriorityEnum? {
+        didSet {
+            priorityLabel.text = priority?.description
+        }
+    }    
 
 }

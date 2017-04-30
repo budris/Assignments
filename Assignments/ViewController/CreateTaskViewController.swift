@@ -44,6 +44,7 @@ enum TaskField {
 }
 
 struct TaskPrototype {
+    public var id: Int?
     public var title: String?
     public var content: String?
     public var dateCreation: NSDate?
@@ -61,16 +62,49 @@ struct TaskPrototype {
 }
 
 class CreateTaskViewController: UIViewController {
+    
+    private enum WorkingType {
+        case create
+        case edit
+    }
+    
     @IBOutlet weak var taskFieldsTableView: UITableView!
     
-    fileprivate let taskService: TaskService = CoreDataTasksManager.instance
-    fileprivate let subjectService: SubjectService = CoreDataSubjectManager.sharedInstance
+    open let taskService: TaskService = CoreDataTasksManager.instance
+    open let subjectService: SubjectService = CoreDataSubjectManager.sharedInstance
     
     fileprivate var taskFieldsDataSource: [TaskField] = []
-    fileprivate var taskPrototype = TaskPrototype()
+    open var taskPrototype = TaskPrototype()
+    
+    public var editedTask: Task?
+    public var didUpdatedTask: ((_ task: Task) -> ())?
+    
+    private var workingType: WorkingType = .create
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if let task = editedTask {
+            workingType = .edit
+            
+            taskPrototype.id = Int(task.id)
+            taskPrototype.title = task.title
+            taskPrototype.title = task.title
+            taskPrototype.dateCreation = task.dateCreation
+            taskPrototype.content = task.content
+            taskPrototype.endDate = task.endDate
+            taskPrototype.startDate = task.startDate
+            taskPrototype.subject = task.subject
+            
+            if let priority = task.priority?.prioprityEnum {
+                taskPrototype.priority = priority
+            }
+            if let status = task.status?.statusEnum {
+                taskPrototype.status = status
+            }
+            
+            navigationItem.rightBarButtonItem?.title = "Save"
+        }
         
         taskFieldsTableView.dataSource = self
         taskFieldsTableView.delegate = self
@@ -95,12 +129,20 @@ class CreateTaskViewController: UIViewController {
     
     @IBAction func createAction(_ sender: Any) {
         view.endEditing(true)
+        
         guard !(taskPrototype.title?.isEmpty ?? true) else {
             showError(with: "Task must have title")
             return
         }
         
-        let _  = taskService.createTask(taskPrototype: taskPrototype)
+        switch workingType {
+        case .create:
+            let _  = taskService.createTask(taskPrototype: taskPrototype)
+        case .edit:
+            if let updatedTask = taskService.updateTask(taskPrototype: taskPrototype) {
+                didUpdatedTask?(updatedTask)
+            }
+        }
         
         dismiss(animated: true)
     }
@@ -170,8 +212,6 @@ class CreateTaskViewController: UIViewController {
             }
         default:
             return
-//            destinationVC.selectionFields = []
-//            destinationVC.selectedFields = [PriorityEnum.medium]
         }
     }
     

@@ -12,9 +12,7 @@ import CoreData
 final class CoreDataTasksManager: NSObject {
     
     static let instance = CoreDataTasksManager()
-    
-
-    
+        
     private var fetchRequest: NSFetchRequest<NSFetchRequestResult> = {
         var fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Task")
         
@@ -31,9 +29,6 @@ final class CoreDataTasksManager: NSObject {
                                                                                      keyForSort: "id")
         
         super.init()
-        
-        
-//        fetchedResultsController.delegate = self 
         
         do {
             coreDataTasks = try CoreDataManager.instance.managedObjectContext.fetch(fetchRequest) as? [Task]
@@ -58,11 +53,14 @@ extension CoreDataTasksManager: TaskService {
         task.content = taskPrototype.content
         task.endDate = taskPrototype.endDate
         task.startDate = taskPrototype.startDate
-        task.priority?.prioprityEnum = taskPrototype.priority
         task.subject = taskPrototype.subject
-        task.status?.statusEnum = taskPrototype.status
+        let priority = Priority()
+        priority.prioprityEnum = taskPrototype.priority
+        task.priority = priority
         
-        task.priority?.prioprityEnum = PriorityEnum.medium
+        let status = Status()
+        status.statusEnum = taskPrototype.status
+        task.status = status
         
         coreDataTasks.append(task)
         CoreDataManager.instance.saveContext()
@@ -70,15 +68,28 @@ extension CoreDataTasksManager: TaskService {
         return task
     }
     
-    func updateTask(task: Task) {
-        guard let index = coreDataTasks.index(where: { $0.id == task.id }) else {
-            return
+    func updateTask(taskPrototype: TaskPrototype) -> Task? {
+        guard let taskId = taskPrototype.id,
+            let index = coreDataTasks.index(where: { $0.id == Int32(taskId) }) else {
+                return nil
         }
+        
+        let task = coreDataTasks[index]
+        task.title = taskPrototype.title
+        task.dateCreation = Date() as NSDate?
+        task.content = taskPrototype.content
+        task.endDate = taskPrototype.endDate
+        task.startDate = taskPrototype.startDate
+        task.priority?.prioprityEnum = taskPrototype.priority
+        task.subject = taskPrototype.subject
+        task.status?.statusEnum = taskPrototype.status
+        
+        task.priority?.prioprityEnum = PriorityEnum.medium
+        
         coreDataTasks[index] = task
-        
-        //        CoreDataManager.instance.managedObjectContext.update(task)
-        
         CoreDataManager.instance.saveContext()
+        
+        return task
     }
     
     func deleteTask(task: Task) {

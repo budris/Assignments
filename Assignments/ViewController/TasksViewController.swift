@@ -28,6 +28,25 @@ class TasksViewController: UIViewController {
         tasksTableView.reloadData()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "editTask" {
+            guard let navVC = segue.destination as? UINavigationController,
+                let editTaskVC = navVC.topViewController as? CreateTaskViewController,
+                let task = sender as? Task else {
+                    return
+            }
+            
+            editTaskVC.editedTask = task
+            editTaskVC.didUpdatedTask = { [weak self] task in
+                guard let index = self?.taskService.tasks.index(where: { $0.id == task.id }) else {
+                    return
+                }
+                
+                self?.tasksTableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
+            }
+        }
+    }
+    
 }
 
 extension TasksViewController: UITableViewDelegate {
@@ -46,7 +65,16 @@ extension TasksViewController: UITableViewDelegate {
             tableView.deleteRows(at: [indexPath], with: .automatic)
         }
         
-        return [deleteAction]
+        let editAction = UITableViewRowAction(style: .normal, title: "Edit") { [weak self] (_, indexPath) in
+            guard let task = self?.taskService.tasks[indexPath.row] else {
+                return
+            }
+            
+            self?.performSegue(withIdentifier: "editTask", sender: task)
+        }
+        editAction.backgroundColor = UIColor(red: 12/255, green: 154/255, blue: 215/255, alpha: 1)
+        
+        return [deleteAction, editAction]
     }
 }
 
@@ -62,7 +90,11 @@ extension TasksViewController: UITableViewDataSource {
             return UITableViewCell()
         }
         
-        cell.titleLabel.text = taskService.tasks[indexPath.row].title
+        let task = taskService.tasks[indexPath.row]
+        
+        cell.title = task.title
+        cell.status = task.status?.statusEnum
+        cell.priority = task.priority?.prioprityEnum
         
         return cell
     }
