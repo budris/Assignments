@@ -13,7 +13,7 @@ class TasksViewController: UIViewController {
     
     @IBOutlet weak var tasksTableView: UITableView!
     
-    fileprivate let taskService: TaskService = CoreDataTasksManager.instance
+    fileprivate let taskService: TaskService = CoreDataTasksManager.sharedInstance
     
     override func viewDidLoad() {
         super.viewDidLoad()

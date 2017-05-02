@@ -70,7 +70,7 @@ class CreateTaskViewController: UIViewController {
     
     @IBOutlet weak var taskFieldsTableView: UITableView!
     
-    open let taskService: TaskService = CoreDataTasksManager.instance
+    open let taskService: TaskService = CoreDataTasksManager.sharedInstance
     open let subjectService: SubjectService = CoreDataSubjectManager.sharedInstance
     
     fileprivate var taskFieldsDataSource: [TaskField] = []

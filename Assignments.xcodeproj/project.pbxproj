@@ -26,6 +26,7 @@
 		DB67F2961EACCA7100C06CB3 /* Subject.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB67F2941EACCA7100C06CB3 /* Subject.storyboard */; };
 		DB67F2981EACCA9F00C06CB3 /* SelectColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB67F2971EACCA9F00C06CB3 /* SelectColorViewController.swift */; };
 		DB67F29A1EACCB6C00C06CB3 /* ColorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB67F2991EACCB6C00C06CB3 /* ColorCollectionViewCell.swift */; };
+		DB6FEC651EB60DED00135F4E /* NavigationDropdownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6FEC641EB60DED00135F4E /* NavigationDropdownView.swift */; };
 		DB8399AF1EA3E66F00C1262D /* TitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8399AE1EA3E66F00C1262D /* TitleTableViewCell.swift */; };
 		DB8399B11EA3E6B200C1262D /* SelectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8399B01EA3E6B200C1262D /* SelectionTableViewCell.swift */; };
 		DB8399B31EA3E6E800C1262D /* SelectDateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8399B21EA3E6E800C1262D /* SelectDateTableViewCell.swift */; };
@@ -112,6 +113,7 @@
 		DB67F2951EACCA7100C06CB3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Subject.storyboard; sourceTree = "<group>"; };
 		DB67F2971EACCA9F00C06CB3 /* SelectColorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectColorViewController.swift; sourceTree = "<group>"; };
 		DB67F2991EACCB6C00C06CB3 /* ColorCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorCollectionViewCell.swift; sourceTree = "<group>"; };
+		DB6FEC641EB60DED00135F4E /* NavigationDropdownView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationDropdownView.swift; sourceTree = "<group>"; };
 		DB8399AE1EA3E66F00C1262D /* TitleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleTableViewCell.swift; sourceTree = "<group>"; };
 		DB8399B01EA3E6B200C1262D /* SelectionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectionTableViewCell.swift; sourceTree = "<group>"; };
 		DB8399B21EA3E6E800C1262D /* SelectDateTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectDateTableViewCell.swift; sourceTree = "<group>"; };
@@ -263,6 +265,7 @@
 		DB0462C21E7D87170083F577 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				DB6FEC641EB60DED00135F4E /* NavigationDropdownView.swift */,
 				E2F4DF701E8131E5002ED6F2 /* TaskTableViewCell.swift */,
 				DBF5B54C1EA263C500430DE0 /* FullTaskTableViewCell.swift */,
 				DB8399B21EA3E6E800C1262D /* SelectDateTableViewCell.swift */,
@@ -482,6 +485,7 @@
 				DB8399B51EA3E93100C1262D /* DateTimeTableViewCell.swift in Sources */,
 				DBDF591F1EA236D90043C1B4 /* Status.swift in Sources */,
 				DB67F2911EACC7B900C06CB3 /* CreateSubjectViewController.swift in Sources */,
+				DB6FEC651EB60DED00135F4E /* NavigationDropdownView.swift in Sources */,
 				DBB174BE1EA3CBAF0039DCE3 /* TaskService.swift in Sources */,
 				DBB174C01EA3CBCA0039DCE3 /* CoreDataTasksManager.swift in Sources */,
 				DB8399AF1EA3E66F00C1262D /* TitleTableViewCell.swift in Sources */,

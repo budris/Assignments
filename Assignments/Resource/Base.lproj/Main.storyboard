@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Vkg-eP-rEL">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Vkg-eP-rEL">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Statistic-->
+        <!--Statistic View Controller-->
         <scene sceneID="g0D-Vl-agQ">
             <objects>
                 <viewController id="kgv-N9-WVg" customClass="StatisticViewController" customModule="Assignments" customModuleProvider="target" sceneMemberID="viewController">
@@ -22,11 +22,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pmq-0D-fMI" customClass="PieChartView" customModule="Charts">
-                                <rect key="frame" x="0.0" y="79" width="375" height="539"/>
+                                <rect key="frame" x="0.0" y="123" width="375" height="495"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tasks at university" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GjO-OS-WS3">
-                                <rect key="frame" x="0.0" y="40" width="375" height="29"/>
+                                <rect key="frame" x="0.0" y="84" width="375" height="29"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <color key="textColor" red="0.28234999999999999" green="0.27843000000000001" blue="0.29411999999999999" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -43,14 +43,14 @@
                             <constraint firstAttribute="trailing" secondItem="GjO-OS-WS3" secondAttribute="trailing" id="yKm-4I-fq5"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Statistic" image="pieChart" selectedImage="pieChart" id="e2K-2t-e33"/>
+                    <navigationItem key="navigationItem" id="eQY-kb-PEp"/>
                     <connections>
                         <outlet property="pieChartView" destination="Pmq-0D-fMI" id="RXq-zF-Ndi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GCj-gq-KkE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="937" y="-671"/>
+            <point key="canvasLocation" x="2632.8000000000002" y="-371.96401799100454"/>
         </scene>
         <!--Reminders-->
         <scene sceneID="Kwk-qL-WIY">
@@ -267,7 +267,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="gCf-mE-x5e" kind="relationship" relationship="viewControllers" id="P83-bn-9kI"/>
-                        <segue destination="kgv-N9-WVg" kind="relationship" relationship="viewControllers" id="rxy-bK-rTN"/>
+                        <segue destination="Vcu-s7-yDq" kind="relationship" relationship="viewControllers" id="rxy-bK-rTN"/>
                         <segue destination="O1v-ev-7Eu" kind="relationship" relationship="viewControllers" id="bjd-5V-bFi"/>
                         <segue destination="0d0-Cy-evK" kind="relationship" relationship="viewControllers" id="ISB-zD-clm"/>
                     </connections>
@@ -285,6 +285,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gKF-q6-IBi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="936.79999999999995" y="-25.637181409295355"/>
+        </scene>
+        <!--Statistic-->
+        <scene sceneID="7L9-bS-AZ9">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Vcu-s7-yDq" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Statistic" image="pieChart" selectedImage="pieChart" id="e2K-2t-e33"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="OE8-0B-XcL">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="kgv-N9-WVg" kind="relationship" relationship="rootViewController" id="eYp-0n-VsJ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JAm-1p-ciZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1693.5999999999999" y="-372.86356821589209"/>
         </scene>
     </scenes>
     <resources>
