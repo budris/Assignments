@@ -24,14 +24,19 @@ class FullTaskTableViewCell: UITableViewCell {
     
     public var status: StatusEnum? {
         didSet {
-            statusLabel.text = status?.description
+            if let status = status {
+                statusLabel.text = status.description
+                statusLabel.textColor = status.color
+            }
         }
     }
     
     public var priority: PriorityEnum? {
         didSet {
-            priorityLabel.text = priority?.description
+            if let priority = priority {
+                priorityLabel.text = priority.description                
+            }
         }
-    }    
+    }
 
 }

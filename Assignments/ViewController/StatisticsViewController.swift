@@ -11,16 +11,14 @@ import Charts
 
 class StatisticViewController: UIViewController {
     @IBOutlet weak var pieChartView: PieChartView!
+    @IBOutlet weak var tasksTableView: UITableView!
     
-    fileprivate let subjectService: SubjectService = CoreDataSubjectManager.sharedInstance
     fileprivate let tasksService: TaskService = CoreDataTasksManager.sharedInstance
     
     typealias StudyData = (value: Double, label: String)
     
-    var dataSource = [StudyData(value: 30.21, label: "Done"),
-                      StudyData(value: 20.49, label: "In progress"),
-                      StudyData(value: 25.12, label: "To Do"),
-                      StudyData(value: 25.18, label: "To be discuss")]
+    var dataSource: [StudyData] = []
+    fileprivate var tasksForStatus: [Task] = []
     
     private var selectedIndex: Int = 0
 
@@ -28,49 +26,20 @@ class StatisticViewController: UIViewController {
         super.viewDidLoad()
 
         pieChartView.delegate = self
-        setChartData()
         
-        if subjectService.subjects.isEmpty {
-            
-        } else {
-            setupNavigationDropdownMenu()
-        }
+        tasksTableView.dataSource = self
+//        tasksTableView.delegate = self
     }
     
-    func setupNavigationDropdownMenu() {
-        var items = subjectService.subjects.map { $0.descriptionField }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
-        navigationController?.navigationBar.backgroundColor = UIColor.black
-        
-        let menuView = NavigationDropdownMenu(navigationController: navigationController, containerView: navigationController!.view, title: items[0], items: items as [AnyObject], bottomOffset: 44.0)
-        menuView.cellHeight = 50
-        menuView.cellBackgroundColor = self.navigationController?.navigationBar.barTintColor
-        menuView.cellSelectionColor = UIColor(red: 0.0/255.0, green:160.0/255.0, blue:195.0/255.0, alpha: 1.0)
-        menuView.shouldKeepSelectedCellColor = true
-        menuView.cellTextLabelColor = UIColor.white
-        menuView.cellTextLabelFont = UIFont.systemFont(ofSize: 14.0)
-        menuView.cellTextLabelAlignment = .center
-        menuView.arrowPadding = 15
-        menuView.animationDuration = 0.5
-        menuView.maskBackgroundColor = UIColor.black
-        menuView.maskBackgroundOpacity = 0.3
-        menuView.exclusiveRows = [selectedIndex]
-        menuView.didSelectItemAtIndexHandler = { [weak self] index in
-            guard let subject = self?.subjectService.subjects[index] else {
-                return
-            }
-            
-            self?.newSubjectSelected(with: subject)
-        }
-        
-        navigationItem.titleView = menuView
+        setupDataSource()
     }
     
-    private func newSubjectSelected(with subject: Subject) {
-        let tasks = tasksService.getTasks(filteredBy: subject)
+    private func setupDataSource() {
+        let tasks = tasksService.tasks
         
-        
-        // TODO: - replace with Set
         var statusesOfTasks: [String : Int] = [:]
         var countOfTaskWithStatus = 0
         
@@ -89,7 +58,7 @@ class StatisticViewController: UIViewController {
         }
         
         dataSource = statusesOfTasks.map({ (key: String, value: Int) -> StudyData in
-            StudyData(value:  Double(value / countOfTaskWithStatus) * 100.0, label: key)
+            StudyData(value:  Double(value) / Double(countOfTaskWithStatus) * 100.0, label: key)
         })
         
         setChartData()
@@ -123,5 +92,40 @@ class StatisticViewController: UIViewController {
 }
 
 extension StatisticViewController: ChartViewDelegate {
+    
+    func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
+        guard let entryLabel = (entry as? PieChartDataEntry)?.label,
+            let selectedStatus = StatusEnum.status(by: entryLabel) else {
+            return
+        }
+        
+        tasksForStatus = tasksService.tasks.filter({ $0.status?.statusEnum == selectedStatus })
+        tasksTableView.reloadData()
+    }
+    
+    func chartValueNothingSelected(_ chartView: ChartViewBase) {
+        tasksForStatus = []
+        tasksTableView.reloadData()
+    }
+}
+
+
+extension StatisticViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return tasksForStatus.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "TaskTableViewCell") as? TaskTableViewCell,
+            let taskDate = tasksForStatus[indexPath.row].startDate as? Date else {
+                return UITableViewCell()
+        }
+        
+        cell.timeLabel.text = taskDate.formattedTimeDescription()
+        cell.subjectLabel.text = tasksForStatus[indexPath.row].title
+        
+        return cell
+    }
     
 }

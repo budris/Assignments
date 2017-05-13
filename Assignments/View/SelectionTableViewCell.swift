@@ -26,8 +26,6 @@ extension SelectionTableViewCell {
         
         var valueText: String?
         switch taskField {
-        case .subject:
-            valueText = taskPrototype.subject?.name
         case .priority:
             valueText = taskPrototype.priority.descriptionField
         case .status:

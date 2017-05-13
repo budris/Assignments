@@ -46,6 +46,36 @@ public enum StatusEnum: Int {
         }
     }
     
+    var color: UIColor {
+        switch self {
+        case .complete:
+            return UIColor(red: 36/255.0, green: 189/255.0, blue: 38/255.0, alpha: 1.0)
+        case .inProgress:
+            return UIColor(red: 61/255.0, green: 150/255.0, blue: 227/255.0, alpha: 1.0)
+        case .postponed:
+            return UIColor(red: 176/255.0, green: 2/255.0, blue: 245/255.0, alpha: 1.0)
+        case .toDo:
+            return UIColor(red: 232/255.0, green: 89/255.0, blue: 28/255.0, alpha: 1.0)
+        }
+    }
+    
+    static func status(by description: String) -> StatusEnum? {
+        var status: StatusEnum?
+        switch description {
+        case "complete":
+            status = .complete
+        case "in progress":
+            status = .inProgress
+        case "postponed":
+            status = .postponed
+        case "to do":
+            status = .toDo
+        default:
+            status = nil
+        }
+        return status
+    }
+    
     static let allValues: [StatusEnum] = [.complete, .inProgress, .postponed, .toDo]
     
 }

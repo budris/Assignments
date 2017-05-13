@@ -44,12 +44,19 @@ extension CoreDataTasksManager: TaskService {
     
     func createTask(taskPrototype: TaskPrototype) -> Task {
         let task = Task()
+        task.id = (coreDataTasks
+            .map({ return $0.id })
+            .max(by: { $0 < $1 }) ?? 0) + 1
         task.title = taskPrototype.title
         task.dateCreation = Date() as NSDate?
         task.content = taskPrototype.content
-        task.endDate = taskPrototype.endDate
+        
+        if let duration = taskPrototype.durationInMinutes {
+            task.durationInMinutes = duration
+        }
+        
         task.startDate = taskPrototype.startDate
-        task.subject = taskPrototype.subject
+        
         let priority = Priority()
         priority.prioprityEnum = taskPrototype.priority
         task.priority = priority
@@ -74,10 +81,13 @@ extension CoreDataTasksManager: TaskService {
         task.title = taskPrototype.title
         task.dateCreation = Date() as NSDate?
         task.content = taskPrototype.content
-        task.endDate = taskPrototype.endDate
+        
+        if let duration = taskPrototype.durationInMinutes {
+            task.durationInMinutes = duration
+        }
+        
         task.startDate = taskPrototype.startDate
         task.priority?.prioprityEnum = taskPrototype.priority
-        task.subject = taskPrototype.subject
         task.status?.statusEnum = taskPrototype.status
         
         task.priority?.prioprityEnum = PriorityEnum.medium
@@ -96,24 +106,6 @@ extension CoreDataTasksManager: TaskService {
         
         CoreDataManager.instance.managedObjectContext.delete(task)
         CoreDataManager.instance.saveContext()
-    }
-    
-    func getTasks(filteredBy subject: Subject) -> [Task] {
-        let fetchRequest = self.fetchRequest
-        
-        let subjectPredicate = NSPredicate(format: "subject == %@", subject)
-        var filteredTasks: [Task] = []
-        
-        fetchRequest.predicate = subjectPredicate
-        
-        do {
-            filteredTasks = try CoreDataManager.instance.managedObjectContext.fetch(fetchRequest) as? [Task]
-                ?? []
-        } catch {
-            print(error)
-        }
-        
-        return filteredTasks
     }
     
 }

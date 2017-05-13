@@ -16,6 +16,4 @@ protocol TaskService {
     func updateTask(taskPrototype: TaskPrototype) -> Task?
     func deleteTask(task: Task)
     
-    func getTasks(filteredBy subject: Subject) -> [Task]
-    
 }

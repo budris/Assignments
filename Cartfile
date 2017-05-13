@@ -1,2 +1,4 @@
 github "danielgindi/Charts" == 3.0.1
 github "WenchaoD/FSCalendar"
+github "skywinder/ActionSheetPicker-3.0"
+github "MoZhouqi/KMPlaceholderTextView" >= 1.3

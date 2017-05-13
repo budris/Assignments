@@ -36,12 +36,34 @@ class SelectDateTableViewCell: UITableViewCell {
         }
     }
     
+    public var durationValue: Double? {
+        didSet {
+            if let durationInMinutes = durationValue {
+                dateLabel.text = formatDuration(durationInMinutes: durationInMinutes)
+            } else {
+                dateLabel.text = "None"
+            }
+            
+        }
+    }
+    
     private let dateFormatter = DateFormatter()
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
         dateFormatter.dateFormat = SelectDateTableViewCell.dateFormat
+    }
+    
+    private func formatDuration(durationInMinutes: Double) -> String {
+        if durationInMinutes < 60.0 {
+            return "\(Int(durationInMinutes)) min"
+        } else {
+            let hours = Int(durationInMinutes / 60.0)
+            let minutes = Int(durationInMinutes.remainder(dividingBy: 60.0))
+            
+            return "\(hours) hours \(minutes) min"
+        }
     }
 
 }

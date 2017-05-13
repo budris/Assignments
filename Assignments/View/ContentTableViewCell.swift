@@ -7,13 +7,13 @@
 //
 
 import UIKit
+import KMPlaceholderTextView
 
 class ContentTableViewCell: UITableViewCell {
     
     static let reuseIdentifier: String = "\(ContentTableViewCell.self)"
-
-    @IBOutlet private weak var contentTextView: UITextView!
     
+    @IBOutlet weak var contentTextView: KMPlaceholderTextView!
     public var didContentChanged: ((_ content: String?) -> ())?
     
     public var content: String? {
@@ -23,6 +23,11 @@ class ContentTableViewCell: UITableViewCell {
         set {
             contentTextView.text = newValue
         }
+    }
+    
+    public var placeholder: String {
+        get { return contentTextView.placeholder }
+        set { contentTextView.placeholder = newValue }
     }
     
     override func awakeFromNib() {
