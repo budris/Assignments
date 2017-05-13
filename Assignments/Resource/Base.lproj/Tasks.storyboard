@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -258,6 +259,28 @@
                                             <outlet property="contentTextView" destination="nV1-88-7EM" id="kuX-kI-Gs0"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AttachmentTableViewCell" id="mXc-1u-ZB2" customClass="AttachmentTableViewCell" customModule="Assignments" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="193" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mXc-1u-ZB2" id="CSx-qF-M5T">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="R5H-Oa-0zI">
+                                                    <rect key="frame" x="5" y="5" width="365" height="33.5"/>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="R5H-Oa-0zI" firstAttribute="top" secondItem="CSx-qF-M5T" secondAttribute="top" constant="5" id="3XJ-Uk-arU"/>
+                                                <constraint firstAttribute="trailing" secondItem="R5H-Oa-0zI" secondAttribute="trailing" constant="5" id="Tio-Gx-H03"/>
+                                                <constraint firstAttribute="bottom" secondItem="R5H-Oa-0zI" secondAttribute="bottom" constant="5" id="tdW-F9-U16"/>
+                                                <constraint firstItem="R5H-Oa-0zI" firstAttribute="leading" secondItem="CSx-qF-M5T" secondAttribute="leading" constant="5" id="wFU-1f-fgh"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="attachmentsStackView" destination="R5H-Oa-0zI" id="Sxf-IY-kcS"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </prototypes>
                             </tableView>
                         </subviews>
@@ -275,11 +298,18 @@
                                 <action selector="cancelAction:" destination="a1O-t7-2tx" id="j1M-aJ-pMX"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Create" id="iTu-Ds-Yel">
-                            <connections>
-                                <action selector="createAction:" destination="a1O-t7-2tx" id="Urc-sv-Nde"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem title="Create" id="iTu-Ds-Yel">
+                                <connections>
+                                    <action selector="createAction:" destination="a1O-t7-2tx" id="Urc-sv-Nde"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="camera" id="ojv-8a-wzR">
+                                <connections>
+                                    <action selector="takeAttachmentAction:" destination="a1O-t7-2tx" id="Z3Q-51-HmI"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="taskFieldsTableView" destination="5yM-Dc-OLA" id="Z5Y-Xv-MyJ"/>

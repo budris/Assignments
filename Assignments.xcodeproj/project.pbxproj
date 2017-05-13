@@ -18,7 +18,15 @@
 		DB0462CD1E7D87170083F577 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0462C51E7D87170083F577 /* RootViewController.swift */; };
 		DB0A2AAB1EAD16A700038D9D /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E2F4DF651E812727002ED6F2 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DB0A2AAD1EAD16A700038D9D /* FSCalendar.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E2F4DF671E812727002ED6F2 /* FSCalendar.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		DB0A2AAF1EAD485400038D9D /* ContentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0A2AAE1EAD485400038D9D /* ContentTableViewCell.swift */; };
+		DB442BB71EC746F2007D0324 /* AttachmentListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB442BB01EC746F2007D0324 /* AttachmentListItemView.swift */; };
+		DB442BB81EC746F2007D0324 /* AttachmentListItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB442BB11EC746F2007D0324 /* AttachmentListItemView.xib */; };
+		DB442BB91EC746F2007D0324 /* ContentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB442BB21EC746F2007D0324 /* ContentTableViewCell.swift */; };
+		DB442BBA1EC746F2007D0324 /* FullTaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB442BB31EC746F2007D0324 /* FullTaskTableViewCell.swift */; };
+		DB442BBB1EC746F2007D0324 /* SelectDateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB442BB41EC746F2007D0324 /* SelectDateTableViewCell.swift */; };
+		DB442BBC1EC746F2007D0324 /* SelectDateTimeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB442BB51EC746F2007D0324 /* SelectDateTimeTableViewCell.swift */; };
+		DB442BBD1EC746F2007D0324 /* SelectDurationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB442BB61EC746F2007D0324 /* SelectDurationTableViewCell.swift */; };
+		DB442BBF1EC7470F007D0324 /* AttachmentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB442BBE1EC7470F007D0324 /* AttachmentTableViewCell.swift */; };
+		DB442BC11EC74A9E007D0324 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB442BC01EC74A9E007D0324 /* UIImage.swift */; };
 		DB67F2931EACCA4E00C06CB3 /* SelectColorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB67F2921EACCA4E00C06CB3 /* SelectColorTableViewCell.swift */; };
 		DB67F2961EACCA7100C06CB3 /* Subject.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB67F2941EACCA7100C06CB3 /* Subject.storyboard */; };
 		DB67F2981EACCA9F00C06CB3 /* SelectColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB67F2971EACCA9F00C06CB3 /* SelectColorViewController.swift */; };
@@ -30,7 +38,6 @@
 		DB6FEC7C1EC088AE00135F4E /* TasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6FEC7A1EC088AE00135F4E /* TasksViewController.swift */; };
 		DB6FEC831EC0A41500135F4E /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6FEC811EC0A41500135F4E /* Task.swift */; };
 		DB6FEC841EC0A41500135F4E /* Task+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6FEC821EC0A41500135F4E /* Task+CoreDataProperties.swift */; };
-		DB6FEC861EC0A6D400135F4E /* SelectDurationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6FEC851EC0A6D400135F4E /* SelectDurationTableViewCell.swift */; };
 		DB6FEC881EC4E56100135F4E /* LocalNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6FEC871EC4E56100135F4E /* LocalNotificationManager.swift */; };
 		DB6FEC8A1EC4EB3600135F4E /* ReminderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6FEC891EC4EB3600135F4E /* ReminderService.swift */; };
 		DB6FEC8C1EC4F15B00135F4E /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6FEC8B1EC4F15B00135F4E /* Reminder.swift */; };
@@ -44,8 +51,6 @@
 		DB6FEC981EC729D700135F4E /* KMPlaceholderTextView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DB6FEC951EC729D300135F4E /* KMPlaceholderTextView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DB8399AF1EA3E66F00C1262D /* TitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8399AE1EA3E66F00C1262D /* TitleTableViewCell.swift */; };
 		DB8399B11EA3E6B200C1262D /* SelectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8399B01EA3E6B200C1262D /* SelectionTableViewCell.swift */; };
-		DB8399B31EA3E6E800C1262D /* SelectDateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8399B21EA3E6E800C1262D /* SelectDateTableViewCell.swift */; };
-		DB8399B51EA3E93100C1262D /* SelectDateTimeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8399B41EA3E93100C1262D /* SelectDateTimeTableViewCell.swift */; };
 		DB8399B71EA6969600C1262D /* SelectFieldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8399B61EA6969600C1262D /* SelectFieldViewController.swift */; };
 		DB8399B91EA69A4E00C1262D /* SelectFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8399B81EA69A4E00C1262D /* SelectFieldTableViewCell.swift */; };
 		DBB174BE1EA3CBAF0039DCE3 /* TaskService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB174BD1EA3CBAF0039DCE3 /* TaskService.swift */; };
@@ -62,7 +67,6 @@
 		DBDF59211EA236D90043C1B4 /* Attachment.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDF59151EA236D90043C1B4 /* Attachment.swift */; };
 		DBDF59221EA236D90043C1B4 /* Attachment+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDF59161EA236D90043C1B4 /* Attachment+CoreDataProperties.swift */; };
 		DBDF59281EA237D40043C1B4 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDF59271EA237D40043C1B4 /* CoreDataManager.swift */; };
-		DBF5B54D1EA263C500430DE0 /* FullTaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF5B54C1EA263C500430DE0 /* FullTaskTableViewCell.swift */; };
 		DBF5B5501EA2644100430DE0 /* Tasks.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBF5B54E1EA2644100430DE0 /* Tasks.storyboard */; };
 		E2F4DF681E812727002ED6F2 /* ChartsRealm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2F4DF631E812727002ED6F2 /* ChartsRealm.framework */; };
 		E2F4DF6A1E812727002ED6F2 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2F4DF651E812727002ED6F2 /* Realm.framework */; };
@@ -116,7 +120,15 @@
 		DB0462C11E7D87170083F577 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DB0462C41E7D87170083F577 /* DataViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataViewController.swift; sourceTree = "<group>"; };
 		DB0462C51E7D87170083F577 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
-		DB0A2AAE1EAD485400038D9D /* ContentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentTableViewCell.swift; sourceTree = "<group>"; };
+		DB442BB01EC746F2007D0324 /* AttachmentListItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttachmentListItemView.swift; sourceTree = "<group>"; };
+		DB442BB11EC746F2007D0324 /* AttachmentListItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AttachmentListItemView.xib; sourceTree = "<group>"; };
+		DB442BB21EC746F2007D0324 /* ContentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentTableViewCell.swift; sourceTree = "<group>"; };
+		DB442BB31EC746F2007D0324 /* FullTaskTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullTaskTableViewCell.swift; sourceTree = "<group>"; };
+		DB442BB41EC746F2007D0324 /* SelectDateTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectDateTableViewCell.swift; sourceTree = "<group>"; };
+		DB442BB51EC746F2007D0324 /* SelectDateTimeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectDateTimeTableViewCell.swift; sourceTree = "<group>"; };
+		DB442BB61EC746F2007D0324 /* SelectDurationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectDurationTableViewCell.swift; sourceTree = "<group>"; };
+		DB442BBE1EC7470F007D0324 /* AttachmentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttachmentTableViewCell.swift; sourceTree = "<group>"; };
+		DB442BC01EC74A9E007D0324 /* UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		DB67F2921EACCA4E00C06CB3 /* SelectColorTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectColorTableViewCell.swift; sourceTree = "<group>"; };
 		DB67F2951EACCA7100C06CB3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Subject.storyboard; sourceTree = "<group>"; };
 		DB67F2971EACCA9F00C06CB3 /* SelectColorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectColorViewController.swift; sourceTree = "<group>"; };
@@ -128,7 +140,6 @@
 		DB6FEC7A1EC088AE00135F4E /* TasksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TasksViewController.swift; sourceTree = "<group>"; };
 		DB6FEC811EC0A41500135F4E /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		DB6FEC821EC0A41500135F4E /* Task+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Task+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		DB6FEC851EC0A6D400135F4E /* SelectDurationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectDurationTableViewCell.swift; sourceTree = "<group>"; };
 		DB6FEC871EC4E56100135F4E /* LocalNotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalNotificationManager.swift; sourceTree = "<group>"; };
 		DB6FEC891EC4EB3600135F4E /* ReminderService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReminderService.swift; sourceTree = "<group>"; };
 		DB6FEC8B1EC4F15B00135F4E /* Reminder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
@@ -138,8 +149,6 @@
 		DB6FEC951EC729D300135F4E /* KMPlaceholderTextView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KMPlaceholderTextView.framework; path = Carthage/Build/iOS/KMPlaceholderTextView.framework; sourceTree = "<group>"; };
 		DB8399AE1EA3E66F00C1262D /* TitleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleTableViewCell.swift; sourceTree = "<group>"; };
 		DB8399B01EA3E6B200C1262D /* SelectionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectionTableViewCell.swift; sourceTree = "<group>"; };
-		DB8399B21EA3E6E800C1262D /* SelectDateTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectDateTableViewCell.swift; sourceTree = "<group>"; };
-		DB8399B41EA3E93100C1262D /* SelectDateTimeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectDateTimeTableViewCell.swift; sourceTree = "<group>"; };
 		DB8399B61EA6969600C1262D /* SelectFieldViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectFieldViewController.swift; sourceTree = "<group>"; };
 		DB8399B81EA69A4E00C1262D /* SelectFieldTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectFieldTableViewCell.swift; sourceTree = "<group>"; };
 		DBB174BD1EA3CBAF0039DCE3 /* TaskService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskService.swift; sourceTree = "<group>"; };
@@ -156,7 +165,6 @@
 		DBDF59151EA236D90043C1B4 /* Attachment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Attachment.swift; sourceTree = "<group>"; };
 		DBDF59161EA236D90043C1B4 /* Attachment+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Attachment+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		DBDF59271EA237D40043C1B4 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
-		DBF5B54C1EA263C500430DE0 /* FullTaskTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullTaskTableViewCell.swift; sourceTree = "<group>"; };
 		DBF5B54F1EA2644100430DE0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Tasks.storyboard; sourceTree = "<group>"; };
 		E2F4DF611E812717002ED6F2 /* Charts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Charts.framework; path = Carthage/Build/iOS/Charts.framework; sourceTree = "<group>"; };
 		E2F4DF631E812727002ED6F2 /* ChartsRealm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ChartsRealm.framework; path = Carthage/Build/iOS/ChartsRealm.framework; sourceTree = "<group>"; };
@@ -284,19 +292,15 @@
 		DB0462C21E7D87170083F577 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				DB442BAF1EC746F2007D0324 /* Task */,
 				DB6FEC641EB60DED00135F4E /* NavigationDropdownView.swift */,
 				E2F4DF701E8131E5002ED6F2 /* TaskTableViewCell.swift */,
-				DBF5B54C1EA263C500430DE0 /* FullTaskTableViewCell.swift */,
-				DB8399B21EA3E6E800C1262D /* SelectDateTableViewCell.swift */,
 				DB67F2991EACCB6C00C06CB3 /* ColorCollectionViewCell.swift */,
 				DB8399B01EA3E6B200C1262D /* SelectionTableViewCell.swift */,
 				DB8399B81EA69A4E00C1262D /* SelectFieldTableViewCell.swift */,
-				DB8399B41EA3E93100C1262D /* SelectDateTimeTableViewCell.swift */,
 				DB6FEC8F1EC4F3FC00135F4E /* ReminderTableViewCell.swift */,
 				DB67F2921EACCA4E00C06CB3 /* SelectColorTableViewCell.swift */,
 				DB8399AE1EA3E66F00C1262D /* TitleTableViewCell.swift */,
-				DB6FEC851EC0A6D400135F4E /* SelectDurationTableViewCell.swift */,
-				DB0A2AAE1EAD485400038D9D /* ContentTableViewCell.swift */,
 				DB6FEC761EC0871200135F4E /* ScrollableSegmentedControl.swift */,
 			);
 			path = View;
@@ -315,6 +319,21 @@
 				DB0462C51E7D87170083F577 /* RootViewController.swift */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		DB442BAF1EC746F2007D0324 /* Task */ = {
+			isa = PBXGroup;
+			children = (
+				DB442BB01EC746F2007D0324 /* AttachmentListItemView.swift */,
+				DB442BB11EC746F2007D0324 /* AttachmentListItemView.xib */,
+				DB442BB21EC746F2007D0324 /* ContentTableViewCell.swift */,
+				DB442BB31EC746F2007D0324 /* FullTaskTableViewCell.swift */,
+				DB442BB41EC746F2007D0324 /* SelectDateTableViewCell.swift */,
+				DB442BB51EC746F2007D0324 /* SelectDateTimeTableViewCell.swift */,
+				DB442BB61EC746F2007D0324 /* SelectDurationTableViewCell.swift */,
+				DB442BBE1EC7470F007D0324 /* AttachmentTableViewCell.swift */,
+			);
+			path = Task;
 			sourceTree = "<group>";
 		};
 		DB6FEC781EC088AE00135F4E /* Tasks */ = {
@@ -342,6 +361,7 @@
 			children = (
 				DBD907111EAD049D002CBCCC /* UIColor.swift */,
 				DBD907131EAD12E5002CBCCC /* UIViewController+UIAlert.swift */,
+				DB442BC01EC74A9E007D0324 /* UIImage.swift */,
 				DB6FEC741EBDFDC300135F4E /* Date.swift */,
 			);
 			path = Extension;
@@ -465,6 +485,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DB0462CA1E7D87170083F577 /* LaunchScreen.storyboard in Resources */,
+				DB442BB81EC746F2007D0324 /* AttachmentListItemView.xib in Resources */,
 				DB67F2961EACCA7100C06CB3 /* Subject.storyboard in Resources */,
 				DB0462C91E7D87170083F577 /* Assets.xcassets in Resources */,
 				DB0462C71E7D87170083F577 /* Info.plist in Resources */,
@@ -518,24 +539,25 @@
 				DB6FEC8E1EC4F39200135F4E /* RemindersViewController.swift in Sources */,
 				DBDF59201EA236D90043C1B4 /* Status+CoreDataProperties.swift in Sources */,
 				DBD907141EAD12E5002CBCCC /* UIViewController+UIAlert.swift in Sources */,
-				DB8399B51EA3E93100C1262D /* SelectDateTimeTableViewCell.swift in Sources */,
-				DB6FEC861EC0A6D400135F4E /* SelectDurationTableViewCell.swift in Sources */,
 				DBDF591F1EA236D90043C1B4 /* Status.swift in Sources */,
+				DB442BC11EC74A9E007D0324 /* UIImage.swift in Sources */,
 				DB6FEC831EC0A41500135F4E /* Task.swift in Sources */,
 				DB6FEC8C1EC4F15B00135F4E /* Reminder.swift in Sources */,
+				DB442BB91EC746F2007D0324 /* ContentTableViewCell.swift in Sources */,
 				DB6FEC651EB60DED00135F4E /* NavigationDropdownView.swift in Sources */,
 				DB6FEC841EC0A41500135F4E /* Task+CoreDataProperties.swift in Sources */,
 				DBB174BE1EA3CBAF0039DCE3 /* TaskService.swift in Sources */,
+				DB442BB71EC746F2007D0324 /* AttachmentListItemView.swift in Sources */,
 				DBB174C01EA3CBCA0039DCE3 /* CoreDataTasksManager.swift in Sources */,
+				DB442BBC1EC746F2007D0324 /* SelectDateTimeTableViewCell.swift in Sources */,
 				DB6FEC7B1EC088AE00135F4E /* CreateTaskViewController.swift in Sources */,
 				DB8399AF1EA3E66F00C1262D /* TitleTableViewCell.swift in Sources */,
+				DB442BBA1EC746F2007D0324 /* FullTaskTableViewCell.swift in Sources */,
 				DBDF58D81EA214700043C1B4 /* DataBase.xcdatamodeld in Sources */,
 				DB0462C61E7D87170083F577 /* AppDelegate.swift in Sources */,
 				DB6FEC751EBDFDC300135F4E /* Date.swift in Sources */,
-				DB0A2AAF1EAD485400038D9D /* ContentTableViewCell.swift in Sources */,
 				DB0462CC1E7D87170083F577 /* DataViewController.swift in Sources */,
 				DB8399B71EA6969600C1262D /* SelectFieldViewController.swift in Sources */,
-				DBF5B54D1EA263C500430DE0 /* FullTaskTableViewCell.swift in Sources */,
 				DBDF59181EA236D90043C1B4 /* Priority+CoreDataProperties.swift in Sources */,
 				DBDF59221EA236D90043C1B4 /* Attachment+CoreDataProperties.swift in Sources */,
 				DBD907121EAD049D002CBCCC /* UIColor.swift in Sources */,
@@ -547,14 +569,16 @@
 				DB0462C81E7D87170083F577 /* ModelController.swift in Sources */,
 				DB6FEC771EC0871200135F4E /* ScrollableSegmentedControl.swift in Sources */,
 				DB67F2931EACCA4E00C06CB3 /* SelectColorTableViewCell.swift in Sources */,
-				DB8399B31EA3E6E800C1262D /* SelectDateTableViewCell.swift in Sources */,
 				DB6FEC8A1EC4EB3600135F4E /* ReminderService.swift in Sources */,
 				DBDF59191EA236D90043C1B4 /* AttachmentType.swift in Sources */,
+				DB442BBF1EC7470F007D0324 /* AttachmentTableViewCell.swift in Sources */,
 				DB6FEC881EC4E56100135F4E /* LocalNotificationManager.swift in Sources */,
 				DB67F29A1EACCB6C00C06CB3 /* ColorCollectionViewCell.swift in Sources */,
 				DB8399B11EA3E6B200C1262D /* SelectionTableViewCell.swift in Sources */,
+				DB442BBB1EC746F2007D0324 /* SelectDateTableViewCell.swift in Sources */,
 				E2F4DF741E813B8E002ED6F2 /* StatisticsViewController.swift in Sources */,
 				DBDF59211EA236D90043C1B4 /* Attachment.swift in Sources */,
+				DB442BBD1EC746F2007D0324 /* SelectDurationTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

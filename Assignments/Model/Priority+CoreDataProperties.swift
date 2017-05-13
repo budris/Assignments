@@ -42,7 +42,7 @@ public enum PriorityEnum: Int {
         case .high:
             return UIColor(red: 230/255.0, green: 9/255.0, blue: 9/255.0, alpha: 1.0)
         case .medium:
-            return UIColor(red: 250/255.0, green: 250/255.0, blue: 12/255.0, alpha: 1.0)
+            return UIColor(red: 242/255.0, green: 227/255.0, blue: 15/255.0, alpha: 1.0)
         case .low:
             return UIColor(red: 21/255.0, green: 252/255.0, blue: 13/255.0, alpha: 1.0)
         }

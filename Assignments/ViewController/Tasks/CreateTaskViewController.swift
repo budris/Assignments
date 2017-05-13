@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreActionSheetPicker
+import MobileCoreServices.UTType
 
 enum TaskField {
     case title
@@ -149,6 +150,28 @@ class CreateTaskViewController: UIViewController {
         dismiss(animated: true)
     }
     
+    @IBAction func takeAttachmentAction(_ sender: Any) {
+        let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        actionSheet.addAction(UIAlertAction(title: "Upload From Camera Roll", style: .default) { action in
+            let picker = UIImagePickerController()
+            picker.delegate = self
+            picker.sourceType = .photoLibrary
+            picker.mediaTypes = UIImagePickerController.availableMediaTypes(for: .camera) ?? []
+            
+            self.present(picker, animated: true, completion: nil)
+        })
+        actionSheet.addAction(UIAlertAction(title: "Take Picture/Video", style: .default) { action in
+            let picker = UIImagePickerController()
+            picker.delegate = self
+            picker.sourceType = .camera
+            picker.mediaTypes = UIImagePickerController.availableMediaTypes(for: .camera) ?? []
+            
+            self.present(picker, animated: true, completion: nil)
+        })
+        actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        present(actionSheet, animated: true)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let type = sender as? TaskField {
             guard let destinationVC = segue.destination as? SelectFieldViewController else {
@@ -234,6 +257,17 @@ class CreateTaskViewController: UIViewController {
         }
         
         taskFieldsTableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .fade)
+    }
+    
+    fileprivate func addAttachment(data: NSData, type: AttachmentEnum) {
+        let attachment = Attachment()
+        attachment.data = data
+        attachment.name = UUID().uuidString
+        let attachmentType = AttachmentType()
+        attachmentType.typeEnum = type
+        attachment.type = attachmentType
+        
+        taskPrototype.attachments?.adding(attachment)
     }
     
 }
@@ -369,4 +403,42 @@ extension CreateTaskViewController: UITableViewDelegate {
     }
     
 }
+
+
+extension CreateTaskViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        guard let mediaType = info[UIImagePickerControllerMediaType] as? String else {
+            picker.dismiss(animated: true)
+            
+            return
+        }
+        
+        switch mediaType {
+        case String(kUTTypeImage):
+            guard let originalImage = info[UIImagePickerControllerOriginalImage] as? UIImage,
+                let fileData = UIImageJPEGRepresentation(originalImage.fixOrientation(), 1.0) else {
+                picker.dismiss(animated: true)
+                
+                return
+            }
+            
+            addAttachment(data: fileData as NSData, type: .image)
+        case String(kUTTypeMovie):
+            guard let videoURL = info[UIImagePickerControllerMediaURL] as? URL,
+                let videoData = NSData(contentsOf: videoURL)  else {
+                picker.dismiss(animated: true)
+                
+                return
+            }
+            
+            
+            addAttachment(data: videoData, type: .video)
+        default:
+            picker.dismiss(animated: true)
+        }
+    }
+    
+}
+
 

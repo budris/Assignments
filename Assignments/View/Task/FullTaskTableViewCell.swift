@@ -34,7 +34,8 @@ class FullTaskTableViewCell: UITableViewCell {
     public var priority: PriorityEnum? {
         didSet {
             if let priority = priority {
-                priorityLabel.text = priority.description                
+                priorityLabel.text = priority.description
+                priorityLabel.textColor = priority.color
             }
         }
     }

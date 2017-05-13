@@ -55,7 +55,7 @@ public enum StatusEnum: Int {
         case .postponed:
             return UIColor(red: 176/255.0, green: 2/255.0, blue: 245/255.0, alpha: 1.0)
         case .toDo:
-            return UIColor(red: 232/255.0, green: 89/255.0, blue: 28/255.0, alpha: 1.0)
+            return UIColor(red: 247/255.0, green: 88/255.0, blue: 20/255.0, alpha: 1.0)
         }
     }
     

@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "E1DB569E78FC755BDAFCFC1092FBABB0D1B328CA",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "E1DB569E78FC755BDAFCFC1092FBABB0D1B328CA" : 9223372036854775807,
+    "033EBC27E9F5E32C082910392338731B3B260841" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "E4286E35-5469-4E8C-B67F-BD781B42584D",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "E1DB569E78FC755BDAFCFC1092FBABB0D1B328CA" : "Assignments\/",
+    "033EBC27E9F5E32C082910392338731B3B260841" : "ios-app\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Assignments",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Assignments.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "ssh:\/\/git.itransition.com:7999\/ib\/ios-app.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "033EBC27E9F5E32C082910392338731B3B260841"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/budris\/Assignments.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "E1DB569E78FC755BDAFCFC1092FBABB0D1B328CA"
+    }
+  ]
+}

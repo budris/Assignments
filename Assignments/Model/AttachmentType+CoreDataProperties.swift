@@ -18,5 +18,26 @@ extension AttachmentType {
 
     @NSManaged public var attachmentType: Int16
     @NSManaged public var type: Attachment?
+    
+    var typeEnum: AttachmentEnum {
+        get { return AttachmentEnum(rawValue: Int(attachmentType)) ?? .image }
+        set { attachmentType = Int16(newValue.rawValue) }
+    }
 
+}
+
+public enum AttachmentEnum: Int {
+    
+    case image = 0
+    case video
+    
+    var image: UIImage? {
+        switch self {
+        case .image:
+            return UIImage(named: "picture")
+        case .video:
+            return UIImage(named: "video") 
+        }
+    }
+    
 }
