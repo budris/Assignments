@@ -10,9 +10,11 @@ import UIKit
 
 class AttachmentTableViewCell: UITableViewCell {
     
+    static let reuseIdentifier: String = "\(AttachmentTableViewCell.self)"
+    
     @IBOutlet weak var attachmentsStackView: UIStackView!
     
-    private func setupAttachments(attachments: [Attachment]) {
+    public func setupAttachments(attachments: [Attachment]) {
         for view in attachmentsStackView.subviews {
             view.removeFromSuperview()
         }

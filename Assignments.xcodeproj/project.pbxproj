@@ -10,11 +10,9 @@
 		DB0462AD1E7D86220083F577 /* AssignmentsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0462AC1E7D86220083F577 /* AssignmentsTests.swift */; };
 		DB0462C61E7D87170083F577 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0462B81E7D87170083F577 /* AppDelegate.swift */; };
 		DB0462C71E7D87170083F577 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DB0462B91E7D87170083F577 /* Info.plist */; };
-		DB0462C81E7D87170083F577 /* ModelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0462BB1E7D87170083F577 /* ModelController.swift */; };
 		DB0462C91E7D87170083F577 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB0462BD1E7D87170083F577 /* Assets.xcassets */; };
 		DB0462CA1E7D87170083F577 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB0462BE1E7D87170083F577 /* LaunchScreen.storyboard */; };
 		DB0462CB1E7D87170083F577 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB0462C01E7D87170083F577 /* Main.storyboard */; };
-		DB0462CC1E7D87170083F577 /* DataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0462C41E7D87170083F577 /* DataViewController.swift */; };
 		DB0462CD1E7D87170083F577 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0462C51E7D87170083F577 /* RootViewController.swift */; };
 		DB0A2AAB1EAD16A700038D9D /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E2F4DF651E812727002ED6F2 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DB0A2AAD1EAD16A700038D9D /* FSCalendar.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E2F4DF671E812727002ED6F2 /* FSCalendar.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -27,9 +25,13 @@
 		DB442BBD1EC746F2007D0324 /* SelectDurationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB442BB61EC746F2007D0324 /* SelectDurationTableViewCell.swift */; };
 		DB442BBF1EC7470F007D0324 /* AttachmentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB442BBE1EC7470F007D0324 /* AttachmentTableViewCell.swift */; };
 		DB442BC11EC74A9E007D0324 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB442BC01EC74A9E007D0324 /* UIImage.swift */; };
+		DB442BC31EC75579007D0324 /* SKPhotoBrowser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB442BC21EC75579007D0324 /* SKPhotoBrowser.framework */; };
+		DB442BC41EC75579007D0324 /* SKPhotoBrowser.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DB442BC21EC75579007D0324 /* SKPhotoBrowser.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DB442BC61EC787D9007D0324 /* NVActivityIndicatorView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB442BC51EC787D9007D0324 /* NVActivityIndicatorView.framework */; };
+		DB442BC71EC787DE007D0324 /* NVActivityIndicatorView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB442BC51EC787D9007D0324 /* NVActivityIndicatorView.framework */; };
+		DB442BC81EC787DE007D0324 /* NVActivityIndicatorView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DB442BC51EC787D9007D0324 /* NVActivityIndicatorView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DB67F2931EACCA4E00C06CB3 /* SelectColorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB67F2921EACCA4E00C06CB3 /* SelectColorTableViewCell.swift */; };
 		DB67F2961EACCA7100C06CB3 /* Subject.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB67F2941EACCA7100C06CB3 /* Subject.storyboard */; };
-		DB67F2981EACCA9F00C06CB3 /* SelectColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB67F2971EACCA9F00C06CB3 /* SelectColorViewController.swift */; };
 		DB67F29A1EACCB6C00C06CB3 /* ColorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB67F2991EACCB6C00C06CB3 /* ColorCollectionViewCell.swift */; };
 		DB6FEC651EB60DED00135F4E /* NavigationDropdownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6FEC641EB60DED00135F4E /* NavigationDropdownView.swift */; };
 		DB6FEC751EBDFDC300135F4E /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6FEC741EBDFDC300135F4E /* Date.swift */; };
@@ -97,9 +99,11 @@
 			dstSubfolderSpec = 10;
 			files = (
 				DB0A2AAB1EAD16A700038D9D /* Realm.framework in Embed Frameworks */,
+				DB442BC81EC787DE007D0324 /* NVActivityIndicatorView.framework in Embed Frameworks */,
 				DB6FEC981EC729D700135F4E /* KMPlaceholderTextView.framework in Embed Frameworks */,
 				DB6FEC941EC718FA00135F4E /* CoreActionSheetPicker.framework in Embed Frameworks */,
 				DB0A2AAD1EAD16A700038D9D /* FSCalendar.framework in Embed Frameworks */,
+				DB442BC41EC75579007D0324 /* SKPhotoBrowser.framework in Embed Frameworks */,
 				E2F4DF7A1E814D91002ED6F2 /* Charts.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -114,11 +118,9 @@
 		DB0462AE1E7D86220083F577 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DB0462B81E7D87170083F577 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB0462B91E7D87170083F577 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DB0462BB1E7D87170083F577 /* ModelController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelController.swift; sourceTree = "<group>"; };
 		DB0462BD1E7D87170083F577 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DB0462BF1E7D87170083F577 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DB0462C11E7D87170083F577 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		DB0462C41E7D87170083F577 /* DataViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataViewController.swift; sourceTree = "<group>"; };
 		DB0462C51E7D87170083F577 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		DB442BB01EC746F2007D0324 /* AttachmentListItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttachmentListItemView.swift; sourceTree = "<group>"; };
 		DB442BB11EC746F2007D0324 /* AttachmentListItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AttachmentListItemView.xib; sourceTree = "<group>"; };
@@ -129,9 +131,10 @@
 		DB442BB61EC746F2007D0324 /* SelectDurationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectDurationTableViewCell.swift; sourceTree = "<group>"; };
 		DB442BBE1EC7470F007D0324 /* AttachmentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttachmentTableViewCell.swift; sourceTree = "<group>"; };
 		DB442BC01EC74A9E007D0324 /* UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
+		DB442BC21EC75579007D0324 /* SKPhotoBrowser.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SKPhotoBrowser.framework; path = Carthage/Build/iOS/SKPhotoBrowser.framework; sourceTree = "<group>"; };
+		DB442BC51EC787D9007D0324 /* NVActivityIndicatorView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NVActivityIndicatorView.framework; path = Carthage/Build/iOS/NVActivityIndicatorView.framework; sourceTree = "<group>"; };
 		DB67F2921EACCA4E00C06CB3 /* SelectColorTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectColorTableViewCell.swift; sourceTree = "<group>"; };
 		DB67F2951EACCA7100C06CB3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Subject.storyboard; sourceTree = "<group>"; };
-		DB67F2971EACCA9F00C06CB3 /* SelectColorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectColorViewController.swift; sourceTree = "<group>"; };
 		DB67F2991EACCB6C00C06CB3 /* ColorCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorCollectionViewCell.swift; sourceTree = "<group>"; };
 		DB6FEC641EB60DED00135F4E /* NavigationDropdownView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationDropdownView.swift; sourceTree = "<group>"; };
 		DB6FEC741EBDFDC300135F4E /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
@@ -182,8 +185,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB442BC61EC787D9007D0324 /* NVActivityIndicatorView.framework in Frameworks */,
 				DB6FEC961EC729D300135F4E /* KMPlaceholderTextView.framework in Frameworks */,
+				DB442BC71EC787DE007D0324 /* NVActivityIndicatorView.framework in Frameworks */,
 				DB6FEC921EC718F300135F4E /* CoreActionSheetPicker.framework in Frameworks */,
+				DB442BC31EC75579007D0324 /* SKPhotoBrowser.framework in Frameworks */,
 				DB6FEC931EC718FA00135F4E /* CoreActionSheetPicker.framework in Frameworks */,
 				E2F4DF681E812727002ED6F2 /* ChartsRealm.framework in Frameworks */,
 				E2F4DF6A1E812727002ED6F2 /* Realm.framework in Frameworks */,
@@ -207,6 +213,7 @@
 		DB0462871E7D86210083F577 = {
 			isa = PBXGroup;
 			children = (
+				DB442BC21EC75579007D0324 /* SKPhotoBrowser.framework */,
 				DB0462921E7D86210083F577 /* Assignments */,
 				DB0462AB1E7D86220083F577 /* AssignmentsTests */,
 				DB0462911E7D86210083F577 /* Products */,
@@ -270,7 +277,6 @@
 				DBDF59141EA236D90043C1B4 /* Status+CoreDataProperties.swift */,
 				DBDF59151EA236D90043C1B4 /* Attachment.swift */,
 				DBDF59161EA236D90043C1B4 /* Attachment+CoreDataProperties.swift */,
-				DB0462BB1E7D87170083F577 /* ModelController.swift */,
 				DB6FEC8B1EC4F15B00135F4E /* Reminder.swift */,
 			);
 			path = Model;
@@ -310,8 +316,6 @@
 			isa = PBXGroup;
 			children = (
 				DB6FEC781EC088AE00135F4E /* Tasks */,
-				DB0462C41E7D87170083F577 /* DataViewController.swift */,
-				DB67F2971EACCA9F00C06CB3 /* SelectColorViewController.swift */,
 				DB8399B61EA6969600C1262D /* SelectFieldViewController.swift */,
 				E2F4DF6E1E81311B002ED6F2 /* CalendarViewController.swift */,
 				DB6FEC8D1EC4F39200135F4E /* RemindersViewController.swift */,
@@ -386,6 +390,7 @@
 		E2F4DF601E812717002ED6F2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DB442BC51EC787D9007D0324 /* NVActivityIndicatorView.framework */,
 				DB6FEC951EC729D300135F4E /* KMPlaceholderTextView.framework */,
 				DB6FEC911EC718F300135F4E /* CoreActionSheetPicker.framework */,
 				E2F4DF631E812727002ED6F2 /* ChartsRealm.framework */,
@@ -516,6 +521,8 @@
 				"$(SRCROOT)/Carthage/Build/iOS/Charts.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/CoreActionSheetPicker.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/KMPlaceholderTextView.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SKPhotoBrowser.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/NVActivityIndicatorView.framework",
 			);
 			name = "Run Script";
 			outputPaths = (
@@ -533,7 +540,6 @@
 			files = (
 				DB8399B91EA69A4E00C1262D /* SelectFieldTableViewCell.swift in Sources */,
 				E2F4DF711E8131E5002ED6F2 /* TaskTableViewCell.swift in Sources */,
-				DB67F2981EACCA9F00C06CB3 /* SelectColorViewController.swift in Sources */,
 				E2F4DF6F1E81311B002ED6F2 /* CalendarViewController.swift in Sources */,
 				DB6FEC901EC4F3FC00135F4E /* ReminderTableViewCell.swift in Sources */,
 				DB6FEC8E1EC4F39200135F4E /* RemindersViewController.swift in Sources */,
@@ -556,7 +562,6 @@
 				DBDF58D81EA214700043C1B4 /* DataBase.xcdatamodeld in Sources */,
 				DB0462C61E7D87170083F577 /* AppDelegate.swift in Sources */,
 				DB6FEC751EBDFDC300135F4E /* Date.swift in Sources */,
-				DB0462CC1E7D87170083F577 /* DataViewController.swift in Sources */,
 				DB8399B71EA6969600C1262D /* SelectFieldViewController.swift in Sources */,
 				DBDF59181EA236D90043C1B4 /* Priority+CoreDataProperties.swift in Sources */,
 				DBDF59221EA236D90043C1B4 /* Attachment+CoreDataProperties.swift in Sources */,
@@ -566,7 +571,6 @@
 				DBDF59281EA237D40043C1B4 /* CoreDataManager.swift in Sources */,
 				DB0462CD1E7D87170083F577 /* RootViewController.swift in Sources */,
 				DBDF591A1EA236D90043C1B4 /* AttachmentType+CoreDataProperties.swift in Sources */,
-				DB0462C81E7D87170083F577 /* ModelController.swift in Sources */,
 				DB6FEC771EC0871200135F4E /* ScrollableSegmentedControl.swift in Sources */,
 				DB67F2931EACCA4E00C06CB3 /* SelectColorTableViewCell.swift in Sources */,
 				DB6FEC8A1EC4EB3600135F4E /* ReminderService.swift in Sources */,

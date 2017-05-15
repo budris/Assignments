@@ -20,6 +20,12 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>Your camera is used to make photos and videos to be uploaded to Assignments. Your photos and videos won’t be shared without your permission.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Your microphone is used to make videos to be uploaded to Assignments. Your videos won’t be shared without your permission.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>The photos you choose will be uploaded to Assignments. Your photos won’t be shared without your permission.</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

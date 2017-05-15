@@ -10,6 +10,7 @@ import Foundation
 import UserNotifications
 
 class LocalNotificationManager: ReminderService {
+    private static let taskIdKey: String = "TaskId"
     static let sharedInstance = LocalNotificationManager()
     
     private let center: UNUserNotificationCenter
@@ -20,11 +21,12 @@ class LocalNotificationManager: ReminderService {
         })
     }
     
-    func createReminder(at date: Date, with title: String, and message: String) {
+    func createReminder(at date: Date, with title: String, and message: String, for taskId: Int) {
         let content = UNMutableNotificationContent()
         content.title = title
         content.body = message
         content.sound = UNNotificationSound.default()
+        content.userInfo[LocalNotificationManager.taskIdKey] = taskId
         
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: date.timeIntervalSinceNow,
                                                         repeats: false)
@@ -33,20 +35,27 @@ class LocalNotificationManager: ReminderService {
                                             content: content,
                                             trigger: trigger)
         
-        center.add(request)
+        center.add(request)  
     }
     
     func getReminders(success: @escaping (([Reminder]) -> (Void))) {
         center.getPendingNotificationRequests { notifications in
             var reminders: [Reminder] = []
             notifications.forEach ({
-                guard let trigger = $0.trigger as? UNTimeIntervalNotificationTrigger else {
+                guard let trigger = $0.trigger as? UNTimeIntervalNotificationTrigger,
+                    let taskId = $0.content.userInfo[LocalNotificationManager.taskIdKey] as? Int else {
                     return
                 }
                 
-                reminders.append(Reminder(fireDate: Date().addingTimeInterval(trigger.timeInterval)))
+                reminders.append(Reminder(identifier: $0.identifier,
+                                          taskId: taskId,
+                                          fireDate: Date().addingTimeInterval(trigger.timeInterval)))
             })
             success(reminders)
         }
+    }
+    
+    func removeReminder(withIdentifiers: [String]) {
+        center.removePendingNotificationRequests(withIdentifiers: withIdentifiers)
     }
 }

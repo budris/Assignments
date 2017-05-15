@@ -48,6 +48,19 @@ public enum PriorityEnum: Int {
         }
     }
     
+    static func priority(by description: String) -> PriorityEnum? {
+        switch description {
+        case "high":
+            return .high
+        case "medium":
+            return .medium
+        case "low":
+            return .low
+        default:
+            return nil
+        }
+    }
+    
     static let allValues: [PriorityEnum] = [.high, .medium, .low]
 }
 

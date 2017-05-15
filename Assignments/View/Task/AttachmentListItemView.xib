@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -15,7 +16,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="AttachmentListItemView" customModule="Intraboom" customModuleProvider="target">
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="AttachmentListItemView" customModule="Assignments" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="364" height="43"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
@@ -35,10 +36,10 @@
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="9PW-ca-tad" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="1jA-7P-JGj"/>
                 <constraint firstItem="Py0-WW-fti" firstAttribute="leading" secondItem="9PW-ca-tad" secondAttribute="trailing" constant="15" id="5eh-6f-BNn"/>
                 <constraint firstItem="9PW-ca-tad" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="K0t-Ax-qlw"/>
                 <constraint firstAttribute="trailing" secondItem="Py0-WW-fti" secondAttribute="trailing" id="PP1-Tj-gKn"/>
+                <constraint firstItem="9PW-ca-tad" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="StX-Lu-5is"/>
                 <constraint firstItem="Py0-WW-fti" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="gts-NQ-zsO"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

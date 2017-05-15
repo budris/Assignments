@@ -15,7 +15,7 @@ protocol Selectable {
 
 class SelectFieldViewController: UIViewController {
     
-    @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private weak var fieldsTableView: UITableView!
     
     public var selectionFields: [Selectable]?
     public var selectedFields: [Selectable] = []
@@ -25,8 +25,8 @@ class SelectFieldViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.dataSource = self
-        tableView.delegate = self
+        fieldsTableView.dataSource = self
+        fieldsTableView.delegate = self
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -39,7 +39,7 @@ class SelectFieldViewController: UIViewController {
         return selectedFields.contains(where: { $0.idField == field.idField })
     }
     
-    fileprivate func deselectCells(for tableView: UITableView) {
+    fileprivate func deselectAllCells(for tableView: UITableView) {
         selectedFields.removeAll()
         let indexPaths = selectionFields?.enumerated().map({ IndexPath(row: $0.offset, section: 0) })
         indexPaths?.forEach({ tableView.cellForRow(at: $0)?.accessoryType = .none })
@@ -79,7 +79,7 @@ extension SelectFieldViewController: UITableViewDelegate {
         }
         
         if !multiselectionEnabled {
-            deselectCells(for: tableView)
+            deselectAllCells(for: tableView)
         }
         
         let isSelected = cell.accessoryType == .checkmark

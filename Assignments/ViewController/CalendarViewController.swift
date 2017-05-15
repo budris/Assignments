@@ -13,17 +13,18 @@ class CalendarViewController: UIViewController {
     @IBOutlet weak var calendarView: FSCalendar!
     @IBOutlet weak var tasksTableView: UITableView!
     
+    // MARK : Services
+    
     fileprivate let tasksService: TaskService = CoreDataTasksManager.sharedInstance
-
-    fileprivate typealias Event = (time: String, subject: String)
-
-    fileprivate var dataSource: [String : [Task]] = [:]
+    
+    fileprivate var calendarDataSource: [String : [Task]] = [:]
     fileprivate var tasksForDate: [Task] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tasksTableView.dataSource = self
+        tasksTableView.delegate = self
         
         calendarView.delegate = self
         calendarView.dataSource = self
@@ -32,37 +33,55 @@ class CalendarViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        generateDataSource()
+        generateCalendarDataSource()
+        generateTasksDataSource(for: calendarView.selectedDate ?? Date())
     }
     
-    private func generateDataSource() {
-        dataSource.removeAll()
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "editTask" {
+            guard let navVC = segue.destination as? UINavigationController,
+                let editTaskVC = navVC.topViewController as? CreateTaskViewController,
+                let task = sender as? Task else {
+                    return
+            }
+            
+            editTaskVC.editedTask = task
+            editTaskVC.didUpdatedTask = { [weak self] task in
+                guard let index = self?.tasksForDate.index(where: { $0.id == task.id }) else {
+                    return
+                }
+                
+                self?.tasksTableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
+            }
+        } else {
+            super.prepare(for: segue, sender: sender)
+        }
+    }
+    
+    private func generateCalendarDataSource() {
+        calendarDataSource.removeAll()
         tasksService.tasks.forEach { task in
-            guard let taskDate = task.startDate as? Date else {
+            guard let taskDate = task.startDate as Date? else {
                 return
             }
             
-            if var tasksForThisDate = dataSource[taskDate.formattedDateDescription()] {
+            if var tasksForThisDate = calendarDataSource[taskDate.formattedDateDescription()] {
                 tasksForThisDate.append(task)
-                dataSource[taskDate.formattedDateDescription()] = tasksForThisDate
+                calendarDataSource[taskDate.formattedDateDescription()] = tasksForThisDate
             } else {
-                dataSource[taskDate.formattedDateDescription()] = [task]
+                calendarDataSource[taskDate.formattedDateDescription()] = [task]
             }
         }
         calendarView.reloadData()
         
         let currentDate = Date()
-        filterTasks(for: currentDate)
+        generateTasksDataSource(for: currentDate)
     }
     
-    fileprivate func filterTasks(for date: Date) {
+    fileprivate func generateTasksDataSource(for date: Date) {
         tasksForDate.removeAll()
-        tasksForDate = dataSource[date.formattedDateDescription()] ?? []
+        tasksForDate = calendarDataSource[date.formattedDateDescription()] ?? []
         tasksTableView.reloadData()
-    }
-    
-    fileprivate func compareDatesByDay(_ firstDate: Date, _ secondDate: Date) -> Bool {
-       return true
     }
 
 }
@@ -74,21 +93,33 @@ extension CalendarViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "TaskTableViewCell") as? TaskTableViewCell,
-            let taskDate = tasksForDate[indexPath.row].startDate as? Date else {
+            let taskDate = tasksForDate[indexPath.row].startDate as Date? else {
             return UITableViewCell()
         }
 
-        cell.timeLabel.text = taskDate.formattedTimeDescription()
-        cell.subjectLabel.text = tasksForDate[indexPath.row].title
-
+        let task = tasksForDate[indexPath.row]
+        cell.timeValue = taskDate.formattedTimeDescription()
+        cell.titleValue = task.title
+        cell.status = task.status?.statusEnum
+        
         return cell
+    }
+}
+
+extension CalendarViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        let task = tasksForDate[indexPath.row]
+        performSegue(withIdentifier: "editTask", sender: task)
     }
 }
 
 extension CalendarViewController: FSCalendarDataSource {
 
     func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
-        return dataSource[date.formattedDateDescription()]?.count ?? 0
+        return calendarDataSource[date.formattedDateDescription()]?.count ?? 0
     }
 
 }
@@ -96,7 +127,7 @@ extension CalendarViewController: FSCalendarDataSource {
 extension CalendarViewController: FSCalendarDelegate {
     
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
-        filterTasks(for: date)
+        generateTasksDataSource(for: date)
     }
     
 }

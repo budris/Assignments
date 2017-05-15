@@ -14,4 +14,15 @@ class ReminderTableViewCell: UITableViewCell {
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
+    
+    public var titleValue: String? {
+        get { return titleLabel.text }
+        set { titleLabel.text = newValue }
+    }
+    
+    public var timeValue: String? {
+        get { return timeLabel.text }
+        set { timeLabel.text = newValue }
+    }
+    
 }

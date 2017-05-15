@@ -9,6 +9,7 @@
 import Foundation
 
 protocol ReminderService {
-    func createReminder(at date: Date, with title: String, and message: String)
+    func createReminder(at date: Date, with title: String, and message: String, for taskId: Int)
     func getReminders(success: @escaping (([Reminder]) -> (Void)))
+    func removeReminder(withIdentifiers: [String])
 }

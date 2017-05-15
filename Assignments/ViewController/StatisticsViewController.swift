@@ -17,10 +17,8 @@ class StatisticViewController: UIViewController {
     
     typealias StudyData = (value: Double, label: String)
     
-    var dataSource: [StudyData] = []
+    fileprivate var statisticDataSource: [StudyData] = []
     fileprivate var tasksForStatus: [Task] = []
-    
-    private var selectedIndex: Int = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,16 +26,37 @@ class StatisticViewController: UIViewController {
         pieChartView.delegate = self
         
         tasksTableView.dataSource = self
-//        tasksTableView.delegate = self
+        tasksTableView.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        setupDataSource()
+        generateChartDataSource()
     }
     
-    private func setupDataSource() {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "editTask" {
+            guard let navVC = segue.destination as? UINavigationController,
+                let editTaskVC = navVC.topViewController as? CreateTaskViewController,
+                let task = sender as? Task else {
+                    return
+            }
+            
+            editTaskVC.editedTask = task
+            editTaskVC.didUpdatedTask = { [weak self] task in
+                guard let index = self?.tasksForStatus.index(where: { $0.id == task.id }) else {
+                    return
+                }
+                
+                self?.tasksTableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
+            }
+        } else {
+            super.prepare(for: segue, sender: sender)
+        }
+    }
+    
+    private func generateChartDataSource() {
         let tasks = tasksService.tasks
         
         var statusesOfTasks: [String : Int] = [:]
@@ -57,7 +76,7 @@ class StatisticViewController: UIViewController {
             }
         }
         
-        dataSource = statusesOfTasks.map({ (key: String, value: Int) -> StudyData in
+        statisticDataSource = statusesOfTasks.map({ (key: String, value: Int) -> StudyData in
             StudyData(value:  Double(value) / Double(countOfTaskWithStatus) * 100.0, label: key)
         })
         
@@ -65,7 +84,7 @@ class StatisticViewController: UIViewController {
     }
 
     private func setChartData() {
-        let values: [PieChartDataEntry] = dataSource.map({ PieChartDataEntry(value: $0, label: $1) })
+        let values: [PieChartDataEntry] = statisticDataSource.map({ PieChartDataEntry(value: $0, label: $1) })
         let dataSet = PieChartDataSet(values: values, label: "Tasks Statistics")
 
         dataSet.drawValuesEnabled = true
@@ -118,14 +137,25 @@ extension StatisticViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "TaskTableViewCell") as? TaskTableViewCell,
-            let taskDate = tasksForStatus[indexPath.row].startDate as? Date else {
+            let taskDate = tasksForStatus[indexPath.row].startDate as Date? else {
                 return UITableViewCell()
         }
         
-        cell.timeLabel.text = taskDate.formattedTimeDescription()
-        cell.subjectLabel.text = tasksForStatus[indexPath.row].title
+        let task = tasksForStatus[indexPath.row]
+        cell.timeValue = taskDate.formattedTimeDescription()
+        cell.titleValue = task.title
+        cell.status = task.status?.statusEnum
         
         return cell
     }
     
+}
+
+extension StatisticViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        let task = tasksForStatus[indexPath.row]
+        performSegue(withIdentifier: "editTask", sender: task)
+    }
 }

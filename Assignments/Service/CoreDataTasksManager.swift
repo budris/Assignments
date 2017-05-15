@@ -65,6 +65,8 @@ extension CoreDataTasksManager: TaskService {
         status.statusEnum = taskPrototype.status
         task.status = status
         
+        task.attachments = taskPrototype.attachments
+        
         coreDataTasks.append(task)
         CoreDataManager.instance.saveContext()
         
@@ -90,7 +92,7 @@ extension CoreDataTasksManager: TaskService {
         task.priority?.prioprityEnum = taskPrototype.priority
         task.status?.statusEnum = taskPrototype.status
         
-        task.priority?.prioprityEnum = PriorityEnum.medium
+        task.attachments = taskPrototype.attachments
         
         coreDataTasks[index] = task
         CoreDataManager.instance.saveContext()

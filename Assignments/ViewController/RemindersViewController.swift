@@ -7,12 +7,13 @@
 //
 
 import UIKit
+import NVActivityIndicatorView
 
-class RemindersViewController: UIViewController {
-    
+class RemindersViewController: UIViewController, NVActivityIndicatorViewable {
     @IBOutlet weak var remindersTableView: UITableView!
     
-    fileprivate let reminderService = LocalNotificationManager.sharedInstance
+    fileprivate let reminderService: ReminderService = LocalNotificationManager.sharedInstance
+    fileprivate let taskService: TaskService = CoreDataTasksManager.sharedInstance
     
     var reminders: [Reminder] = []
     
@@ -20,17 +21,32 @@ class RemindersViewController: UIViewController {
         super.viewDidLoad()
         
         remindersTableView.dataSource = self
-//        remindersTableView.delegate = self
+        remindersTableView.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        reminders.removeAll()
+        remindersTableView.reloadData()
+        
+        let indicatorFrame = CGRect(x: 0.0, y: 0.0, width: 50, height: 50)
+        
+        let activityIndicator = NVActivityIndicatorView(frame: indicatorFrame,
+                                                        type: NVActivityIndicatorType.ballClipRotate,
+                                                        color: UIColor.darkGray,
+                                                        padding: nil)
+        activityIndicator.center = view.center
+        self.view.addSubview(activityIndicator)
+        activityIndicator.startAnimating()
+        
         reminderService.getReminders { [weak self] reminders -> (Void) in
             self?.reminders = reminders
             self?.remindersTableView.reloadData()
+            activityIndicator.stopAnimating()
         }
     }
+    
 }
 
 extension RemindersViewController: UITableViewDataSource {
@@ -44,10 +60,39 @@ extension RemindersViewController: UITableViewDataSource {
             return UITableViewCell()
         }
         
-        cell.titleLabel.text = "text"
-        cell.timeLabel.text = reminders[indexPath.row].fireDate.formattedDateDescription()
+        let reminder = reminders[indexPath.row]
+        
+        if let task = taskService.tasks.first(where: { Int($0.id) == reminder.taskId }) {
+            cell.titleValue = task.title
+        } else {
+            cell.titleValue = "Not found"
+        }
+        
+        cell.timeLabel.text = reminder.fireDate.formattedDateDescription()
         
         return cell
+    }
+    
+}
+
+extension RemindersViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let deleteAction = UITableViewRowAction(style: .destructive, title: "Delete") { [weak self] (_, indexPath) in
+            guard let reminder = self?.reminders[indexPath.row] else {
+                return
+            }
+            
+            self?.reminderService.removeReminder(withIdentifiers: [reminder.identifier])
+            self?.reminders.remove(at: indexPath.row)
+            self?.remindersTableView.deleteRows(at: [indexPath], with: .fade)
+        }
+        
+        return [deleteAction]
     }
     
 }

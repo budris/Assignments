@@ -39,5 +39,40 @@ class FullTaskTableViewCell: UITableViewCell {
             }
         }
     }
+    
+    public var attachments: [Attachment] = [] {
+        didSet {
+            setupAttachments(attachments: attachments)
+        }
+    }
+    
+    var didSelectAttachment: ((_ attachment: Attachment) -> ())?
+    
+    public func setupAttachments(attachments: [Attachment]) {
+        for view in additionalInfoStackView.subviews {
+            view.removeFromSuperview()
+        }
+        for attachment in attachments {
+            let attachmentsView = AttachmentListItemView.instanceFromNib()
+            
+            attachmentsView.attachmentName = attachment.name
+            attachmentsView.image = attachment.type?.typeEnum.image
+            
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(FullTaskTableViewCell.attachmentTapped(recognizer:)))
+            attachmentsView.addGestureRecognizer(tapGesture)
+            
+            attachmentsView.heightAnchor.constraint(equalToConstant: 30).isActive = true
+            additionalInfoStackView.addArrangedSubview(attachmentsView)
+        }
+    }
+    
+    public func attachmentTapped(recognizer: UITapGestureRecognizer) {
+        guard let attachmentsView = recognizer.view as? AttachmentListItemView,
+            let index = additionalInfoStackView.subviews.index(of: attachmentsView) else {
+            return
+        }
+        
+        didSelectAttachment?(attachments[index])
+    }
 
 }

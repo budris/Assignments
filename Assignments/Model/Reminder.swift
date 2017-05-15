@@ -10,8 +10,12 @@ import Foundation
 
 class Reminder {
     let fireDate: Date
+    let taskId: Int
+    let identifier: String
     
-    init(fireDate: Date) {
+    init(identifier: String, taskId: Int, fireDate: Date) {
+        self.identifier = identifier
+        self.taskId = taskId
         self.fireDate = fireDate
     }
 }

@@ -1,5 +1,7 @@
 github "skywinder/ActionSheetPicker-3.0" "2.2.0"
 github "WenchaoD/FSCalendar" "2.7.4"
 github "MoZhouqi/KMPlaceholderTextView" "1.3.0"
+github "ninjaprox/NVActivityIndicatorView" "3.6.1"
+github "suzuki-0000/SKPhotoBrowser" "4.0.1"
 github "realm/realm-cocoa" "v1.1.0"
 github "danielgindi/Charts" "v3.0.1"

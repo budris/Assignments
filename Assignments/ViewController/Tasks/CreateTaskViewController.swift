@@ -67,11 +67,11 @@ class CreateTaskViewController: UIViewController {
     
     @IBOutlet weak var taskFieldsTableView: UITableView!
     
-    open let taskService: TaskService = CoreDataTasksManager.sharedInstance
+    fileprivate let taskService: TaskService = CoreDataTasksManager.sharedInstance
     fileprivate let reminderService = LocalNotificationManager.sharedInstance
     
     fileprivate var taskFieldsDataSource: [TaskField] = []
-    open var taskPrototype = TaskPrototype()
+    fileprivate var taskPrototype = TaskPrototype()
     
     public var editedTask: Task?
     public var didUpdatedTask: ((_ task: Task) -> ())?
@@ -91,6 +91,7 @@ class CreateTaskViewController: UIViewController {
             taskPrototype.content = task.content
             taskPrototype.durationInMinutes = task.durationInMinutes
             taskPrototype.startDate = task.startDate
+            taskPrototype.attachments = task.attachments
             
             if let priority = task.priority?.prioprityEnum {
                 taskPrototype.priority = priority
@@ -132,9 +133,11 @@ class CreateTaskViewController: UIViewController {
         
         switch workingType {
         case .create:
-            let _  = taskService.createTask(taskPrototype: taskPrototype)
+            let task  = taskService.createTask(taskPrototype: taskPrototype)
             if let startDate = taskPrototype.startDate as Date? {
-                reminderService.createReminder(at: startDate, with: taskPrototype.title ?? "", and: "You must to do")
+                reminderService.createReminder(at: startDate,
+                                               with: taskPrototype.title ?? "", and: "You must to do",
+                                               for: Int(task.id))
             }
             
         case .edit:
@@ -153,11 +156,11 @@ class CreateTaskViewController: UIViewController {
     @IBAction func takeAttachmentAction(_ sender: Any) {
         let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         actionSheet.addAction(UIAlertAction(title: "Upload From Camera Roll", style: .default) { action in
-            let picker = UIImagePickerController()
+            let picker = UIImagePickerController()            
             picker.delegate = self
             picker.sourceType = .photoLibrary
-            picker.mediaTypes = UIImagePickerController.availableMediaTypes(for: .camera) ?? []
-            
+            picker.mediaTypes = UIImagePickerController.availableMediaTypes(for: .photoLibrary) ?? []
+
             self.present(picker, animated: true, completion: nil)
         })
         actionSheet.addAction(UIAlertAction(title: "Take Picture/Video", style: .default) { action in
@@ -220,22 +223,6 @@ class CreateTaskViewController: UIViewController {
         }
     }
     
-    fileprivate func showCreateSubjectAlert() {
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        let createSubjectAction = UIAlertAction(title: "Create", style: .default) { [weak self] _ in
-            self?.performSegue(withIdentifier: "createSubject", sender: self)
-        }
-        
-        let createSubjectAlert = UIAlertController(title: nil,
-                                                   message: "You don`t have any subjects.",
-                                                   preferredStyle: .alert)
-        
-        createSubjectAlert.addAction(cancelAction)
-        createSubjectAlert.addAction(createSubjectAction)
-        
-        present(createSubjectAlert, animated: true)
-    }
-    
     fileprivate func showDatePicker(title: String, selectedDate: Date, mode: UIDatePickerMode, durationInMinutes: TimeInterval? = nil, complition: @escaping ActionDateDoneBlock) {
         let actionSheetPicker = ActionSheetDatePicker.show(withTitle: title,
                                    datePickerMode: mode,
@@ -267,7 +254,20 @@ class CreateTaskViewController: UIViewController {
         attachmentType.typeEnum = type
         attachment.type = attachmentType
         
-        taskPrototype.attachments?.adding(attachment)
+        if var attachments = taskPrototype.attachments?.allObjects as? [Attachment] {
+            attachments.append(attachment)
+            taskPrototype.attachments = Set(attachments) as NSSet
+        } else {
+            taskPrototype.attachments = [attachment]
+        }
+        
+        
+        if !taskFieldsDataSource.contains(.attachments) {
+            taskFieldsDataSource.append(.attachments)
+            taskFieldsTableView.reloadData()
+        } else {
+            reloadRow(type: .attachments)
+        }
     }
     
 }
@@ -294,8 +294,8 @@ extension CreateTaskViewController: UITableViewDataSource {
             cell = contentTableViewCell(tableView, for: indexPath)
         case .durationInMinutes:
             cell = durationTableViewCell(tableView, for: indexPath)
-        default:
-            cell = UITableViewCell()
+        case .attachments:
+            cell = attachmentsTableViewCell(tableView, for: indexPath)
         }
         return cell
     }
@@ -364,6 +364,17 @@ extension CreateTaskViewController: UITableViewDataSource {
         return cell
     }
     
+    private func attachmentsTableViewCell(_ tableView: UITableView, for indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: AttachmentTableViewCell.reuseIdentifier, for: indexPath) as? AttachmentTableViewCell,
+            let attachments = taskPrototype.attachments?.allObjects as? [Attachment] else {
+            return UITableViewCell()
+        }
+        
+        cell.setupAttachments(attachments: attachments)
+        
+        return cell
+    }
+    
 }
 
 extension CreateTaskViewController: UITableViewDelegate {
@@ -424,6 +435,7 @@ extension CreateTaskViewController: UIImagePickerControllerDelegate, UINavigatio
             }
             
             addAttachment(data: fileData as NSData, type: .image)
+            picker.dismiss(animated: true)
         case String(kUTTypeMovie):
             guard let videoURL = info[UIImagePickerControllerMediaURL] as? URL,
                 let videoData = NSData(contentsOf: videoURL)  else {
@@ -434,6 +446,7 @@ extension CreateTaskViewController: UIImagePickerControllerDelegate, UINavigatio
             
             
             addAttachment(data: videoData, type: .video)
+            picker.dismiss(animated: true)
         default:
             picker.dismiss(animated: true)
         }
