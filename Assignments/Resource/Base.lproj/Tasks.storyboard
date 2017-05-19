@@ -137,6 +137,7 @@
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cqa-kv-gPB">
                                                     <rect key="frame" x="15" y="7" width="345" height="30"/>
+                                                    <accessibility key="accessibilityConfiguration" label="TaskTitle"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -148,6 +149,9 @@
                                                 <constraint firstItem="Cqa-kv-gPB" firstAttribute="centerY" secondItem="PeV-Si-AQ2" secondAttribute="centerY" id="f8Q-9z-1lH"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <accessibility key="accessibilityConfiguration" label="TaskTitleCell">
+                                            <bool key="isElement" value="YES"/>
+                                        </accessibility>
                                         <connections>
                                             <outlet property="titleTextField" destination="Cqa-kv-gPB" id="lKn-Oi-56z"/>
                                         </connections>
@@ -361,7 +365,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="tableView" destination="lxf-bl-Zro" id="wXw-aY-bcQ"/>
+                        <outlet property="fieldsTableView" destination="lxf-bl-Zro" id="5Ii-vB-xMd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ej8-sj-s6L" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -375,7 +379,7 @@
                     <tabBarItem key="tabBarItem" title="Tasks" image="taskList" id="U15-zi-5ec"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Sqy-sk-WE5">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Sqy-sk-WE5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.079666249454021454" green="0.27028262615203857" blue="0.31241157650947571" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -28,7 +28,8 @@ class TitleTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+
+        isAccessibilityElement = true
         titleTextField.delegate = self
     }
 

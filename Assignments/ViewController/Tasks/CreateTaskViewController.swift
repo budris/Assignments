@@ -101,6 +101,7 @@ class CreateTaskViewController: UIViewController {
             }
             
             navigationItem.rightBarButtonItem?.title = "Save"
+            navigationItem.title = "Edit Task"
         }
         
         taskFieldsTableView.dataSource = self
