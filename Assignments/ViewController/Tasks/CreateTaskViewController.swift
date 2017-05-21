@@ -71,7 +71,7 @@ class CreateTaskViewController: UIViewController {
     fileprivate let reminderService = LocalNotificationManager.sharedInstance
     
     fileprivate var taskFieldsDataSource: [TaskField] = []
-    fileprivate var taskPrototype = TaskPrototype()
+    var taskPrototype = TaskPrototype()
     
     public var editedTask: Task?
     public var didUpdatedTask: ((_ task: Task) -> ())?

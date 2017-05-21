@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		DB0462AD1E7D86220083F577 /* AssignmentsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0462AC1E7D86220083F577 /* AssignmentsTests.swift */; };
 		DB0462C61E7D87170083F577 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0462B81E7D87170083F577 /* AppDelegate.swift */; };
 		DB0462C71E7D87170083F577 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DB0462B91E7D87170083F577 /* Info.plist */; };
 		DB0462C91E7D87170083F577 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB0462BD1E7D87170083F577 /* Assets.xcassets */; };
@@ -85,13 +84,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		DB0462A91E7D86220083F577 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = DB0462881E7D86210083F577 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = DB04628F1E7D86210083F577;
-			remoteInfo = Assignments;
-		};
 		E20480C91ECECD6400D7F6C9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = DB0462881E7D86210083F577 /* Project object */;
@@ -123,7 +115,6 @@
 
 /* Begin PBXFileReference section */
 		DB0462901E7D86210083F577 /* Assignments.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Assignments.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		DB0462A81E7D86220083F577 /* AssignmentsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AssignmentsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB0462AC1E7D86220083F577 /* AssignmentsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentsTests.swift; sourceTree = "<group>"; };
 		DB0462AE1E7D86220083F577 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DB0462B81E7D87170083F577 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -215,13 +206,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DB0462A51E7D86220083F577 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		E20480C11ECECD6400D7F6C9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -248,7 +232,6 @@
 			isa = PBXGroup;
 			children = (
 				DB0462901E7D86210083F577 /* Assignments.app */,
-				DB0462A81E7D86220083F577 /* AssignmentsTests.xctest */,
 				E20480C41ECECD6400D7F6C9 /* AssignmentsUITests.xctest */,
 			);
 			name = Products;
@@ -467,24 +450,6 @@
 			productReference = DB0462901E7D86210083F577 /* Assignments.app */;
 			productType = "com.apple.product-type.application";
 		};
-		DB0462A71E7D86220083F577 /* AssignmentsTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = DB0462B41E7D86220083F577 /* Build configuration list for PBXNativeTarget "AssignmentsTests" */;
-			buildPhases = (
-				DB0462A41E7D86220083F577 /* Sources */,
-				DB0462A51E7D86220083F577 /* Frameworks */,
-				DB0462A61E7D86220083F577 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				DB0462AA1E7D86220083F577 /* PBXTargetDependency */,
-			);
-			name = AssignmentsTests;
-			productName = AssignmentsTests;
-			productReference = DB0462A81E7D86220083F577 /* AssignmentsTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 		E20480C31ECECD6400D7F6C9 /* AssignmentsUITests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = E20480CB1ECECD6400D7F6C9 /* Build configuration list for PBXNativeTarget "AssignmentsUITests" */;
@@ -518,12 +483,6 @@
 						DevelopmentTeam = MKJ3EVS82G;
 						ProvisioningStyle = Automatic;
 					};
-					DB0462A71E7D86220083F577 = {
-						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = MKJ3EVS82G;
-						ProvisioningStyle = Automatic;
-						TestTargetID = DB04628F1E7D86210083F577;
-					};
 					E20480C31ECECD6400D7F6C9 = {
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = MKJ3EVS82G;
@@ -546,7 +505,6 @@
 			projectRoot = "";
 			targets = (
 				DB04628F1E7D86210083F577 /* Assignments */,
-				DB0462A71E7D86220083F577 /* AssignmentsTests */,
 				E20480C31ECECD6400D7F6C9 /* AssignmentsUITests */,
 			);
 		};
@@ -564,13 +522,6 @@
 				DB0462C71E7D87170083F577 /* Info.plist in Resources */,
 				DB0462CB1E7D87170083F577 /* Main.storyboard in Resources */,
 				DBF5B5501EA2644100430DE0 /* Tasks.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		DB0462A61E7D86220083F577 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -663,14 +614,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DB0462A41E7D86220083F577 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				DB0462AD1E7D86220083F577 /* AssignmentsTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		E20480C01ECECD6400D7F6C9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -682,11 +625,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		DB0462AA1E7D86220083F577 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = DB04628F1E7D86210083F577 /* Assignments */;
-			targetProxy = DB0462A91E7D86220083F577 /* PBXContainerItemProxy */;
-		};
 		E20480CA1ECECD6400D7F6C9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = DB04628F1E7D86210083F577 /* Assignments */;
@@ -805,6 +743,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -861,36 +800,6 @@
 			};
 			name = Release;
 		};
-		DB0462B51E7D86220083F577 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEVELOPMENT_TEAM = MKJ3EVS82G;
-				INFOPLIST_FILE = AssignmentsTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = knowledgeProject.AssignmentsTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Assignments.app/Assignments";
-			};
-			name = Debug;
-		};
-		DB0462B61E7D86220083F577 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEVELOPMENT_TEAM = MKJ3EVS82G;
-				INFOPLIST_FILE = AssignmentsTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = knowledgeProject.AssignmentsTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Assignments.app/Assignments";
-			};
-			name = Release;
-		};
 		E20480CC1ECECD6400D7F6C9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -938,15 +847,6 @@
 			buildConfigurations = (
 				DB0462B21E7D86220083F577 /* Debug */,
 				DB0462B31E7D86220083F577 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		DB0462B41E7D86220083F577 /* Build configuration list for PBXNativeTarget "AssignmentsTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				DB0462B51E7D86220083F577 /* Debug */,
-				DB0462B61E7D86220083F577 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

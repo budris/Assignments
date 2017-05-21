@@ -11,19 +11,33 @@ import XCTest
 
 class AssignmentsTests: XCTestCase {
     
+    var controllerForTest: CreateTaskViewController!
+    
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        
+        controllerForTest = UIStoryboard(name: "Tasks", bundle: nil).instantiateViewController(withIdentifier: "CreateTaskViewController") as! CreateTaskViewController
     }
     
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        controllerForTest = nil
+        
         super.tearDown()
     }
     
     func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        let taskTitleCell = controllerForTest.taskFieldsTableView
+            .cellForRow(at: IndexPath(row: 0, section: 0)) as? TitleTableViewCell
+        
+        taskTitleCell?.value = "Task Title Name"
+        
+        let startDateCell = controllerForTest.taskFieldsTableView
+            .cellForRow(at: IndexPath(row: 5, section: 0)) as? SelectDateTableViewCell
+        
+        startDateCell?.value = Date()
+        
+        XCTAssertEqual(controllerForTest.taskPrototype.title, "Task Title Name")
+        
     }
     
     func testPerformanceExample() {

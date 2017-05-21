@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="cjv-Bo-fzn">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="cjv-Bo-fzn">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -30,7 +30,7 @@
                                         <rect key="frame" x="0.0" y="1" width="375" height="123"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gsP-9d-BJY" id="gKM-nA-d7Q">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="123"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="122.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lMu-V6-UKl">
@@ -78,6 +78,9 @@
                                                 <constraint firstAttribute="trailing" secondItem="F0v-LW-LWo" secondAttribute="trailing" constant="15" id="wsF-pV-Bgh"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <accessibility key="accessibilityConfiguration" hint="FullTaskTableViewCell" identifier="FullTaskTableViewCell" label="FullTaskTableViewCell">
+                                            <bool key="isElement" value="YES"/>
+                                        </accessibility>
                                         <connections>
                                             <outlet property="additionalInfoStackView" destination="aC2-2C-lDd" id="vWh-GZ-TC8"/>
                                             <outlet property="priorityLabel" destination="Puj-Bg-vqA" id="iZc-dR-ysp"/>
@@ -89,6 +92,9 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <accessibility key="accessibilityConfiguration" hint="test" identifier="test" label="test">
+                            <bool key="isElement" value="YES"/>
+                        </accessibility>
                         <constraints>
                             <constraint firstItem="jhH-cc-goD" firstAttribute="top" secondItem="uRL-ah-PKC" secondAttribute="top" id="bFs-aZ-nSV"/>
                             <constraint firstItem="Whf-FP-X84" firstAttribute="top" secondItem="jhH-cc-goD" secondAttribute="bottom" id="c9c-RI-PkJ"/>
@@ -115,7 +121,7 @@
         <!--New Task-->
         <scene sceneID="hcq-JS-xQ9">
             <objects>
-                <viewController hidesBottomBarWhenPushed="YES" id="a1O-t7-2tx" customClass="CreateTaskViewController" customModule="Assignments" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CreateTaskViewController" hidesBottomBarWhenPushed="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="a1O-t7-2tx" customClass="CreateTaskViewController" customModule="Assignments" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Rwu-7i-fq4"/>
                         <viewControllerLayoutGuide type="bottom" id="5n8-iF-R25"/>
@@ -132,12 +138,12 @@
                                         <rect key="frame" x="0.0" y="1" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lZo-eR-IHK" id="PeV-Si-AQ2">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cqa-kv-gPB">
                                                     <rect key="frame" x="15" y="7" width="345" height="30"/>
-                                                    <accessibility key="accessibilityConfiguration" label="TaskTitle"/>
+                                                    <accessibility key="accessibilityConfiguration" hint="TaskTitle" identifier="TaskTitle" label="TaskTitle"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -149,7 +155,7 @@
                                                 <constraint firstItem="Cqa-kv-gPB" firstAttribute="centerY" secondItem="PeV-Si-AQ2" secondAttribute="centerY" id="f8Q-9z-1lH"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <accessibility key="accessibilityConfiguration" label="TaskTitleCell">
+                                        <accessibility key="accessibilityConfiguration" hint="TaskTitleCell" identifier="TaskTitleCell" label="TaskTitleCell">
                                             <bool key="isElement" value="YES"/>
                                         </accessibility>
                                         <connections>
@@ -160,7 +166,7 @@
                                         <rect key="frame" x="0.0" y="45" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mmh-4E-T5b" id="yV2-Y1-Ffb">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Lm-l8-dmi">
@@ -184,6 +190,9 @@
                                                 <constraint firstItem="4Lm-l8-dmi" firstAttribute="centerY" secondItem="yV2-Y1-Ffb" secondAttribute="centerY" id="gfa-ae-y8T"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <accessibility key="accessibilityConfiguration" hint="selectField" identifier="selectField" label="selectField">
+                                            <bool key="isElement" value="YES"/>
+                                        </accessibility>
                                         <connections>
                                             <outlet property="titleLabel" destination="Zkj-O6-q3U" id="8eO-s4-b4d"/>
                                             <outlet property="valueLabel" destination="4Lm-l8-dmi" id="Fft-Mw-tg1"/>
@@ -193,7 +202,7 @@
                                         <rect key="frame" x="0.0" y="89" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="z1s-eh-Hmk" id="1FS-TJ-NZj">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rDH-Y7-8Td">
@@ -217,6 +226,9 @@
                                                 <constraint firstItem="Pwf-Lf-wAt" firstAttribute="centerY" secondItem="1FS-TJ-NZj" secondAttribute="centerY" id="zst-dZ-pEZ"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <accessibility key="accessibilityConfiguration" hint="SelectDateCell" identifier="SelectDateCell" label="SelectDateCell">
+                                            <bool key="isElement" value="YES"/>
+                                        </accessibility>
                                         <connections>
                                             <outlet property="dateLabel" destination="Pwf-Lf-wAt" id="Grr-hF-nWp"/>
                                             <outlet property="titleLabel" destination="rDH-Y7-8Td" id="BTR-Cv-4bm"/>
@@ -226,12 +238,13 @@
                                         <rect key="frame" x="0.0" y="133" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="86c-M9-IuE" id="feW-Qk-9gG">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="text" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="nV1-88-7EM" customClass="KMPlaceholderTextView" customModule="KMPlaceholderTextView">
                                                     <rect key="frame" x="10" y="5" width="350" height="50"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <accessibility key="accessibilityConfiguration" hint="ContentTextView" identifier="ContentTextView" label="ContentTextView"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="50" id="1Bl-ua-zCU"/>
                                                     </constraints>
@@ -247,6 +260,9 @@
                                                 <constraint firstItem="nV1-88-7EM" firstAttribute="leading" secondItem="feW-Qk-9gG" secondAttribute="leading" constant="10" id="tnH-Wu-HhP"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <accessibility key="accessibilityConfiguration" hint="ContentCell" identifier="ContentCell" label="ContentCell">
+                                            <bool key="isElement" value="YES"/>
+                                        </accessibility>
                                         <connections>
                                             <outlet property="contentTextView" destination="nV1-88-7EM" id="kuX-kI-Gs0"/>
                                         </connections>
@@ -255,7 +271,7 @@
                                         <rect key="frame" x="0.0" y="193" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mXc-1u-ZB2" id="CSx-qF-M5T">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="R5H-Oa-0zI">
@@ -269,6 +285,9 @@
                                                 <constraint firstItem="R5H-Oa-0zI" firstAttribute="leading" secondItem="CSx-qF-M5T" secondAttribute="leading" constant="15" id="wFU-1f-fgh"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <accessibility key="accessibilityConfiguration">
+                                            <bool key="isElement" value="YES"/>
+                                        </accessibility>
                                         <connections>
                                             <outlet property="attachmentsStackView" destination="R5H-Oa-0zI" id="Sxf-IY-kcS"/>
                                         </connections>
@@ -277,6 +296,9 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <accessibility key="accessibilityConfiguration">
+                            <bool key="isElement" value="YES"/>
+                        </accessibility>
                         <constraints>
                             <constraint firstItem="5yM-Dc-OLA" firstAttribute="top" secondItem="jQO-Z5-hsz" secondAttribute="top" id="6GN-wJ-OKa"/>
                             <constraint firstAttribute="trailing" secondItem="5yM-Dc-OLA" secondAttribute="trailing" id="KJi-LJ-1ez"/>
@@ -332,7 +354,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zGs-Tm-vac" id="f6A-Vo-Q8R">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gaO-WL-22T">
