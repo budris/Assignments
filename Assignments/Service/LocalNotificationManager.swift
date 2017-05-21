@@ -9,8 +9,11 @@
 import Foundation
 import UserNotifications
 
+enum ReminderKey {
+    static let taskId: String = "TaskId"
+}
+
 class LocalNotificationManager: ReminderService {
-    private static let taskIdKey: String = "TaskId"
     static let sharedInstance = LocalNotificationManager()
     
     private let center: UNUserNotificationCenter
@@ -26,7 +29,7 @@ class LocalNotificationManager: ReminderService {
         content.title = title
         content.body = message
         content.sound = UNNotificationSound.default()
-        content.userInfo[LocalNotificationManager.taskIdKey] = taskId
+        content.userInfo[ReminderKey.taskId] = taskId
         
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: date.timeIntervalSinceNow,
                                                         repeats: false)
@@ -43,7 +46,7 @@ class LocalNotificationManager: ReminderService {
             var reminders: [Reminder] = []
             notifications.forEach ({
                 guard let trigger = $0.trigger as? UNTimeIntervalNotificationTrigger,
-                    let taskId = $0.content.userInfo[LocalNotificationManager.taskIdKey] as? Int else {
+                    let taskId = $0.content.userInfo[ReminderKey.taskId] as? Int else {
                     return
                 }
                 

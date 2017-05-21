@@ -40,5 +40,48 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>UIApplicationShortcutItems</key>
+	<array>
+		<dict>
+			<key>UIApplicationShortcutItemIconFile</key>
+			<string>createTask</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>Create Task</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>createTask</string>
+		</dict>
+		<dict>
+			<key>UIApplicationShortcutItemIconFile</key>
+			<string>calendar</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>Open Calendar</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>openCalendar</string>
+		</dict>
+		<dict>
+			<key>UIApplicationShortcutItemIconFile</key>
+			<string>pieChart</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>Statustic</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>openStatistic</string>
+		</dict>
+		<dict>
+			<key>UIApplicationShortcutItemIconFile</key>
+			<string>reminder</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>Reminders</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>openReminders</string>
+		</dict>
+		<dict>
+			<key>UIApplicationShortcutItemIconFile</key>
+			<string>taskList</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>Tasks</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>openTasks</string>
+		</dict>
+	</array>
 </dict>
 </plist>
