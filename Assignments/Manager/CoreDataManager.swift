@@ -17,17 +17,17 @@ class CoreDataManager {
     
     // MARK: - Core Data stack
     
-    lazy var applicationDocumentsDirectory: URL = {        
+    private lazy var applicationDocumentsDirectory: URL = {
         let urls = FileManager.default.urls(for: FileManager.SearchPathDirectory.documentDirectory, in: .userDomainMask)
         return urls[urls.count-1]
     }()
     
-    lazy var managedObjectModel: NSManagedObjectModel = {
+    private lazy var managedObjectModel: NSManagedObjectModel = {
         let modelURL = Bundle.main.url(forResource: "DataBase", withExtension: "momd")!
         return NSManagedObjectModel(contentsOf: modelURL)!
     }()
     
-    lazy var persistentStoreCoordinator: NSPersistentStoreCoordinator = {
+    private lazy var persistentStoreCoordinator: NSPersistentStoreCoordinator = {
         let coordinator = NSPersistentStoreCoordinator(managedObjectModel: self.managedObjectModel)
         let url = self.applicationDocumentsDirectory.appendingPathComponent("Assignments.sqlite")
         var failureReason = "There was an error creating or loading the application's saved data."
