@@ -127,15 +127,18 @@ class CreateTaskViewController: UIViewController {
     @IBAction func createAction(_ sender: Any) {
         view.endEditing(true)
         
-        guard !(taskPrototype.title?.isEmpty ?? true) else {
-            showError(with: "Task must have title")
+        guard isValidTaskPrototype(taskPrototype: taskPrototype) else {
             return
         }
         
         switch workingType {
         case .create:
             let task  = taskService.createTask(taskPrototype: taskPrototype)
-            if let startDate = taskPrototype.startDate as Date? {
+            if var startDate = taskPrototype.startDate as Date? {
+                let currentDate = Date()
+                startDate = startDate.timeIntervalSince(currentDate) > 0
+                    ? startDate
+                    : currentDate.addingTimeInterval(60)
                 reminderService.createReminder(at: startDate,
                                                with: taskPrototype.title ?? "", and: "You must to do",
                                                for: Int(task.id))
@@ -148,6 +151,15 @@ class CreateTaskViewController: UIViewController {
         }
         
         dismiss(animated: true)
+    }
+    
+    public func isValidTaskPrototype(taskPrototype: TaskPrototype) -> Bool {
+        guard !(taskPrototype.title?.isEmpty ?? true) else {
+            showError(with: "Task must have title")
+            return false
+        }
+        
+        return true
     }
     
     @IBAction func cancelAction(_ sender: Any) {
@@ -233,6 +245,8 @@ class CreateTaskViewController: UIViewController {
                                    doneBlock: complition,
                                    cancel: { _ in
         }, origin: view)
+        
+        
         
         if let durationInMinutes = durationInMinutes {
             actionSheetPicker?.countDownDuration = durationInMinutes * 60.0
@@ -347,6 +361,7 @@ extension CreateTaskViewController: UITableViewDataSource {
         
         cell.title = TaskField.durationInMinutes.description
         cell.durationValue = taskPrototype.durationInMinutes
+        cell.accessibilityIdentifier = "Duration In Minutes"
         
         return cell
     }

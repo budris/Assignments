@@ -15,15 +15,9 @@ class AssignmentsUITests: XCTestCase {
     override func setUp() {
         super.setUp()
         
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-        
-        // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
-        // UI tests must launch the application that they test. Doing this in setup will make sure it happens for each test method.
+        
         app.launch()
-
-        app.launchArguments = ["UITesting"]
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
     }
     
     override func tearDown() {
@@ -31,16 +25,47 @@ class AssignmentsUITests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
+    func testCreationTask() {
         app.tabBars.buttons["Tasks"].tap()
-        app.navigationBars["Tasks"].buttons["Add"].tap()
-        app.textFields.element(boundBy: 0).tap()
-        app.textFields.element(boundBy: 0).typeText("test")
-        app.tables.element(boundBy: 0).swipeDown()
-        app.tables.element(boundBy: 0).swipeDown()
-        app.tables.element(boundBy: 0).swipeDown()
-
         
+        let cellCountBeforeCreate = app.tables.element(boundBy: 0).cells.count
+        
+        app.navigationBars["Tasks"].buttons["Add"].tap()
+        
+        // Test alert
+        app.navigationBars["New Task"].buttons["Create"].tap()
+        app.alerts["Error"].buttons["Ok"].tap()
+        
+        let taskTitleTextField = app.textFields["TaskTitle"]
+        taskTitleTextField.tap()
+        taskTitleTextField.typeText("test task title")
+        
+        let contentTextView = app.textViews["ContentTextView"]
+        contentTextView.tap()
+        contentTextView.typeText("Task content test")
+        
+        let tablesQuery = app.tables
+        let startDateCell = tablesQuery.cells.containing(.staticText, identifier:"Start Date").element
+        startDateCell.tap()
+        
+        let toolbarsQuery = app.toolbars
+        toolbarsQuery.buttons["Done"].tap()
+        
+        let durationCell = tablesQuery.cells.containing(.staticText, identifier:"Duration In Minutes").element
+        durationCell.tap()
+        
+        toolbarsQuery.buttons["Done"].tap()
+        
+        tablesQuery.staticTexts["medium"].tap()
+        tablesQuery.staticTexts["high"].tap()
+        app.navigationBars["Priority"].buttons["New Task"].tap()
+        
+        app.navigationBars["New Task"].buttons["Create"].tap()
+        
+        let cellCountAfterCreate = app.tables.element(boundBy: 0).cells.count
+        let shouldBeAfterCreationCellCount = cellCountAfterCreate - 1
+        
+        XCTAssertEqual(cellCountBeforeCreate, shouldBeAfterCreationCellCount)
     }
     
 }
