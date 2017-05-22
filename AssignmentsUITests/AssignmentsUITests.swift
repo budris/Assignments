@@ -34,6 +34,11 @@ class AssignmentsUITests: XCTestCase {
     func testExample() {
         app.tabBars.buttons["Tasks"].tap()
         app.navigationBars["Tasks"].buttons["Add"].tap()
+        app.textFields.element(boundBy: 0).tap()
+        app.textFields.element(boundBy: 0).typeText("test")
+        app.tables.element(boundBy: 0).swipeDown()
+        app.tables.element(boundBy: 0).swipeDown()
+        app.tables.element(boundBy: 0).swipeDown()
 
         
     }
