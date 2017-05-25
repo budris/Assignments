@@ -80,6 +80,9 @@
 		DBF5E8541ED36C2E009BF80B /* ChartsRealm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2F4DF631E812727002ED6F2 /* ChartsRealm.framework */; };
 		DBF5E8551ED36C2E009BF80B /* FSCalendar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2F4DF671E812727002ED6F2 /* FSCalendar.framework */; };
 		DBF5E8561ED36C2E009BF80B /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2F4DF651E812727002ED6F2 /* Realm.framework */; };
+		DBF5E8581ED753E3009BF80B /* ExportCalendarListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF5E8571ED753E3009BF80B /* ExportCalendarListViewController.swift */; };
+		DBF5E85A1ED75686009BF80B /* CalendarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF5E8591ED75686009BF80B /* CalendarTableViewCell.swift */; };
+		DBF5E85C1ED75870009BF80B /* TimeChank.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF5E85B1ED75870009BF80B /* TimeChank.swift */; };
 		E20480C71ECECD6400D7F6C9 /* AssignmentsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20480C61ECECD6400D7F6C9 /* AssignmentsUITests.swift */; };
 		E2F4DF681E812727002ED6F2 /* ChartsRealm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2F4DF631E812727002ED6F2 /* ChartsRealm.framework */; };
 		E2F4DF6A1E812727002ED6F2 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2F4DF651E812727002ED6F2 /* Realm.framework */; };
@@ -189,6 +192,9 @@
 		DBF5E8451ED36856009BF80B /* AssignmentsUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AssignmentsUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBF5E8471ED36856009BF80B /* AssignmentsUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentsUnitTests.swift; sourceTree = "<group>"; };
 		DBF5E8491ED36856009BF80B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DBF5E8571ED753E3009BF80B /* ExportCalendarListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExportCalendarListViewController.swift; sourceTree = "<group>"; };
+		DBF5E8591ED75686009BF80B /* CalendarTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarTableViewCell.swift; sourceTree = "<group>"; };
+		DBF5E85B1ED75870009BF80B /* TimeChank.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeChank.swift; sourceTree = "<group>"; };
 		E20480C41ECECD6400D7F6C9 /* AssignmentsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AssignmentsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E20480C61ECECD6400D7F6C9 /* AssignmentsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentsUITests.swift; sourceTree = "<group>"; };
 		E20480C81ECECD6400D7F6C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -368,6 +374,7 @@
 				DB442BB51EC746F2007D0324 /* SelectDateTimeTableViewCell.swift */,
 				DB442BB61EC746F2007D0324 /* SelectDurationTableViewCell.swift */,
 				DB442BBE1EC7470F007D0324 /* AttachmentTableViewCell.swift */,
+				DBF5E8591ED75686009BF80B /* CalendarTableViewCell.swift */,
 			);
 			path = Task;
 			sourceTree = "<group>";
@@ -377,6 +384,7 @@
 			children = (
 				DB6FEC791EC088AE00135F4E /* CreateTaskViewController.swift */,
 				DB6FEC7A1EC088AE00135F4E /* TasksViewController.swift */,
+				DBF5E8571ED753E3009BF80B /* ExportCalendarListViewController.swift */,
 			);
 			path = Tasks;
 			sourceTree = "<group>";
@@ -399,6 +407,7 @@
 				DBD907131EAD12E5002CBCCC /* UIViewController+UIAlert.swift */,
 				DB442BC01EC74A9E007D0324 /* UIImage.swift */,
 				DB6FEC741EBDFDC300135F4E /* Date.swift */,
+				DBF5E85B1ED75870009BF80B /* TimeChank.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -639,6 +648,7 @@
 				DBDF591F1EA236D90043C1B4 /* Status.swift in Sources */,
 				DB442BC11EC74A9E007D0324 /* UIImage.swift in Sources */,
 				DBF5D4E81ED1A91F009BF80B /* ReminderContainer.swift in Sources */,
+				DBF5E85A1ED75686009BF80B /* CalendarTableViewCell.swift in Sources */,
 				DB6FEC831EC0A41500135F4E /* Task.swift in Sources */,
 				DB6FEC8C1EC4F15B00135F4E /* Reminder.swift in Sources */,
 				DB442BB91EC746F2007D0324 /* ContentTableViewCell.swift in Sources */,
@@ -656,6 +666,7 @@
 				DB6FEC751EBDFDC300135F4E /* Date.swift in Sources */,
 				DB8399B71EA6969600C1262D /* SelectFieldViewController.swift in Sources */,
 				DBDF59181EA236D90043C1B4 /* Priority+CoreDataProperties.swift in Sources */,
+				DBF5E85C1ED75870009BF80B /* TimeChank.swift in Sources */,
 				DBF5D4E11ED1A370009BF80B /* ShortcutAction.swift in Sources */,
 				DBDF59221EA236D90043C1B4 /* Attachment+CoreDataProperties.swift in Sources */,
 				DBD907121EAD049D002CBCCC /* UIColor.swift in Sources */,
@@ -669,6 +680,7 @@
 				DB6FEC8A1EC4EB3600135F4E /* ReminderService.swift in Sources */,
 				DBDF59191EA236D90043C1B4 /* AttachmentType.swift in Sources */,
 				DB442BBF1EC7470F007D0324 /* AttachmentTableViewCell.swift in Sources */,
+				DBF5E8581ED753E3009BF80B /* ExportCalendarListViewController.swift in Sources */,
 				DB6FEC881EC4E56100135F4E /* LocalNotificationManager.swift in Sources */,
 				DB67F29A1EACCB6C00C06CB3 /* ColorCollectionViewCell.swift in Sources */,
 				DB8399B11EA3E6B200C1262D /* SelectionTableViewCell.swift in Sources */,

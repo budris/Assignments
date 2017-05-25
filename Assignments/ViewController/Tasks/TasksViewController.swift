@@ -172,9 +172,15 @@ extension TasksViewController: UITableViewDelegate {
             
             self?.performSegue(withIdentifier: "editTask", sender: task)
         }
+        
+        let exportAction = UITableViewRowAction(style: .normal, title: "Export") { [weak self] (_, indexPath) in
+            self?.performSegue(withIdentifier: "exportEvent", sender: self)
+        }
+        exportAction.backgroundColor = UIColor.cyan
+        
         editAction.backgroundColor = UIColor(red: 12/255, green: 154/255, blue: 215/255, alpha: 1)
         
-        return [deleteAction, editAction]
+        return [deleteAction, editAction, exportAction]
     }
 }
 

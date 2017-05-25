@@ -83,5 +83,7 @@
 			<string>openTasks</string>
 		</dict>
 	</array>
+	<key>NSCalendarsUsageDescription</key>
+	<string>Your calendar is used for creation of new events that are exported from Assignments.</string>
 </dict>
 </plist>
