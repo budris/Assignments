@@ -9,11 +9,9 @@
 import Foundation
 
 protocol TaskService {
-    
     var tasks: [Task] { get }
     
     func createTask(taskPrototype: TaskPrototype) -> Task
     func updateTask(taskPrototype: TaskPrototype) -> Task?
     func deleteTask(task: Task)
-    
 }

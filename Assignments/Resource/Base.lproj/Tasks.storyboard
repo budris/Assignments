@@ -119,10 +119,10 @@
             </objects>
             <point key="canvasLocation" x="1876" y="-25.637181409295355"/>
         </scene>
-        <!--Export Calendar List View Controller-->
+        <!--Export Event-->
         <scene sceneID="V2Q-Lu-5gO">
             <objects>
-                <viewController id="ZFE-xf-CAY" customClass="ExportCalendarListViewController" customModule="Assignments" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="ZFE-xf-CAY" customClass="ExportCalendarListViewController" customModule="Assignments" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="JWg-pn-xcR"/>
                         <viewControllerLayoutGuide type="bottom" id="DDI-PJ-ZmC"/>
@@ -132,7 +132,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="VMF-dI-xrn">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CalendarTableViewCell" id="3vn-Ar-IiL" customClass="CalendarTableViewCell" customModule="Assignments" customModuleProvider="target">
@@ -169,6 +169,14 @@
                             <constraint firstItem="VMF-dI-xrn" firstAttribute="top" secondItem="JWg-pn-xcR" secondAttribute="bottom" id="qp5-J7-Bvr"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Export Event" id="72S-cf-peu">
+                        <barButtonItem key="rightBarButtonItem" title="ToGoogle" id="Vt4-hj-dQV">
+                            <connections>
+                                <segue destination="2LI-P7-VUp" kind="show" id="PJ2-Fv-mDM"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="calendarsTableView" destination="VMF-dI-xrn" id="Mhn-pS-VYk"/>
                     </connections>
@@ -176,6 +184,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TZT-TW-CNX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1876" y="780"/>
+        </scene>
+        <!--Export To Google Calendar View Controller-->
+        <scene sceneID="Ygc-LQ-8cZ">
+            <objects>
+                <viewController id="2LI-P7-VUp" customClass="ExportToGoogleCalendarViewController" customModule="Assignments" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="e5g-OD-Ez1"/>
+                        <viewControllerLayoutGuide type="bottom" id="uDu-sE-prm"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="zCy-yj-Jul">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yF0-rn-OdZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2626" y="779"/>
         </scene>
         <!--New Task-->
         <scene sceneID="hcq-JS-xQ9">
@@ -205,7 +231,7 @@
                                                     <accessibility key="accessibilityConfiguration" hint="TaskTitle" identifier="TaskTitle" label="TaskTitle"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                                                 </textField>
                                             </subviews>
                                             <constraints>

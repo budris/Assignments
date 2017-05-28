@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3641F1E2DB17026E80025AB3 /* Pods_Assignments.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89117F6B830507A2B81998F3 /* Pods_Assignments.framework */; };
 		DB0462C61E7D87170083F577 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0462B81E7D87170083F577 /* AppDelegate.swift */; };
 		DB0462C71E7D87170083F577 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DB0462B91E7D87170083F577 /* Info.plist */; };
 		DB0462C91E7D87170083F577 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB0462BD1E7D87170083F577 /* Assets.xcassets */; };
@@ -53,6 +54,60 @@
 		DB8399B11EA3E6B200C1262D /* SelectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8399B01EA3E6B200C1262D /* SelectionTableViewCell.swift */; };
 		DB8399B71EA6969600C1262D /* SelectFieldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8399B61EA6969600C1262D /* SelectFieldViewController.swift */; };
 		DB8399B91EA69A4E00C1262D /* SelectFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8399B81EA69A4E00C1262D /* SelectFieldTableViewCell.swift */; };
+		DBA5C87D1EDA0D4300C5223E /* ExportToGoogleCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA5C87C1EDA0D4300C5223E /* ExportToGoogleCalendarViewController.swift */; };
+		DBA5C87F1EDACE2B00C5223E /* TasksServiceUnitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA5C87E1EDACE2B00C5223E /* TasksServiceUnitTest.swift */; };
+		DBA5C8801EDACF4400C5223E /* CoreDataTasksManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB174BF1EA3CBCA0039DCE3 /* CoreDataTasksManager.swift */; };
+		DBA5C8811EDACF4900C5223E /* TaskService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB174BD1EA3CBAF0039DCE3 /* TaskService.swift */; };
+		DBA5C8821EDACFDF00C5223E /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6FEC811EC0A41500135F4E /* Task.swift */; };
+		DBA5C8831EDACFE500C5223E /* CreateTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6FEC791EC088AE00135F4E /* CreateTaskViewController.swift */; };
+		DBA5C8841EDAD09600C5223E /* Priority+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDF590C1EA236D90043C1B4 /* Priority+CoreDataProperties.swift */; };
+		DBA5C8861EDAD09D00C5223E /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDF59131EA236D90043C1B4 /* Status.swift */; };
+		DBA5C8871EDAD0A100C5223E /* Priority.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDF590B1EA236D90043C1B4 /* Priority.swift */; };
+		DBA5C8881EDAD0A500C5223E /* Task+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6FEC821EC0A41500135F4E /* Task+CoreDataProperties.swift */; };
+		DBA5C8891EDAD0BF00C5223E /* Status+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDF59141EA236D90043C1B4 /* Status+CoreDataProperties.swift */; };
+		DBA5C88A1EDAD75A00C5223E /* ReminderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6FEC891EC4EB3600135F4E /* ReminderService.swift */; };
+		DBA5C88B1EDAD75E00C5223E /* LocalNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6FEC871EC4E56100135F4E /* LocalNotificationManager.swift */; };
+		DBA5C88C1EDAD91100C5223E /* SelectFieldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8399B61EA6969600C1262D /* SelectFieldViewController.swift */; };
+		DBA5C88D1EDAD91800C5223E /* AttachmentType+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDF590E1EA236D90043C1B4 /* AttachmentType+CoreDataProperties.swift */; };
+		DBA5C88E1EDAD91D00C5223E /* AttachmentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDF590D1EA236D90043C1B4 /* AttachmentType.swift */; };
+		DBA5C88F1EDAD92B00C5223E /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6FEC8B1EC4F15B00135F4E /* Reminder.swift */; };
+		DBA5C8901EDAD94200C5223E /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDF59271EA237D40043C1B4 /* CoreDataManager.swift */; };
+		DBA5C8911EDAD95700C5223E /* Attachment.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDF59151EA236D90043C1B4 /* Attachment.swift */; };
+		DBA5C8921EDAD9B000C5223E /* SelectFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8399B81EA69A4E00C1262D /* SelectFieldTableViewCell.swift */; };
+		DBA5C8931EDAD9BB00C5223E /* ShortcutContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF5D4E51ED1A909009BF80B /* ShortcutContainer.swift */; };
+		DBA5C8941EDAD9BD00C5223E /* ReminderContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF5D4E71ED1A91F009BF80B /* ReminderContainer.swift */; };
+		DBA5C8951EDAD9BF00C5223E /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD907111EAD049D002CBCCC /* UIColor.swift */; };
+		DBA5C8961EDAD9C300C5223E /* UIViewController+UIAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD907131EAD12E5002CBCCC /* UIViewController+UIAlert.swift */; };
+		DBA5C8971EDAD9C700C5223E /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB442BC01EC74A9E007D0324 /* UIImage.swift */; };
+		DBA5C8981EDAD9C900C5223E /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6FEC741EBDFDC300135F4E /* Date.swift */; };
+		DBA5C8991EDAD9CC00C5223E /* TimeChank.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF5E85B1ED75870009BF80B /* TimeChank.swift */; };
+		DBA5C89A1EDAD9DC00C5223E /* DataBase.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DBDF58D61EA214700043C1B4 /* DataBase.xcdatamodeld */; };
+		DBA5C89B1EDAD9E100C5223E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0462B81E7D87170083F577 /* AppDelegate.swift */; };
+		DBA5C89C1EDAD9E300C5223E /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DB0462B91E7D87170083F577 /* Info.plist */; };
+		DBA5C89D1EDAD9EF00C5223E /* Attachment+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDF59161EA236D90043C1B4 /* Attachment+CoreDataProperties.swift */; };
+		DBA5C89E1EDAD9F500C5223E /* ShortcutAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF5D4E01ED1A370009BF80B /* ShortcutAction.swift */; };
+		DBA5C89F1EDADA0E00C5223E /* AttachmentListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB442BB01EC746F2007D0324 /* AttachmentListItemView.swift */; };
+		DBA5C8A01EDADA1600C5223E /* ContentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB442BB21EC746F2007D0324 /* ContentTableViewCell.swift */; };
+		DBA5C8A11EDADA1C00C5223E /* FullTaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB442BB31EC746F2007D0324 /* FullTaskTableViewCell.swift */; };
+		DBA5C8A21EDADA1F00C5223E /* SelectDateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB442BB41EC746F2007D0324 /* SelectDateTableViewCell.swift */; };
+		DBA5C8A31EDADA2300C5223E /* SelectDateTimeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB442BB51EC746F2007D0324 /* SelectDateTimeTableViewCell.swift */; };
+		DBA5C8A41EDADA2600C5223E /* SelectDurationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB442BB61EC746F2007D0324 /* SelectDurationTableViewCell.swift */; };
+		DBA5C8A51EDADA2A00C5223E /* AttachmentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB442BBE1EC7470F007D0324 /* AttachmentTableViewCell.swift */; };
+		DBA5C8A61EDADA2C00C5223E /* CalendarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF5E8591ED75686009BF80B /* CalendarTableViewCell.swift */; };
+		DBA5C8A71EDADA3000C5223E /* NavigationDropdownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6FEC641EB60DED00135F4E /* NavigationDropdownView.swift */; };
+		DBA5C8A81EDADA3600C5223E /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F4DF701E8131E5002ED6F2 /* TaskTableViewCell.swift */; };
+		DBA5C8A91EDADA3600C5223E /* ColorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB67F2991EACCB6C00C06CB3 /* ColorCollectionViewCell.swift */; };
+		DBA5C8AA1EDADA3600C5223E /* SelectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8399B01EA3E6B200C1262D /* SelectionTableViewCell.swift */; };
+		DBA5C8AB1EDADA3600C5223E /* ReminderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6FEC8F1EC4F3FC00135F4E /* ReminderTableViewCell.swift */; };
+		DBA5C8AC1EDADA3600C5223E /* SelectColorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB67F2921EACCA4E00C06CB3 /* SelectColorTableViewCell.swift */; };
+		DBA5C8AD1EDADA3600C5223E /* TitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8399AE1EA3E66F00C1262D /* TitleTableViewCell.swift */; };
+		DBA5C8AE1EDADA3600C5223E /* ScrollableSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6FEC761EC0871200135F4E /* ScrollableSegmentedControl.swift */; };
+		DBA5C8AF1EDADA3B00C5223E /* TasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6FEC7A1EC088AE00135F4E /* TasksViewController.swift */; };
+		DBA5C8B01EDADA3B00C5223E /* ExportCalendarListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF5E8571ED753E3009BF80B /* ExportCalendarListViewController.swift */; };
+		DBA5C8B11EDADA3B00C5223E /* ExportToGoogleCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA5C87C1EDA0D4300C5223E /* ExportToGoogleCalendarViewController.swift */; };
+		DBA5C8B21EDADA3B00C5223E /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F4DF6E1E81311B002ED6F2 /* CalendarViewController.swift */; };
+		DBA5C8B31EDADA3B00C5223E /* RemindersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6FEC8D1EC4F39200135F4E /* RemindersViewController.swift */; };
+		DBA5C8B41EDADA3B00C5223E /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F4DF731E813B8E002ED6F2 /* StatisticsViewController.swift */; };
 		DBB174BE1EA3CBAF0039DCE3 /* TaskService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB174BD1EA3CBAF0039DCE3 /* TaskService.swift */; };
 		DBB174C01EA3CBCA0039DCE3 /* CoreDataTasksManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB174BF1EA3CBCA0039DCE3 /* CoreDataTasksManager.swift */; };
 		DBD907121EAD049D002CBCCC /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD907111EAD049D002CBCCC /* UIColor.swift */; };
@@ -84,6 +139,7 @@
 		DBF5E85A1ED75686009BF80B /* CalendarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF5E8591ED75686009BF80B /* CalendarTableViewCell.swift */; };
 		DBF5E85C1ED75870009BF80B /* TimeChank.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF5E85B1ED75870009BF80B /* TimeChank.swift */; };
 		E20480C71ECECD6400D7F6C9 /* AssignmentsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20480C61ECECD6400D7F6C9 /* AssignmentsUITests.swift */; };
+		E2448E8398BDA67810F842D8 /* Pods_AssignmentsUnitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8F4315FF6A58E3B2D2A3FE0 /* Pods_AssignmentsUnitTests.framework */; };
 		E2F4DF681E812727002ED6F2 /* ChartsRealm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2F4DF631E812727002ED6F2 /* ChartsRealm.framework */; };
 		E2F4DF6A1E812727002ED6F2 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2F4DF651E812727002ED6F2 /* Realm.framework */; };
 		E2F4DF6C1E812727002ED6F2 /* FSCalendar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2F4DF671E812727002ED6F2 /* FSCalendar.framework */; };
@@ -133,6 +189,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		58BD4709D291ACE46274CD7B /* Pods-AssignmentsUnitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AssignmentsUnitTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AssignmentsUnitTests/Pods-AssignmentsUnitTests.release.xcconfig"; sourceTree = "<group>"; };
+		6A94F7C35ECA6B50F6E40858 /* Pods-AssignmentsUnitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AssignmentsUnitTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AssignmentsUnitTests/Pods-AssignmentsUnitTests.debug.xcconfig"; sourceTree = "<group>"; };
+		89117F6B830507A2B81998F3 /* Pods_Assignments.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Assignments.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		959241E7E55334376458800D /* Pods-Assignments.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Assignments.release.xcconfig"; path = "Pods/Target Support Files/Pods-Assignments/Pods-Assignments.release.xcconfig"; sourceTree = "<group>"; };
+		B8F4315FF6A58E3B2D2A3FE0 /* Pods_AssignmentsUnitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AssignmentsUnitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D5A1729884EC2C16084E7CDE /* Pods-Assignments.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Assignments.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Assignments/Pods-Assignments.debug.xcconfig"; sourceTree = "<group>"; };
 		DB0462901E7D86210083F577 /* Assignments.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Assignments.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB0462B81E7D87170083F577 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB0462B91E7D87170083F577 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -171,6 +233,8 @@
 		DB8399B01EA3E6B200C1262D /* SelectionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectionTableViewCell.swift; sourceTree = "<group>"; };
 		DB8399B61EA6969600C1262D /* SelectFieldViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectFieldViewController.swift; sourceTree = "<group>"; };
 		DB8399B81EA69A4E00C1262D /* SelectFieldTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectFieldTableViewCell.swift; sourceTree = "<group>"; };
+		DBA5C87C1EDA0D4300C5223E /* ExportToGoogleCalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExportToGoogleCalendarViewController.swift; sourceTree = "<group>"; };
+		DBA5C87E1EDACE2B00C5223E /* TasksServiceUnitTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TasksServiceUnitTest.swift; sourceTree = "<group>"; };
 		DBB174BD1EA3CBAF0039DCE3 /* TaskService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskService.swift; sourceTree = "<group>"; };
 		DBB174BF1EA3CBCA0039DCE3 /* CoreDataTasksManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataTasksManager.swift; sourceTree = "<group>"; };
 		DBD907111EAD049D002CBCCC /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
@@ -226,6 +290,7 @@
 				E2F4DF761E81438E002ED6F2 /* Charts.framework in Frameworks */,
 				DB6FEC971EC729D700135F4E /* KMPlaceholderTextView.framework in Frameworks */,
 				E2F4DF6C1E812727002ED6F2 /* FSCalendar.framework in Frameworks */,
+				3641F1E2DB17026E80025AB3 /* Pods_Assignments.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -241,6 +306,7 @@
 				DBF5E8541ED36C2E009BF80B /* ChartsRealm.framework in Frameworks */,
 				DBF5E8551ED36C2E009BF80B /* FSCalendar.framework in Frameworks */,
 				DBF5E8561ED36C2E009BF80B /* Realm.framework in Frameworks */,
+				E2448E8398BDA67810F842D8 /* Pods_AssignmentsUnitTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,6 +320,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B4C76CD1FE1FFB111174FB5F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D5A1729884EC2C16084E7CDE /* Pods-Assignments.debug.xcconfig */,
+				959241E7E55334376458800D /* Pods-Assignments.release.xcconfig */,
+				6A94F7C35ECA6B50F6E40858 /* Pods-AssignmentsUnitTests.debug.xcconfig */,
+				58BD4709D291ACE46274CD7B /* Pods-AssignmentsUnitTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		DB0462871E7D86210083F577 = {
 			isa = PBXGroup;
 			children = (
@@ -263,6 +340,7 @@
 				DBF5E8461ED36856009BF80B /* AssignmentsUnitTests */,
 				DB0462911E7D86210083F577 /* Products */,
 				E2F4DF601E812717002ED6F2 /* Frameworks */,
+				B4C76CD1FE1FFB111174FB5F /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -385,6 +463,7 @@
 				DB6FEC791EC088AE00135F4E /* CreateTaskViewController.swift */,
 				DB6FEC7A1EC088AE00135F4E /* TasksViewController.swift */,
 				DBF5E8571ED753E3009BF80B /* ExportCalendarListViewController.swift */,
+				DBA5C87C1EDA0D4300C5223E /* ExportToGoogleCalendarViewController.swift */,
 			);
 			path = Tasks;
 			sourceTree = "<group>";
@@ -441,6 +520,7 @@
 			isa = PBXGroup;
 			children = (
 				DBF5E8471ED36856009BF80B /* AssignmentsUnitTests.swift */,
+				DBA5C87E1EDACE2B00C5223E /* TasksServiceUnitTest.swift */,
 				DBF5E8491ED36856009BF80B /* Info.plist */,
 			);
 			path = AssignmentsUnitTests;
@@ -466,6 +546,8 @@
 				E2F4DF661E812727002ED6F2 /* RealmSwift.framework */,
 				E2F4DF671E812727002ED6F2 /* FSCalendar.framework */,
 				E2F4DF611E812717002ED6F2 /* Charts.framework */,
+				89117F6B830507A2B81998F3 /* Pods_Assignments.framework */,
+				B8F4315FF6A58E3B2D2A3FE0 /* Pods_AssignmentsUnitTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -477,11 +559,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DB0462B11E7D86220083F577 /* Build configuration list for PBXNativeTarget "Assignments" */;
 			buildPhases = (
+				539D13B569978DE0DCEFC538 /* [CP] Check Pods Manifest.lock */,
 				DB04628C1E7D86210083F577 /* Sources */,
 				DB04628D1E7D86210083F577 /* Frameworks */,
 				DB04628E1E7D86210083F577 /* Resources */,
 				E2F4DF6D1E81273F002ED6F2 /* Run Script */,
 				E2F4DF7B1E814D91002ED6F2 /* Embed Frameworks */,
+				259010949B6941B5AAB3D94C /* [CP] Embed Pods Frameworks */,
+				188241D4DFC7C10C8837F490 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -496,9 +581,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DBF5E84E1ED36856009BF80B /* Build configuration list for PBXNativeTarget "AssignmentsUnitTests" */;
 			buildPhases = (
+				B667E4E3D7593BF3A50D610B /* [CP] Check Pods Manifest.lock */,
 				DBF5E8411ED36855009BF80B /* Sources */,
 				DBF5E8421ED36855009BF80B /* Frameworks */,
 				DBF5E8431ED36855009BF80B /* Resources */,
+				BDC67D8C1B9C755BEC05E66D /* [CP] Embed Pods Frameworks */,
+				02A6B0CFBC8AD34DE635DBE7 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -596,6 +684,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DBA5C89C1EDAD9E300C5223E /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -609,6 +698,96 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		02A6B0CFBC8AD34DE635DBE7 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AssignmentsUnitTests/Pods-AssignmentsUnitTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		188241D4DFC7C10C8837F490 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Assignments/Pods-Assignments-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		259010949B6941B5AAB3D94C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Assignments/Pods-Assignments-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		539D13B569978DE0DCEFC538 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B667E4E3D7593BF3A50D610B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		BDC67D8C1B9C755BEC05E66D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AssignmentsUnitTests/Pods-AssignmentsUnitTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		E2F4DF6D1E81273F002ED6F2 /* Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 12;
@@ -647,6 +826,7 @@
 				DBD907141EAD12E5002CBCCC /* UIViewController+UIAlert.swift in Sources */,
 				DBDF591F1EA236D90043C1B4 /* Status.swift in Sources */,
 				DB442BC11EC74A9E007D0324 /* UIImage.swift in Sources */,
+				DBA5C87D1EDA0D4300C5223E /* ExportToGoogleCalendarViewController.swift in Sources */,
 				DBF5D4E81ED1A91F009BF80B /* ReminderContainer.swift in Sources */,
 				DBF5E85A1ED75686009BF80B /* CalendarTableViewCell.swift in Sources */,
 				DB6FEC831EC0A41500135F4E /* Task.swift in Sources */,
@@ -695,7 +875,59 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DBA5C8B41EDADA3B00C5223E /* StatisticsViewController.swift in Sources */,
+				DBA5C8A41EDADA2600C5223E /* SelectDurationTableViewCell.swift in Sources */,
+				DBA5C89D1EDAD9EF00C5223E /* Attachment+CoreDataProperties.swift in Sources */,
+				DBA5C88F1EDAD92B00C5223E /* Reminder.swift in Sources */,
+				DBA5C8971EDAD9C700C5223E /* UIImage.swift in Sources */,
+				DBA5C8A11EDADA1C00C5223E /* FullTaskTableViewCell.swift in Sources */,
+				DBA5C8A61EDADA2C00C5223E /* CalendarTableViewCell.swift in Sources */,
+				DBA5C8811EDACF4900C5223E /* TaskService.swift in Sources */,
+				DBA5C87F1EDACE2B00C5223E /* TasksServiceUnitTest.swift in Sources */,
+				DBA5C89B1EDAD9E100C5223E /* AppDelegate.swift in Sources */,
+				DBA5C89F1EDADA0E00C5223E /* AttachmentListItemView.swift in Sources */,
+				DBA5C8A31EDADA2300C5223E /* SelectDateTimeTableViewCell.swift in Sources */,
+				DBA5C8A51EDADA2A00C5223E /* AttachmentTableViewCell.swift in Sources */,
+				DBA5C8941EDAD9BD00C5223E /* ReminderContainer.swift in Sources */,
+				DBA5C8A21EDADA1F00C5223E /* SelectDateTableViewCell.swift in Sources */,
+				DBA5C8991EDAD9CC00C5223E /* TimeChank.swift in Sources */,
+				DBA5C88D1EDAD91800C5223E /* AttachmentType+CoreDataProperties.swift in Sources */,
+				DBA5C8AE1EDADA3600C5223E /* ScrollableSegmentedControl.swift in Sources */,
+				DBA5C8821EDACFDF00C5223E /* Task.swift in Sources */,
+				DBA5C8B01EDADA3B00C5223E /* ExportCalendarListViewController.swift in Sources */,
+				DBA5C88B1EDAD75E00C5223E /* LocalNotificationManager.swift in Sources */,
+				DBA5C8AC1EDADA3600C5223E /* SelectColorTableViewCell.swift in Sources */,
+				DBA5C8901EDAD94200C5223E /* CoreDataManager.swift in Sources */,
+				DBA5C8AD1EDADA3600C5223E /* TitleTableViewCell.swift in Sources */,
+				DBA5C89A1EDAD9DC00C5223E /* DataBase.xcdatamodeld in Sources */,
+				DBA5C8A01EDADA1600C5223E /* ContentTableViewCell.swift in Sources */,
+				DBA5C8861EDAD09D00C5223E /* Status.swift in Sources */,
+				DBA5C8921EDAD9B000C5223E /* SelectFieldTableViewCell.swift in Sources */,
+				DBA5C89E1EDAD9F500C5223E /* ShortcutAction.swift in Sources */,
+				DBA5C8981EDAD9C900C5223E /* Date.swift in Sources */,
+				DBA5C8AA1EDADA3600C5223E /* SelectionTableViewCell.swift in Sources */,
+				DBA5C8951EDAD9BF00C5223E /* UIColor.swift in Sources */,
+				DBA5C8841EDAD09600C5223E /* Priority+CoreDataProperties.swift in Sources */,
+				DBA5C8801EDACF4400C5223E /* CoreDataTasksManager.swift in Sources */,
+				DBA5C8931EDAD9BB00C5223E /* ShortcutContainer.swift in Sources */,
+				DBA5C88C1EDAD91100C5223E /* SelectFieldViewController.swift in Sources */,
+				DBA5C8961EDAD9C300C5223E /* UIViewController+UIAlert.swift in Sources */,
+				DBA5C8B21EDADA3B00C5223E /* CalendarViewController.swift in Sources */,
+				DBA5C8A71EDADA3000C5223E /* NavigationDropdownView.swift in Sources */,
 				DBF5E8481ED36856009BF80B /* AssignmentsUnitTests.swift in Sources */,
+				DBA5C88E1EDAD91D00C5223E /* AttachmentType.swift in Sources */,
+				DBA5C8B31EDADA3B00C5223E /* RemindersViewController.swift in Sources */,
+				DBA5C8831EDACFE500C5223E /* CreateTaskViewController.swift in Sources */,
+				DBA5C8881EDAD0A500C5223E /* Task+CoreDataProperties.swift in Sources */,
+				DBA5C8A91EDADA3600C5223E /* ColorCollectionViewCell.swift in Sources */,
+				DBA5C8AF1EDADA3B00C5223E /* TasksViewController.swift in Sources */,
+				DBA5C8891EDAD0BF00C5223E /* Status+CoreDataProperties.swift in Sources */,
+				DBA5C8AB1EDADA3600C5223E /* ReminderTableViewCell.swift in Sources */,
+				DBA5C8871EDAD0A100C5223E /* Priority.swift in Sources */,
+				DBA5C8B11EDADA3B00C5223E /* ExportToGoogleCalendarViewController.swift in Sources */,
+				DBA5C8A81EDADA3600C5223E /* TaskTableViewCell.swift in Sources */,
+				DBA5C88A1EDAD75A00C5223E /* ReminderService.swift in Sources */,
+				DBA5C8911EDAD95700C5223E /* Attachment.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -852,6 +1084,7 @@
 		};
 		DB0462B21E7D86220083F577 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D5A1729884EC2C16084E7CDE /* Pods-Assignments.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = MKJ3EVS82G;
@@ -872,6 +1105,7 @@
 		};
 		DB0462B31E7D86220083F577 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 959241E7E55334376458800D /* Pods-Assignments.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = MKJ3EVS82G;
@@ -892,6 +1126,7 @@
 		};
 		DBF5E84C1ED36856009BF80B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6A94F7C35ECA6B50F6E40858 /* Pods-AssignmentsUnitTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -912,6 +1147,7 @@
 		};
 		DBF5E84D1ED36856009BF80B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 58BD4709D291ACE46274CD7B /* Pods-AssignmentsUnitTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -988,6 +1224,7 @@
 				DBF5E84D1ED36856009BF80B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E20480CB1ECECD6400D7F6C9 /* Build configuration list for PBXNativeTarget "AssignmentsUITests" */ = {
 			isa = XCConfigurationList;

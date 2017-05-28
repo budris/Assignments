@@ -17,6 +17,8 @@ class AssignmentsUnitTests: XCTestCase {
         super.setUp()
         
         controllerForTest = UIStoryboard(name: "Tasks", bundle: nil).instantiateViewController(withIdentifier: "CreateTaskViewController") as! CreateTaskViewController
+        
+        
     }
     
     override func tearDown() {
@@ -26,8 +28,6 @@ class AssignmentsUnitTests: XCTestCase {
     }
     
     func testTaskValidation() {
-        controllerForTest = UIStoryboard(name: "Tasks", bundle: nil).instantiateViewController(withIdentifier: "CreateTaskViewController") as! CreateTaskViewController
-        
         controllerForTest.taskPrototype.title = "Task Name"
         controllerForTest.taskPrototype.startDate = Date() as NSDate
         controllerForTest.taskPrototype.durationInMinutes = 120
@@ -36,6 +36,12 @@ class AssignmentsUnitTests: XCTestCase {
         
         let isValid = controllerForTest.isValidTaskPrototype(taskPrototype: controllerForTest.taskPrototype)
         XCTAssert(isValid, "Task Prototype is not valid")
+    }
+    
+    func testTaskService() {
+        
+        
+        
     }
     
     func testPerformanceExample() {

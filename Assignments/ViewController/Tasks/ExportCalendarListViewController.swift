@@ -72,7 +72,7 @@ class ExportCalendarListViewController: UIViewController {
             
             strongSelf.iCalendars = strongSelf.eventStore.calendars(for: .event).filter({ $0.allowsContentModifications == true })
             DispatchQueue.main.async {
-                
+                self?.calendarsTableView.reloadData()
             }
         }
     }

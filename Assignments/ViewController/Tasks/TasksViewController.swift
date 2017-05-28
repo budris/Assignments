@@ -59,6 +59,13 @@ class TasksViewController: UIViewController {
                 
                 self?.tasksTableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
             }
+        } else if segue.identifier == "exportEvent" {
+            guard let taskToExport = sender as? Task,
+            let exportTaskVC = segue.destination as? ExportCalendarListViewController else {
+                return
+            }
+            
+            exportTaskVC.taskToExport = taskToExport
         }
     }
     
@@ -165,6 +172,7 @@ extension TasksViewController: UITableViewDelegate {
             tableView.deleteRows(at: [indexPath], with: .automatic)
         }
         
+        
         let editAction = UITableViewRowAction(style: .normal, title: "Edit") { [weak self] (_, indexPath) in
             guard let task = self?.tasks[indexPath.row] else {
                 return
@@ -174,7 +182,11 @@ extension TasksViewController: UITableViewDelegate {
         }
         
         let exportAction = UITableViewRowAction(style: .normal, title: "Export") { [weak self] (_, indexPath) in
-            self?.performSegue(withIdentifier: "exportEvent", sender: self)
+            guard let task = self?.tasks[indexPath.row] else {
+                return
+            }
+            
+            self?.performSegue(withIdentifier: "exportEvent", sender: task)
         }
         exportAction.backgroundColor = UIColor.cyan
         

@@ -39,16 +39,16 @@ enum TaskField {
     }
 }
 
-struct TaskPrototype {
-    public var id: Int?
-    public var title: String?
-    public var content: String?
-    public var dateCreation: NSDate?
-    public var startDate: NSDate?
-    public var durationInMinutes: Double?
-    public var status: StatusEnum
-    public var priority: PriorityEnum
-    public var attachments: NSSet?
+public struct TaskPrototype {
+    var id: Int?
+    var title: String?
+    var content: String?
+    var dateCreation: NSDate?
+    var startDate: NSDate?
+    var durationInMinutes: Double?
+    var status: StatusEnum
+    var priority: PriorityEnum
+    var attachments: NSSet?
     
     init() {
         priority = .medium
@@ -68,7 +68,7 @@ class CreateTaskViewController: UIViewController {
     @IBOutlet weak var taskFieldsTableView: UITableView!
     
     fileprivate let taskService: TaskService = CoreDataTasksManager.sharedInstance
-    fileprivate let reminderService = LocalNotificationManager.sharedInstance
+    fileprivate let reminderService: ReminderService = LocalNotificationManager.sharedInstance
     
     fileprivate var taskFieldsDataSource: [TaskField] = []
     var taskPrototype = TaskPrototype()
@@ -141,7 +141,7 @@ class CreateTaskViewController: UIViewController {
                     : currentDate.addingTimeInterval(60)
                 reminderService.createReminder(at: startDate,
                                                with: taskPrototype.title ?? "", and: "You must to do",
-                                               for: Int(task.id))
+                                               for: Int(task.id), repeats: false)
             }
             
         case .edit:

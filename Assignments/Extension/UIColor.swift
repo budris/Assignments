@@ -6,7 +6,7 @@
 //  Copyright © 2017 Andrey Sak. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 extension UIColor {
     

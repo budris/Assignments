@@ -13,7 +13,7 @@ enum ReminderKey {
     static let taskId: String = "TaskId"
 }
 
-class LocalNotificationManager: ReminderService {
+final class LocalNotificationManager: ReminderService {
     static let sharedInstance = LocalNotificationManager()
     
     private let center: UNUserNotificationCenter
@@ -24,26 +24,30 @@ class LocalNotificationManager: ReminderService {
         })
     }
     
-    func createReminder(at date: Date, with title: String, and message: String, for taskId: Int) {
+    func createReminder(at date: Date, with title: String, and message: String, for taskId: Int, repeats: Bool) {
+        // создание и заполнение содержимого уведомления
         let content = UNMutableNotificationContent()
         content.title = title
         content.body = message
         content.sound = UNNotificationSound.default()
         content.userInfo[ReminderKey.taskId] = taskId
         
+        // создание даты и времени напоминания
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: date.timeIntervalSinceNow,
-                                                        repeats: false)
-        
+                                                        repeats: repeats)
+        // создание запроса на напоминания
         let request = UNNotificationRequest(identifier: UUID().uuidString,
                                             content: content,
                                             trigger: trigger)
-        
+        // добавление запроса в очередь на выполнение
         center.add(request)  
     }
     
     func getReminders(success: @escaping (([Reminder]) -> (Void))) {
         center.getPendingNotificationRequests { notifications in
             var reminders: [Reminder] = []
+            // преобразование системных напоминаний 
+            // к пользовательскому типу данных
             notifications.forEach ({
                 guard let trigger = $0.trigger as? UNTimeIntervalNotificationTrigger,
                     let taskId = $0.content.userInfo[ReminderKey.taskId] as? Int else {
