@@ -9,6 +9,7 @@
 import UIKit
 import Google
 import GoogleSignIn
+import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -22,6 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        assert(configureError == nil, "Error configuring Google services: \(configureError)")
         GIDSignIn.sharedInstance().clientID = "236844990219-823cei0bo6ivgq63mm9qm3svao8fo6li.apps.googleusercontent.com"
         GIDSignIn.sharedInstance().delegate = self
+
+        UNUserNotificationCenter.current().delegate = self
         
         return true
     }
@@ -37,24 +40,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         ShortcutContainer.sharedInstance.setSelectedAction(shortcutAction)
+        NotificationCenter.default.post(name: .selectShortcutAction, object: nil)
         return true
     }
     
-    func application(_ application: UIApplication, didReceive notification: UILocalNotification) {
-        guard let reminder = reminder(for: notification) else {
-            return
-        }
-        
-        ReminderContainer.sharedInstance.setSelectedReminder(reminder)
-    }
-    
-    private func reminder(for localNotification: UILocalNotification) -> Reminder? {
-        guard let taskId = localNotification.userInfo?[ReminderKey.taskId] as? Int,
-            let fireDate = localNotification.fireDate else {
+    fileprivate func reminder(for notificationRequest: UNNotificationRequest) -> Reminder? {
+        guard let taskId = notificationRequest.content.userInfo[ReminderKey.taskId] as? Int else {
                 return nil
         }
         
-        return Reminder(identifier: "", taskId: taskId, fireDate: fireDate)
+        return Reminder(identifier: "", taskId: taskId, fireDate: Date())
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
@@ -88,4 +83,18 @@ extension AppDelegate : GIDSignInDelegate {
     func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
         print(error)
     }
+}
+
+extension AppDelegate: UNUserNotificationCenterDelegate {
+
+    public func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Swift.Void) {
+        let notification = response.notification
+        guard let reminder = reminder(for: notification.request) else {
+            return
+        }
+
+        ReminderContainer.sharedInstance.setSelectedReminder(reminder)
+        NotificationCenter.default.post(name: .selectReminderAction, object: nil)
+    }
+
 }

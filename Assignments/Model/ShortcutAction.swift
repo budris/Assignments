@@ -11,6 +11,6 @@ import Foundation
 public enum ShortcutAction: String {
     case createTask
     case openCalendar
-    case openStatisctic
+    case openStatistic
     case openReminders
 }

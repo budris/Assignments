@@ -142,7 +142,7 @@ class CreateTaskViewController: UIViewController {
                 reminderService.createReminder(at: startDate,
                                                with: taskPrototype.title ?? "",
                                                and: "Reminder about upcoming task \(taskPrototype.title ?? "")",
-                                               for: Int(task.id))
+                                               for: Int(task.id), repeats: false)
             }
             
         case .edit:

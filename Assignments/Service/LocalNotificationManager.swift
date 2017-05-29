@@ -27,7 +27,7 @@ class LocalNotificationManager {
 
 extension LocalNotificationManager: ReminderService {
 
-    func createReminder(at date: Date, with title: String, and message: String, for taskId: Int) {
+    func createReminder(at date: Date, with title: String, and message: String, for taskId: Int, repeats: Bool) {
         // создание и заполнение содержимого уведомления
         let content = UNMutableNotificationContent()
         content.title = title

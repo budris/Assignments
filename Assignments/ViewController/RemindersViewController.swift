@@ -22,6 +22,8 @@ class RemindersViewController: UIViewController, NVActivityIndicatorViewable {
         
         remindersTableView.dataSource = self
         remindersTableView.delegate = self
+        
+        subscribeForNotification()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -46,7 +48,45 @@ class RemindersViewController: UIViewController, NVActivityIndicatorViewable {
             activityIndicator.stopAnimating()
         }
     }
-    
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "editTask" {
+            guard let navVC = segue.destination as? UINavigationController,
+                let editTaskVC = navVC.topViewController as? CreateTaskViewController,
+                let task = sender as? Task else {
+                    return
+            }
+
+            editTaskVC.editedTask = task
+            editTaskVC.didUpdatedTask = { [weak self] _ in
+                self?.remindersTableView.reloadData()
+            }
+        } else {
+            super.prepare(for: segue, sender: sender)
+        }
+    }
+
+    private func subscribeForNotification() {
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(didSelectReminder),
+                                               name: .selectReminderAction,
+                                               object: nil)
+    }
+
+    func didSelectReminder() {
+        if let reminder = ReminderContainer.sharedInstance.getSelectedReminder() {
+            guard let task = taskService.tasks.first(where: { Int($0.id) == reminder.taskId })else {
+                return
+            }
+
+            performSegue(withIdentifier: "editTask", sender: task)
+        }
+    }
+
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: .selectReminderAction, object: nil)
+    }
+
 }
 
 extension RemindersViewController: UITableViewDataSource {
@@ -93,6 +133,16 @@ extension RemindersViewController: UITableViewDelegate {
         }
         
         return [deleteAction]
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let reminder = reminders[indexPath.row]
+
+        guard let task = taskService.tasks.first(where: { Int($0.id) == reminder.taskId })else {
+            return
+        }
+
+        performSegue(withIdentifier: "editTask", sender: task)        
     }
     
 }

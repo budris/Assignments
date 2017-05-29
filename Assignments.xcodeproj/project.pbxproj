@@ -144,6 +144,10 @@
 		DBF5E85C1ED75870009BF80B /* TimeChank.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF5E85B1ED75870009BF80B /* TimeChank.swift */; };
 		E20480C71ECECD6400D7F6C9 /* AssignmentsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20480C61ECECD6400D7F6C9 /* AssignmentsUITests.swift */; };
 		E2448E8398BDA67810F842D8 /* Pods_AssignmentsUnitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8F4315FF6A58E3B2D2A3FE0 /* Pods_AssignmentsUnitTests.framework */; };
+		E28227111EDBF6D000746FDE /* AssignmentTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28227101EDBF6D000746FDE /* AssignmentTabBarController.swift */; };
+		E28227121EDBF7C400746FDE /* AssignmentTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28227101EDBF6D000746FDE /* AssignmentTabBarController.swift */; };
+		E282271B1EDBFC0800746FDE /* NSNotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = E282271A1EDBFC0800746FDE /* NSNotificationName.swift */; };
+		E282271C1EDBFC4500746FDE /* NSNotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = E282271A1EDBFC0800746FDE /* NSNotificationName.swift */; };
 		E2F4DF681E812727002ED6F2 /* ChartsRealm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2F4DF631E812727002ED6F2 /* ChartsRealm.framework */; };
 		E2F4DF6A1E812727002ED6F2 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2F4DF651E812727002ED6F2 /* Realm.framework */; };
 		E2F4DF6C1E812727002ED6F2 /* FSCalendar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2F4DF671E812727002ED6F2 /* FSCalendar.framework */; };
@@ -268,6 +272,8 @@
 		E20480C41ECECD6400D7F6C9 /* AssignmentsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AssignmentsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E20480C61ECECD6400D7F6C9 /* AssignmentsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentsUITests.swift; sourceTree = "<group>"; };
 		E20480C81ECECD6400D7F6C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E28227101EDBF6D000746FDE /* AssignmentTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssignmentTabBarController.swift; sourceTree = "<group>"; };
+		E282271A1EDBFC0800746FDE /* NSNotificationName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSNotificationName.swift; sourceTree = "<group>"; };
 		E2F4DF611E812717002ED6F2 /* Charts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Charts.framework; path = Carthage/Build/iOS/Charts.framework; sourceTree = "<group>"; };
 		E2F4DF631E812727002ED6F2 /* ChartsRealm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ChartsRealm.framework; path = Carthage/Build/iOS/ChartsRealm.framework; sourceTree = "<group>"; };
 		E2F4DF651E812727002ED6F2 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
@@ -444,6 +450,7 @@
 				E2F4DF6E1E81311B002ED6F2 /* CalendarViewController.swift */,
 				DB6FEC8D1EC4F39200135F4E /* RemindersViewController.swift */,
 				E2F4DF731E813B8E002ED6F2 /* StatisticsViewController.swift */,
+				E28227101EDBF6D000746FDE /* AssignmentTabBarController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -494,6 +501,7 @@
 				DB442BC01EC74A9E007D0324 /* UIImage.swift */,
 				DB6FEC741EBDFDC300135F4E /* Date.swift */,
 				DBF5E85B1ED75870009BF80B /* TimeChank.swift */,
+				E282271A1EDBFC0800746FDE /* NSNotificationName.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -842,6 +850,7 @@
 				DBF5E85A1ED75686009BF80B /* CalendarTableViewCell.swift in Sources */,
 				DB6FEC831EC0A41500135F4E /* Task.swift in Sources */,
 				DB6FEC8C1EC4F15B00135F4E /* Reminder.swift in Sources */,
+				E282271B1EDBFC0800746FDE /* NSNotificationName.swift in Sources */,
 				DB442BB91EC746F2007D0324 /* ContentTableViewCell.swift in Sources */,
 				DB6FEC651EB60DED00135F4E /* NavigationDropdownView.swift in Sources */,
 				DB6FEC841EC0A41500135F4E /* Task+CoreDataProperties.swift in Sources */,
@@ -869,6 +878,7 @@
 				DBF5D4E61ED1A909009BF80B /* ShortcutContainer.swift in Sources */,
 				DB67F2931EACCA4E00C06CB3 /* SelectColorTableViewCell.swift in Sources */,
 				DB6FEC8A1EC4EB3600135F4E /* ReminderService.swift in Sources */,
+				E28227111EDBF6D000746FDE /* AssignmentTabBarController.swift in Sources */,
 				DBDF59191EA236D90043C1B4 /* AttachmentType.swift in Sources */,
 				DB442BBF1EC7470F007D0324 /* AttachmentTableViewCell.swift in Sources */,
 				DBF5E8581ED753E3009BF80B /* ExportCalendarListViewController.swift in Sources */,
@@ -916,11 +926,13 @@
 				DBA5C8921EDAD9B000C5223E /* SelectFieldTableViewCell.swift in Sources */,
 				DBA5C89E1EDAD9F500C5223E /* ShortcutAction.swift in Sources */,
 				DBA5C8981EDAD9C900C5223E /* Date.swift in Sources */,
+				E28227121EDBF7C400746FDE /* AssignmentTabBarController.swift in Sources */,
 				DBA5C8AA1EDADA3600C5223E /* SelectionTableViewCell.swift in Sources */,
 				DBA5C8951EDAD9BF00C5223E /* UIColor.swift in Sources */,
 				DBA5C8841EDAD09600C5223E /* Priority+CoreDataProperties.swift in Sources */,
 				DBA5C8B61EDB008400C5223E /* ReminderServiceUnitTest.swift in Sources */,
 				DBA5C8801EDACF4400C5223E /* CoreDataTasksManager.swift in Sources */,
+				E282271C1EDBFC4500746FDE /* NSNotificationName.swift in Sources */,
 				DBA5C8931EDAD9BB00C5223E /* ShortcutContainer.swift in Sources */,
 				DBA5C88C1EDAD91100C5223E /* SelectFieldViewController.swift in Sources */,
 				DBA5C8961EDAD9C300C5223E /* UIViewController+UIAlert.swift in Sources */,

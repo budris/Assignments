@@ -34,9 +34,21 @@ class TasksViewController: UIViewController {
         tasksTableView.dataSource = self
         tasksTableView.delegate = self
         
-        setupNavigationDropdownMenu()        
+        setupNavigationDropdownMenu()
+        subscribeForNotification()
     }
-    
+
+    private func subscribeForNotification() {
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(didSelectShortcutAction),
+                                               name: .selectShortcutAction,
+                                               object: nil)
+    }
+
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: .selectShortcutAction, object: nil)
+    }
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -60,12 +72,22 @@ class TasksViewController: UIViewController {
                 self?.tasksTableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
             }
         } else if segue.identifier == "exportEvent" {
-            guard let taskToExport = sender as? Task,
+            guard let taskForExport = sender as? Task,
             let exportTaskVC = segue.destination as? ExportCalendarListViewController else {
                 return
             }
             
-            exportTaskVC.taskToExport = taskToExport
+            exportTaskVC.taskForExport = taskForExport
+        } else {
+            super.prepare(for: segue, sender: sender)
+        }
+    }
+
+    func didSelectShortcutAction() {
+        if let shortcutAction = ShortcutContainer.sharedInstance.getSelectedAction(),
+            shortcutAction == .createTask {
+            ShortcutContainer.sharedInstance.setSelectedAction(nil)
+            performSegue(withIdentifier: "createTask", sender: self)
         }
     }
     

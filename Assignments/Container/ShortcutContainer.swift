@@ -8,25 +8,21 @@
 
 import Foundation
 
-class ShortcutContainer {
-    
+class ShortcutContainer {    
     static let sharedInstance = ShortcutContainer()
     
-    private var selectedAction: ShortcutAction?
+    var selectedAction: ShortcutAction?
     
     private init() {
         selectedAction = nil
     }
     
-    func setSelectedAction(_ newValue: ShortcutAction) {
+    func setSelectedAction(_ newValue: ShortcutAction?) {
         selectedAction = newValue
     }
     
-    func getSelectedAction() -> ShortcutAction? {
-        let action = selectedAction
-        selectedAction = nil
-        
-        return action
+    func getSelectedAction() -> ShortcutAction? {        
+        return selectedAction
     }
     
 }

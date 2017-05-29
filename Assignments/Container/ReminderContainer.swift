@@ -8,8 +8,7 @@
 
 import Foundation
 
-class ReminderContainer {
-    
+class ReminderContainer {    
     static let sharedInstance = ReminderContainer()
     
     private var selectedReminder: Reminder?
@@ -23,10 +22,7 @@ class ReminderContainer {
     }
     
     func getSelectedReminder() -> Reminder? {
-        let reminder = selectedReminder
-        selectedReminder = nil
-        
-        return reminder
+        return selectedReminder
     }
     
 }
