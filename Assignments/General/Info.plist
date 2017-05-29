@@ -62,7 +62,7 @@
 			<key>UIApplicationShortcutItemIconFile</key>
 			<string>pieChart</string>
 			<key>UIApplicationShortcutItemTitle</key>
-			<string>Statustic</string>
+			<string>Statistic</string>
 			<key>UIApplicationShortcutItemType</key>
 			<string>openStatistic</string>
 		</dict>

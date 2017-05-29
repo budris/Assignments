@@ -13,5 +13,4 @@ public enum ShortcutAction: String {
     case openCalendar
     case openStatisctic
     case openReminders
-    case openTasks
 }

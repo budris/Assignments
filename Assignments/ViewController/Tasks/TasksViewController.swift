@@ -80,7 +80,7 @@ class TasksViewController: UIViewController {
         case .video:
             guard let videoData = attachemnt.data as Data?,
                 let fileName = attachemnt.name,
-                let filePath = documentsPathForFileName(fileName) else {
+                let filePath = documentsPath(for: fileName) else {
                 return
             }
             
@@ -103,7 +103,7 @@ class TasksViewController: UIViewController {
         }
     }
     
-    private func documentsPathForFileName(_ fileName: String) -> String? {
+    private func documentsPath(for fileName: String) -> String? {
         let paths = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.cachesDirectory,
                                                         FileManager.SearchPathDomainMask.userDomainMask,
                                                         true)

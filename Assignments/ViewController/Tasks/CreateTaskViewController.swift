@@ -39,7 +39,7 @@ enum TaskField {
     }
 }
 
-struct TaskPrototype {
+class TaskPrototype {
     public var id: Int?
     public var title: String?
     public var content: String?
@@ -140,7 +140,8 @@ class CreateTaskViewController: UIViewController {
                     ? startDate
                     : currentDate.addingTimeInterval(60)
                 reminderService.createReminder(at: startDate,
-                                               with: taskPrototype.title ?? "", and: "You must to do",
+                                               with: taskPrototype.title ?? "",
+                                               and: "Reminder about upcoming task \(taskPrototype.title ?? "")",
                                                for: Int(task.id))
             }
             
@@ -459,8 +460,7 @@ extension CreateTaskViewController: UIImagePickerControllerDelegate, UINavigatio
                 
                 return
             }
-            
-            
+
             addAttachment(data: videoData, type: .video)
             picker.dismiss(animated: true)
         default:

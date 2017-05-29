@@ -32,7 +32,7 @@ class StatisticViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        generateChartDataSource()
+        generateStatisticsDataSource()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -56,7 +56,7 @@ class StatisticViewController: UIViewController {
         }
     }
     
-    private func generateChartDataSource() {
+    private func generateStatisticsDataSource() {
         let tasks = tasksService.tasks
         
         var statusesOfTasks: [String : Int] = [:]
