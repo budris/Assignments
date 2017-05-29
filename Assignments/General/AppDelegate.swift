@@ -17,10 +17,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        
         var configureError: NSError?
-//        GGLContext.sharedInstance().configureWithError(&configureError)
-//        assert(configureError == nil, "Error configuring Google services: \(configureError)")
+        GGLContext.sharedInstance().configureWithError(&configureError)
+        assert(configureError == nil, "Error configuring Google services: \(configureError?.localizedDescription ?? "Without description")")
         GIDSignIn.sharedInstance().clientID = "236844990219-823cei0bo6ivgq63mm9qm3svao8fo6li.apps.googleusercontent.com"
         GIDSignIn.sharedInstance().delegate = self
 

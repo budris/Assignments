@@ -401,7 +401,7 @@ extension CreateTaskViewController: UITableViewDelegate {
         let cellType = taskFieldsDataSource[indexPath.row]
         switch cellType {
         case .priority, .status:
-            performSegue(withIdentifier: "selectField", sender: cellType)
+            performSegue(withIdentifier: SegueIdentifier.selectField, sender: cellType)
         case .startDate:
             showDatePicker(title: cellType.description,
                            selectedDate: (taskPrototype.startDate as Date?) ?? Date(),

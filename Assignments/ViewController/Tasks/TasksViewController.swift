@@ -56,7 +56,7 @@ class TasksViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "editTask" {
+        if segue.identifier == SegueIdentifier.editTask {
             guard let navVC = segue.destination as? UINavigationController,
                 let editTaskVC = navVC.topViewController as? CreateTaskViewController,
                 let task = sender as? Task else {
@@ -71,7 +71,7 @@ class TasksViewController: UIViewController {
                 
                 self?.tasksTableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
             }
-        } else if segue.identifier == "exportEvent" {
+        } else if segue.identifier == SegueIdentifier.exportTask {
             guard let taskForExport = sender as? Task,
             let exportTaskVC = segue.destination as? ExportCalendarListViewController else {
                 return
@@ -87,7 +87,7 @@ class TasksViewController: UIViewController {
         if let shortcutAction = ShortcutContainer.sharedInstance.getSelectedAction(),
             shortcutAction == .createTask {
             ShortcutContainer.sharedInstance.setSelectedAction(nil)
-            performSegue(withIdentifier: "createTask", sender: self)
+            performSegue(withIdentifier: SegueIdentifier.createTask, sender: self)
         }
     }
     
@@ -200,7 +200,7 @@ extension TasksViewController: UITableViewDelegate {
                 return
             }
             
-            self?.performSegue(withIdentifier: "editTask", sender: task)
+            self?.performSegue(withIdentifier: SegueIdentifier.editTask, sender: task)
         }
         
         let exportAction = UITableViewRowAction(style: .normal, title: "Export") { [weak self] (_, indexPath) in
@@ -208,7 +208,7 @@ extension TasksViewController: UITableViewDelegate {
                 return
             }
             
-            self?.performSegue(withIdentifier: "exportEvent", sender: task)
+            self?.performSegue(withIdentifier: SegueIdentifier.exportTask, sender: task)
         }
         exportAction.backgroundColor = UIColor.cyan
         

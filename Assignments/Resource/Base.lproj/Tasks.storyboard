@@ -112,7 +112,7 @@
                     <connections>
                         <outlet property="tasksTableView" destination="jhH-cc-goD" id="MGb-wo-Pf6"/>
                         <segue destination="gXN-iq-jnG" kind="showDetail" identifier="editTask" id="zaJ-O2-Is4"/>
-                        <segue destination="ZFE-xf-CAY" kind="show" identifier="exportEvent" id="q6I-JP-L8H"/>
+                        <segue destination="ZFE-xf-CAY" kind="show" identifier="exportTask" id="q6I-JP-L8H"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xNb-m1-bCq" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -31,11 +31,14 @@ enum TabBarView: Int {
 class AssignmentsTabBarController: UITabBarController {
 
     let shortcutContainer = ShortcutContainer.sharedInstance
-    let remindersContainer = ReminderContainer.sharedInstance
+    let reminderContainer = ReminderContainer.sharedInstance
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+    }
+
+    private func subscribeForNotifications() {
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(didSelectShortcutAction),
                                                name: .selectShortcutAction,
@@ -44,8 +47,6 @@ class AssignmentsTabBarController: UITabBarController {
                                                selector: #selector(didSelectReminder),
                                                name: .selectReminderAction,
                                                object: nil)
-
-
     }
 
     deinit {
@@ -62,7 +63,7 @@ class AssignmentsTabBarController: UITabBarController {
     }
 
     func didSelectReminder() {
-        if let _ = remindersContainer.getSelectedReminder(),
+        if let _ = reminderContainer.getSelectedReminder(),
             let viewControllers = self.viewControllers {
             self.selectedViewController = viewControllers[TabBarView.reminders.rawValue]
         }

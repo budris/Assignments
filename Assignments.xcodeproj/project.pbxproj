@@ -143,6 +143,8 @@
 		DBF5E85A1ED75686009BF80B /* CalendarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF5E8591ED75686009BF80B /* CalendarTableViewCell.swift */; };
 		DBF5E85C1ED75870009BF80B /* TimeChank.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF5E85B1ED75870009BF80B /* TimeChank.swift */; };
 		E20480C71ECECD6400D7F6C9 /* AssignmentsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20480C61ECECD6400D7F6C9 /* AssignmentsUITests.swift */; };
+		E21EEBA21EDC06380094655A /* SegueIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21EEBA11EDC06380094655A /* SegueIdentifier.swift */; };
+		E21EEBA31EDC06430094655A /* SegueIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21EEBA11EDC06380094655A /* SegueIdentifier.swift */; };
 		E2448E8398BDA67810F842D8 /* Pods_AssignmentsUnitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8F4315FF6A58E3B2D2A3FE0 /* Pods_AssignmentsUnitTests.framework */; };
 		E28227111EDBF6D000746FDE /* AssignmentTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28227101EDBF6D000746FDE /* AssignmentTabBarController.swift */; };
 		E28227121EDBF7C400746FDE /* AssignmentTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28227101EDBF6D000746FDE /* AssignmentTabBarController.swift */; };
@@ -272,6 +274,7 @@
 		E20480C41ECECD6400D7F6C9 /* AssignmentsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AssignmentsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E20480C61ECECD6400D7F6C9 /* AssignmentsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentsUITests.swift; sourceTree = "<group>"; };
 		E20480C81ECECD6400D7F6C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E21EEBA11EDC06380094655A /* SegueIdentifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegueIdentifier.swift; sourceTree = "<group>"; };
 		E28227101EDBF6D000746FDE /* AssignmentTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssignmentTabBarController.swift; sourceTree = "<group>"; };
 		E282271A1EDBFC0800746FDE /* NSNotificationName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSNotificationName.swift; sourceTree = "<group>"; };
 		E2F4DF611E812717002ED6F2 /* Charts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Charts.framework; path = Carthage/Build/iOS/Charts.framework; sourceTree = "<group>"; };
@@ -408,6 +411,7 @@
 				DBDF59161EA236D90043C1B4 /* Attachment+CoreDataProperties.swift */,
 				DB6FEC8B1EC4F15B00135F4E /* Reminder.swift */,
 				DBF5D4E01ED1A370009BF80B /* ShortcutAction.swift */,
+				E21EEBA11EDC06380094655A /* SegueIdentifier.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -878,6 +882,7 @@
 				DBF5D4E61ED1A909009BF80B /* ShortcutContainer.swift in Sources */,
 				DB67F2931EACCA4E00C06CB3 /* SelectColorTableViewCell.swift in Sources */,
 				DB6FEC8A1EC4EB3600135F4E /* ReminderService.swift in Sources */,
+				E21EEBA21EDC06380094655A /* SegueIdentifier.swift in Sources */,
 				E28227111EDBF6D000746FDE /* AssignmentTabBarController.swift in Sources */,
 				DBDF59191EA236D90043C1B4 /* AttachmentType.swift in Sources */,
 				DB442BBF1EC7470F007D0324 /* AttachmentTableViewCell.swift in Sources */,
@@ -908,6 +913,7 @@
 				DBA5C89B1EDAD9E100C5223E /* AppDelegate.swift in Sources */,
 				DBA5C89F1EDADA0E00C5223E /* AttachmentListItemView.swift in Sources */,
 				DBA5C8A31EDADA2300C5223E /* SelectDateTimeTableViewCell.swift in Sources */,
+				E21EEBA31EDC06430094655A /* SegueIdentifier.swift in Sources */,
 				DBA5C8A51EDADA2A00C5223E /* AttachmentTableViewCell.swift in Sources */,
 				DBA5C8941EDAD9BD00C5223E /* ReminderContainer.swift in Sources */,
 				DBA5C8A21EDADA1F00C5223E /* SelectDateTableViewCell.swift in Sources */,

@@ -38,7 +38,7 @@ class CalendarViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "editTask" {
+        if segue.identifier == SegueIdentifier.editTask {
             guard let navVC = segue.destination as? UINavigationController,
                 let editTaskVC = navVC.topViewController as? CreateTaskViewController,
                 let task = sender as? Task else {
@@ -112,7 +112,7 @@ extension CalendarViewController: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         
         let task = tasksForDate[indexPath.row]
-        performSegue(withIdentifier: "editTask", sender: task)
+        performSegue(withIdentifier: SegueIdentifier.editTask, sender: task)
     }
 }
 

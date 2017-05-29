@@ -32,7 +32,7 @@ class ExportCalendarListViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toGoogleCalendar",
+        if segue.identifier == SegueIdentifier.toGoogleCalendar,
             let exportToGoogleCalendarVC = segue.destination as? ExportToGoogleCalendarViewController {
             exportToGoogleCalendarVC.taskForExport = taskForExport
         } else {
