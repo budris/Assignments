@@ -13,18 +13,21 @@ enum ReminderKey {
     static let taskId: String = "TaskId"
 }
 
-final class LocalNotificationManager: ReminderService {
+class LocalNotificationManager {
     static let sharedInstance = LocalNotificationManager()
     
-    private let center: UNUserNotificationCenter
+    fileprivate let center: UNUserNotificationCenter
     
     private init() {
         center = UNUserNotificationCenter.current()
         center.requestAuthorization(options: [.alert, .sound], completionHandler: { (granted, error) -> Void in
         })
     }
-    
-    func createReminder(at date: Date, with title: String, and message: String, for taskId: Int, repeats: Bool) {
+}
+
+extension LocalNotificationManager: ReminderService {
+
+    func createReminder(at date: Date, with title: String, and message: String, for taskId: Int) {
         // создание и заполнение содержимого уведомления
         let content = UNMutableNotificationContent()
         content.title = title

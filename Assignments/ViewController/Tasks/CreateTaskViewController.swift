@@ -140,8 +140,9 @@ class CreateTaskViewController: UIViewController {
                     ? startDate
                     : currentDate.addingTimeInterval(60)
                 reminderService.createReminder(at: startDate,
-                                               with: taskPrototype.title ?? "", and: "You must to do",
-                                               for: Int(task.id), repeats: false)
+                                               with: taskPrototype.title ?? "",
+                                               and: "Reminder about upcoming task \(taskPrototype.title ?? "")",
+                                               for: Int(task.id))
             }
             
         case .edit:
@@ -459,8 +460,7 @@ extension CreateTaskViewController: UIImagePickerControllerDelegate, UINavigatio
                 
                 return
             }
-            
-            
+
             addAttachment(data: videoData, type: .video)
             picker.dismiss(animated: true)
         default:
