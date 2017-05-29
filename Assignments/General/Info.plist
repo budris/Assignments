@@ -23,38 +23,28 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>com.googleusercontent.apps.236844990219-37838jt205c023ebegkl186bd60vv0ur
-</string>
+				<string>com.knowledgeProject.Assignments</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.googleusercontent.apps.236844990219-823cei0bo6ivgq63mm9qm3svao8fo6li</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>***Something here***</string>
 			</array>
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
-	<key>LSApplicationCategoryType</key>
-	<dict>
-		<key>BUNDLE_ID</key>
-		<string>knowledgeProject.Assignments</string>
-		<key>CLIENT_ID</key>
-		<string>236844990219-37838jt205c023ebegkl186bd60vv0ur.apps.googleusercontent.com</string>
-		<key>GOOGLE_APP_ID</key>
-		<string>1:236844990219:ios:242ca2262d58172e</string>
-		<key>IS_ADS_ENABLED</key>
-		<false/>
-		<key>IS_ANALYTICS_ENABLED</key>
-		<false/>
-		<key>IS_APPINVITE_ENABLED</key>
-		<false/>
-		<key>IS_GCM_ENABLED</key>
-		<false/>
-		<key>IS_SIGNIN_ENABLED</key>
-		<true/>
-		<key>PLIST_VERSION</key>
-		<string>1</string>
-		<key>PROJECT_ID</key>
-		<string>firebase-assignments</string>
-		<key>REVERSED_CLIENT_ID</key>
-		<string>com.googleusercontent.apps.236844990219-37838jt205c023ebegkl186bd60vv0ur</string>
-	</dict>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSCalendarsUsageDescription</key>

@@ -25,7 +25,7 @@ class TasksServiceUnitTest: XCTestCase {
     
     func testService() {
         testCreate()
-        testEdite()
+        testEdit()
         testDelete()
     }
     
@@ -42,7 +42,7 @@ class TasksServiceUnitTest: XCTestCase {
                       "Task doesn`t created")
     }
     
-    func testEdite() {
+    func testEdit() {
         XCTAssertTrue(taskService.tasks.count > 0,
                       "Tasks not found. Count must be greater then 0")
         

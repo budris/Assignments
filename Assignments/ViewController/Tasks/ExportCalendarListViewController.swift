@@ -16,21 +16,11 @@ extension Notification.Name {
 class ExportCalendarListViewController: UIViewController {
     
     @IBOutlet weak var calendarsTableView: UITableView!
-    
-    var taskToExport: Task!
-    
-    enum CalendarType {
-        case google(code: String)
-        case iCal
-    }
-    
-    var type: CalendarType?
+
+    var taskForExport: Task!
     
     var iCalendars = [EKCalendar]()
     let eventStore = EKEventStore()
-    
-    //        var googleToken: GoogleToken!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,24 +31,14 @@ class ExportCalendarListViewController: UIViewController {
         getICalendars()
     }
     
-    @IBAction func cancelAction(_ sender: Any) {
-        dismiss(animated: true)
-    }
-    
-    private func getCalendars() {
-        guard let type = type else {
-            return
-        }
-        
-        switch type {
-        case .google(let code):
-//            getGoogleAccessToken(code: code)
-            break
-        case .iCal:
-            getICalendars()
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toGoogleCalendar",
+            let exportToGoogleCalendarVC = segue.destination as? ExportToGoogleCalendarViewController {
+            exportToGoogleCalendarVC.taskForExport = taskForExport
+        } else {
+            super.prepare(for: segue, sender: sender)
         }
     }
-    
     
     private func getICalendars() {
         eventStore.requestAccess(to: .event) { [weak self] accessIsGranted, error in
@@ -77,20 +57,18 @@ class ExportCalendarListViewController: UIViewController {
         }
     }
     
-    
-    
     fileprivate func createICalendarEvent(calendar: EKCalendar) {
         let newEvent = EKEvent(eventStore: eventStore)
         newEvent.calendar = calendar
-        newEvent.title = taskToExport.title ?? ""
-        newEvent.location = taskToExport.content
-        if let startDate = taskToExport.startDate as Date? {
+        newEvent.title = taskForExport.title ?? ""
+        newEvent.location = taskForExport.content
+        if let startDate = taskForExport.startDate as Date? {
             
             newEvent.startDate = startDate
-            newEvent.endDate = startDate.addingTimeInterval(taskToExport.durationInMinutes * 60.0)
+            newEvent.endDate = startDate.addingTimeInterval(taskForExport.durationInMinutes * 60.0)
             newEvent.alarms = [EKAlarm(absoluteDate: startDate)]
         }
-        newEvent.notes = taskToExport.content
+        newEvent.notes = taskForExport.content
         
 //        if let recurrence = event.recurrence, recurrence.type != .none {
 //            var rule: EKRecurrenceRule
@@ -147,7 +125,7 @@ class ExportCalendarListViewController: UIViewController {
         
         do {
             try eventStore.save(newEvent, span: .thisEvent)
-            dismiss(animated: true)
+            showMessage(title: "Export task", message: "The task was successfully exported")
         } catch let error {
             showError(with: "Event could not save: \(error.localizedDescription)")
         }

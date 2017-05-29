@@ -25,12 +25,12 @@ class AssignmentsUITests: XCTestCase {
     }
     
     func testUseCases() {
-        testCreationTask()
-        testEditionTask()
-        testDeletionTask()
+        testCreateTask()
+        testEditeTask()
+        testDeleteTask()
     }
     
-    func testCreationTask() {
+    func testCreateTask() {
         app.tabBars.buttons["Tasks"].tap()
         
         let cellCountBeforeCreate = app.tables.element(boundBy: 0).cells.count
@@ -73,25 +73,28 @@ class AssignmentsUITests: XCTestCase {
         XCTAssertEqual(cellCountBeforeCreate, shouldBeAfterCreationCellCount)
     }
     
-    func testDeletionTask() {
+    func testDeleteTask() {
         app.tabBars.buttons["Tasks"].tap()
         let tasksTable = app.tables.element(boundBy: 0)
         
+        // проверка наличия задания
         XCTAssertTrue(tasksTable.cells.count > 0)
         
         let cellCountBeforeDelete = app.tables.element(boundBy: 0).cells.count
         
         let firstCell = tasksTable.cells.element(boundBy: 0)
         firstCell.swipeLeft()
+        // нажатие кнопки удалить
         firstCell.buttons["Delete"].tap()
         
         let cellCountAfterDelete = app.tables.element(boundBy: 0).cells.count
         let shouldBeAfterDeletionCellCount = cellCountAfterDelete + 1
         
+        // проверка количества заданий после удаления
         XCTAssertEqual(cellCountBeforeDelete, shouldBeAfterDeletionCellCount)
     }
     
-    func testEditionTask() {
+    func testEditeTask() {
         app.tabBars.buttons["Tasks"].tap()
         
         let cellCountBeforeEdit = app.tables.element(boundBy: 0).cells.count

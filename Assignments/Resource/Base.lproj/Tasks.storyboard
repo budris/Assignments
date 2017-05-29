@@ -119,7 +119,7 @@
             </objects>
             <point key="canvasLocation" x="1876" y="-25.637181409295355"/>
         </scene>
-        <!--Export Event-->
+        <!--Export Task-->
         <scene sceneID="V2Q-Lu-5gO">
             <objects>
                 <viewController hidesBottomBarWhenPushed="YES" id="ZFE-xf-CAY" customClass="ExportCalendarListViewController" customModule="Assignments" customModuleProvider="target" sceneMemberID="viewController">
@@ -169,10 +169,10 @@
                             <constraint firstItem="VMF-dI-xrn" firstAttribute="top" secondItem="JWg-pn-xcR" secondAttribute="bottom" id="qp5-J7-Bvr"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Export Event" id="72S-cf-peu">
-                        <barButtonItem key="rightBarButtonItem" title="ToGoogle" id="Vt4-hj-dQV">
+                    <navigationItem key="navigationItem" title="Export Task" id="72S-cf-peu">
+                        <barButtonItem key="rightBarButtonItem" title="To Google" id="Vt4-hj-dQV">
                             <connections>
-                                <segue destination="2LI-P7-VUp" kind="show" id="PJ2-Fv-mDM"/>
+                                <segue destination="2LI-P7-VUp" kind="show" identifier="toGoogleCalendar" id="PJ2-Fv-mDM"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -196,8 +196,24 @@
                     <view key="view" contentMode="scaleToFill" id="zCy-yj-Jul">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cxa-e9-3Tx">
+                                <rect key="frame" x="93" y="318.5" width="188" height="30"/>
+                                <state key="normal" title="Export this task to calendar"/>
+                                <connections>
+                                    <action selector="exportToGoogleCalendarAction:" destination="2LI-P7-VUp" eventType="touchUpInside" id="ubV-mw-6ek"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="cxa-e9-3Tx" firstAttribute="centerY" secondItem="zCy-yj-Jul" secondAttribute="centerY" id="7Hy-BK-vIg"/>
+                            <constraint firstItem="cxa-e9-3Tx" firstAttribute="centerX" secondItem="zCy-yj-Jul" secondAttribute="centerX" id="8No-JB-MiB"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="exportTaskButton" destination="cxa-e9-3Tx" id="GM0-oy-PdD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yF0-rn-OdZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -483,7 +499,7 @@
                     <tabBarItem key="tabBarItem" title="Tasks" image="taskList" id="U15-zi-5ec"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Sqy-sk-WE5">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Sqy-sk-WE5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.079666249454021454" green="0.27028262615203857" blue="0.31241157650947571" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -502,7 +518,7 @@
             <objects>
                 <navigationController restorationIdentifier="editTask" storyboardIdentifier="editTask" automaticallyAdjustsScrollViewInsets="NO" id="gXN-iq-jnG" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="8Hw-h0-tc5">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="8Hw-h0-tc5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

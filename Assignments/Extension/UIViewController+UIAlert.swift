@@ -10,6 +10,18 @@ import UIKit
 
 extension UIViewController {
     
+    func showMessage(title: String?, message: String?) {
+        let okAction = UIAlertAction(title: "Ok", style: .cancel)
+        
+        let messageAlert = UIAlertController(title: title,
+                                           message: message,
+                                           preferredStyle: .alert)
+        
+        messageAlert.addAction(okAction)
+        
+        present(messageAlert, animated: true)
+    }
+    
     func showError(with message: String) {
         let okAction = UIAlertAction(title: "Ok", style: .cancel)
         

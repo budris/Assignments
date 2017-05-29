@@ -54,6 +54,9 @@
 		DB8399B11EA3E6B200C1262D /* SelectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8399B01EA3E6B200C1262D /* SelectionTableViewCell.swift */; };
 		DB8399B71EA6969600C1262D /* SelectFieldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8399B61EA6969600C1262D /* SelectFieldViewController.swift */; };
 		DB8399B91EA69A4E00C1262D /* SelectFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8399B81EA69A4E00C1262D /* SelectFieldTableViewCell.swift */; };
+		DB899D421EDB3D7E00466611 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DB899D411EDB3D7E00466611 /* GoogleService-Info.plist */; };
+		DB899D431EDB3D7E00466611 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DB899D411EDB3D7E00466611 /* GoogleService-Info.plist */; };
+		DB899D441EDB3D7E00466611 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DB899D411EDB3D7E00466611 /* GoogleService-Info.plist */; };
 		DBA5C87D1EDA0D4300C5223E /* ExportToGoogleCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA5C87C1EDA0D4300C5223E /* ExportToGoogleCalendarViewController.swift */; };
 		DBA5C87F1EDACE2B00C5223E /* TasksServiceUnitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA5C87E1EDACE2B00C5223E /* TasksServiceUnitTest.swift */; };
 		DBA5C8801EDACF4400C5223E /* CoreDataTasksManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB174BF1EA3CBCA0039DCE3 /* CoreDataTasksManager.swift */; };
@@ -108,6 +111,7 @@
 		DBA5C8B21EDADA3B00C5223E /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F4DF6E1E81311B002ED6F2 /* CalendarViewController.swift */; };
 		DBA5C8B31EDADA3B00C5223E /* RemindersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6FEC8D1EC4F39200135F4E /* RemindersViewController.swift */; };
 		DBA5C8B41EDADA3B00C5223E /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F4DF731E813B8E002ED6F2 /* StatisticsViewController.swift */; };
+		DBA5C8B61EDB008400C5223E /* ReminderServiceUnitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA5C8B51EDB008400C5223E /* ReminderServiceUnitTest.swift */; };
 		DBB174BE1EA3CBAF0039DCE3 /* TaskService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB174BD1EA3CBAF0039DCE3 /* TaskService.swift */; };
 		DBB174C01EA3CBCA0039DCE3 /* CoreDataTasksManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB174BF1EA3CBCA0039DCE3 /* CoreDataTasksManager.swift */; };
 		DBD907121EAD049D002CBCCC /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD907111EAD049D002CBCCC /* UIColor.swift */; };
@@ -233,8 +237,10 @@
 		DB8399B01EA3E6B200C1262D /* SelectionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectionTableViewCell.swift; sourceTree = "<group>"; };
 		DB8399B61EA6969600C1262D /* SelectFieldViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectFieldViewController.swift; sourceTree = "<group>"; };
 		DB8399B81EA69A4E00C1262D /* SelectFieldTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectFieldTableViewCell.swift; sourceTree = "<group>"; };
+		DB899D411EDB3D7E00466611 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DBA5C87C1EDA0D4300C5223E /* ExportToGoogleCalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExportToGoogleCalendarViewController.swift; sourceTree = "<group>"; };
 		DBA5C87E1EDACE2B00C5223E /* TasksServiceUnitTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TasksServiceUnitTest.swift; sourceTree = "<group>"; };
+		DBA5C8B51EDB008400C5223E /* ReminderServiceUnitTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReminderServiceUnitTest.swift; sourceTree = "<group>"; };
 		DBB174BD1EA3CBAF0039DCE3 /* TaskService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskService.swift; sourceTree = "<group>"; };
 		DBB174BF1EA3CBCA0039DCE3 /* CoreDataTasksManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataTasksManager.swift; sourceTree = "<group>"; };
 		DBD907111EAD049D002CBCCC /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
@@ -375,6 +381,7 @@
 			isa = PBXGroup;
 			children = (
 				DB0462B81E7D87170083F577 /* AppDelegate.swift */,
+				DB899D411EDB3D7E00466611 /* GoogleService-Info.plist */,
 				DB0462B91E7D87170083F577 /* Info.plist */,
 			);
 			path = General;
@@ -521,6 +528,7 @@
 			children = (
 				DBF5E8471ED36856009BF80B /* AssignmentsUnitTests.swift */,
 				DBA5C87E1EDACE2B00C5223E /* TasksServiceUnitTest.swift */,
+				DBA5C8B51EDB008400C5223E /* ReminderServiceUnitTest.swift */,
 				DBF5E8491ED36856009BF80B /* Info.plist */,
 			);
 			path = AssignmentsUnitTests;
@@ -671,6 +679,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DB0462CA1E7D87170083F577 /* LaunchScreen.storyboard in Resources */,
+				DB899D421EDB3D7E00466611 /* GoogleService-Info.plist in Resources */,
 				DB442BB81EC746F2007D0324 /* AttachmentListItemView.xib in Resources */,
 				DB67F2961EACCA7100C06CB3 /* Subject.storyboard in Resources */,
 				DB0462C91E7D87170083F577 /* Assets.xcassets in Resources */,
@@ -685,6 +694,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DBA5C89C1EDAD9E300C5223E /* Info.plist in Resources */,
+				DB899D441EDB3D7E00466611 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -692,6 +702,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB899D431EDB3D7E00466611 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -908,6 +919,7 @@
 				DBA5C8AA1EDADA3600C5223E /* SelectionTableViewCell.swift in Sources */,
 				DBA5C8951EDAD9BF00C5223E /* UIColor.swift in Sources */,
 				DBA5C8841EDAD09600C5223E /* Priority+CoreDataProperties.swift in Sources */,
+				DBA5C8B61EDB008400C5223E /* ReminderServiceUnitTest.swift in Sources */,
 				DBA5C8801EDACF4400C5223E /* CoreDataTasksManager.swift in Sources */,
 				DBA5C8931EDAD9BB00C5223E /* ShortcutContainer.swift in Sources */,
 				DBA5C88C1EDAD91100C5223E /* SelectFieldViewController.swift in Sources */,
@@ -1095,7 +1107,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/Assignments/General/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = knowledgeProject.Assignments;
+				PRODUCT_BUNDLE_IDENTIFIER = com.knowledgeProject.Assignments;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_DISABLE_SAFETY_CHECKS = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "Assignments-Bridging-Header.h";
@@ -1116,7 +1128,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/Assignments/General/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = knowledgeProject.Assignments;
+				PRODUCT_BUNDLE_IDENTIFIER = com.knowledgeProject.Assignments;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_DISABLE_SAFETY_CHECKS = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "Assignments-Bridging-Header.h";

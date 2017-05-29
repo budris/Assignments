@@ -12,107 +12,71 @@ import GoogleSignIn
 
 class ExportToGoogleCalendarViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDelegate {
     
+    @IBOutlet weak var exportTaskButton: UIButton!
     
-    // If modifying these scopes, delete your previously saved credentials by
-    // resetting the iOS simulator or uninstall the app.
-    private let scopes = [kGTLRAuthScopeCalendarReadonly]
+    var taskForExport: Task!
     
+    private let scopes = [kGTLRAuthScopeCalendar]
+
     private let service = GTLRCalendarService()
     let signInButton = GIDSignInButton()
-    let output = UITextView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        GIDSignIn.sharedInstance().clientID = "236844990219-37838jt205c023ebegkl186bd60vv0ur.apps.googleusercontent.com"
-        
-        // Configure Google Sign-in.
+        GIDSignIn.sharedInstance().clientID = "236844990219-823cei0bo6ivgq63mm9qm3svao8fo6li.apps.googleusercontent.com"
+
         GIDSignIn.sharedInstance().delegate = self
         GIDSignIn.sharedInstance().uiDelegate = self
         GIDSignIn.sharedInstance().scopes = scopes
-//        GIDSignIn.sharedInstance().signInSilently()
-        
-        GIDSignIn.sharedInstance().signIn()
+        GIDSignIn.sharedInstance().signInSilently()
         
         // Add the sign-in button.
         view.addSubview(signInButton)
+        signInButton.center = view.center
         
-        // Add a UITextView to display output.
-        output.frame = view.bounds
-        output.isEditable = false
-        output.contentInset = UIEdgeInsets(top: 20, left: 0, bottom: 20, right: 0)
-        output.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        output.isHidden = true
-        view.addSubview(output);
+        exportTaskButton.isHidden = true
     }
     
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!,
               withError error: Error!) {
         if let error = error {
-            showAlert(title: "Authentication Error", message: error.localizedDescription)
+            showMessage(title: "Authentication Error", message: error.localizedDescription)
             self.service.authorizer = nil
         } else {
             self.signInButton.isHidden = true
-            self.output.isHidden = false
+            exportTaskButton.isHidden = false
             self.service.authorizer = user.authentication.fetcherAuthorizer()
-            fetchEvents()
         }
     }
     
-    // Construct a query and get a list of upcoming events from the user calendar
-    func fetchEvents() {
-        let query = GTLRCalendarQuery_EventsList.query(withCalendarId: "primary")
-        query.maxResults = 10
-        query.timeMin = GTLRDateTime(date: Date())
-        query.singleEvents = true
-        query.orderBy = kGTLRCalendarOrderByStartTime
-        service.executeQuery(
-            query,
-            delegate: self,
-            didFinish: #selector(displayResultWithTicket(ticket:finishedWithObject:error:)))
-    }
-    
-    // Display the start dates and event summaries in the UITextView
-    func displayResultWithTicket(
-        ticket: GTLRServiceTicket,
-        finishedWithObject response : GTLRCalendar_Events,
-        error : NSError?) {
-        
-        if let error = error {
-            showAlert(title: "Error", message: error.localizedDescription)
-            return
+    @IBAction func exportToGoogleCalendarAction(_ sender: Any) {
+        let event = GTLRCalendar_Event()
+        event.descriptionProperty = taskForExport.content
+        event.summary = taskForExport.title
+        if let startDate = taskForExport.startDate as Date? {
+            let startTime = GTLRCalendar_EventDateTime()
+            startTime.dateTime = GTLRDateTime(date: startDate)
+            startTime.timeZone = TimeZone.current.identifier
+            
+            let endTime = GTLRCalendar_EventDateTime()
+            endTime.dateTime = GTLRDateTime(date: startDate.addingTimeInterval(taskForExport.durationInMinutes * 60))
+            endTime.timeZone = TimeZone.current.identifier
+            
+            event.start = startTime
+            event.end = endTime
         }
         
-        var outputText = ""
-        if let events = response.items, !events.isEmpty {
-            for event in events {
-                let start = event.start!.dateTime ?? event.start!.date!
-                let startString = DateFormatter.localizedString(
-                    from: start.date,
-                    dateStyle: .short,
-                    timeStyle: .short)
-                outputText += "\(startString) - \(event.summary!)\n"
+        let query = GTLRCalendarQuery_EventsInsert.query(withObject: event,
+                                                         calendarId: "primary")
+        service.executeQuery(query) { [weak self] (ticket, _, error) in
+            if let error = error {
+                self?.showError(with: error.localizedDescription)
+            } else {
+                self?.showMessage(title: "Task Export", message: "Task Export succefully")
             }
-        } else {
-            outputText = "No upcoming events found."
         }
-        output.text = outputText
+        
     }
     
-    
-    // Helper for showing an alert
-    func showAlert(title : String, message: String) {
-        let alert = UIAlertController(
-            title: title,
-            message: message,
-            preferredStyle: UIAlertControllerStyle.alert
-        )
-        let ok = UIAlertAction(
-            title: "OK",
-            style: UIAlertActionStyle.default,
-            handler: nil
-        )
-        alert.addAction(ok)
-        present(alert, animated: true, completion: nil)
-    }
 }
